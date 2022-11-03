@@ -1,4 +1,4 @@
-# Using Git to Code, Collaborate and Share
+# Intermediate Git and GitHub for Effective Collaboration
 
 This repository contains materials taught as part of the Imperial College
 Graduate School Course of the above title.
