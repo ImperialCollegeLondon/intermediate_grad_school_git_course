@@ -12,16 +12,16 @@ objectives:
 - Describe a scalable workflow for development with git
 keypoints:
 - Git allows non-linear commit histories called branches
-- A branch can be thought of as a label that applies to set of commits
+- A branch can be thought of as a label that applies to a set of commits
 - Branches can and should be used to carry out development of new features
 - Branches in a project can be listed with git branch and created with git branch branch_name
-- The HEAD refers to the current position of the project in its commit history
+- The `HEAD` refers to the current position of the project in its commit history
 - The current branch can be changed using git checkout branch_name
-- Once a branch is complete the changes made can be integrated into the project using git merge branch_name
+- Once a branch is complete the changes made can be integrated into the project using `git merge branch_name`
 - Merging creates a new commit in the target branch incorporating all of the changes made in a branch
 - Conflicts arise when two branches contain incompatible sets of changes and must be resolved before a merge can complete
-- Identify the details of merge conflicts using git diff and/or git status
-- A merge conflict can be resolved by manual editing followed by git add [conflicted file]... and git commit -m "commit_message"
+- Identify the details of merge conflicts using `git diff` and/or `git status`
+- A merge conflict can be resolved by manual editing followed by `git add [conflicted file]`... and `git commit -m "commit_message"`
 ---
 
 ## Motivation for branches
@@ -53,9 +53,9 @@ Software development is often not linear:
 
 * We typically need at least one version of the code to "work" (to compile, to
   give expected results, ...).
-* At the same time we work on new features, often several features concurrently.
+* At the same time we work on new features -- possibly several features concurrently.
   Often they are unfinished.
-* We need to be able to separate different lines of work really well.
+* We need to be able to easily separate out work on different features.
 
 The strength of version control is that it permits the researcher to **isolate
 different tracks of work**, which can later be merged to create a composite
@@ -86,7 +86,7 @@ interface" or "fixing bug in matrix inversion algorithm".
 > This episode will take as starting point for further development [a zipped repository
 > containing the recipe for guacamole sauce](../code/recipe.zip).
 > 
-> This repository, when unzip, contains a hidden `.git` folder that contains information
+> This repository, when unzipped, contains a hidden `.git` folder that contains information
 > about the repository history. You can use it straight way simply by navigating to
 > the repository in the terminal. If you then type `git log --oneline`, you should see
 > something like:
@@ -125,7 +125,7 @@ them and how to merge changes from different branches.
 
 > ## A useful alias
 >
-> We will now define an *alias* in Git, to be able to nicely visualize branch
+> We will now define an *alias* in Git, to be able to nicely visualise branch
 > structure in the terminal without having to remember a long Git command
 > (more details about what aliases are can be found
 > [here](https://linuxize.com/post/how-to-create-bash-aliases/) and the full
@@ -464,7 +464,7 @@ like:
 * 1 tbsp coriander
 ~~~
 
-now stage, commit and check the result:
+Now stage, commit and check the result:
 ~~~
 $ git add ingredients.md
 $ git commit -m "Merged experiment into main"
@@ -501,16 +501,16 @@ $ git graph
 The same way you might have different branches in your local repository, you could
 manage different branches in your remote - the same branches or different ones.
 
-As a reminder, remote and local repositories are not automatically syncronized, but
+As a reminder, remote and local repositories are not automatically synchronised, but
 rather it is a manual process done via `git pull` and `git push` commands. This
-syncronisation needs to be done **branch by branch** with all of those you want to keep
+synchronisation needs to be done **branch by branch** with all of those you want to keep
 in sync.
 
 ### Pushing
 
-- Its basic use is to synchronize **any committed changes** in your current
+- Its basic use is to synchronise **any committed changes** in your current
  branch to its upstream branch: `$ git push`.
-- Changes in the staging area will not be synchronized.
+- Changes in the staging area will not be synchronised.
 ![Git collaborative]({{ site.baseurl }}/fig/push.png "Push a branch
 ."){:class="img-responsive"}
 - If the current branch has no upstream yet, you can configure one by doing 
@@ -527,7 +527,7 @@ in sync.
 
 - Opposite to `push`, `pull` brings changes in the upstream branch to the local
  branch.
-- You can check if there are any changes to synchronize in the upstream
+- You can check if there are any changes to synchronise in the upstream
  branch by running `git fetch`, which only checks if there are changes, and then
 `git status` to see how your local and remote branch compare in terms of commit history.
 - It's best to make sure your repository is in a clean state with no staged or
