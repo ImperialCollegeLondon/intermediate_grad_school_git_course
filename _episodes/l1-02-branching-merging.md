@@ -121,7 +121,7 @@ them and how to merge changes from different branches.
 
 > ## A useful alias
 >
-> We will now define an *alias* in Git, to be able to nicely visualize branch
+> We will now define an *alias* in Git, to be able to nicely visualise branch
 > structure in the terminal without having to remember a long Git command
 > (more details about what aliases are can be found
 > [here](https://linuxize.com/post/how-to-create-bash-aliases/) and the full
@@ -504,9 +504,9 @@ in sync.
 
 ### Pushing
 
-- Its basic use is to synchronize **any committed changes** in your current
+- Its basic use is to synchronise **any committed changes** in your current
  branch to its upstream branch: `$ git push`.
-- Changes in the staging area will not be synchronized.
+- Changes in the staging area will not be synchronised.
 ![Git collaborative]({{ site.baseurl }}/fig/push.png "Push a branch
 ."){:class="img-responsive"}
 - If the current branch has no upstream yet, you can configure one by doing 
@@ -523,7 +523,7 @@ in sync.
 
 - Opposite to `push`, `pull` brings changes in the upstream branch to the local
  branch.
-- You can check if there are any changes to synchronize in the upstream
+- You can check if there are any changes to synchronise in the upstream
  branch by running `git fetch`, which only checks if there are changes, and then
 `git status` to see how your local and remote branch compare in terms of commit history.
 - It's best to make sure your repository is in a clean state with no staged or
