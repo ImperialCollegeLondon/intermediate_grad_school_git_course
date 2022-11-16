@@ -145,5 +145,18 @@ directory has become identical to before starting that adventure.
 > copy of a repository.
 {: .callout}
 
+### Reversing a commit
+
+TODO: everything
+
+### Set aside your work safely with `stash`
+
+TODO: everything
+
+### Incorporate past commits with `rebase`
+
+TODO: everything
+
+
 
 {% include links.md %}
