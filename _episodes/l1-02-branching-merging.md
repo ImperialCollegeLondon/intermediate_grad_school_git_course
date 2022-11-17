@@ -83,15 +83,19 @@ interface" or "fixing bug in matrix inversion algorithm".
 
 > ## Starting point
 >
-> This episode will take as starting point for further development a repository
-> containing the recipe for guacamole sauce (TODO: Create and upload that repository).
+> This episode will take as starting point for further development [a zipped repository
+> containing the recipe for guacamole sauce](../code/recipe.zip).
+> 
 > This repository, when unzipped, contains a hidden `.git` folder that contains information
 > about the repository history. You can use it straight way simply by navigating to
-> the repository in the terminal. If you then type `git status`, you should see
+> the repository in the terminal. If you then type `git log --oneline`, you should see
 > something like:
 >
-> ```output
-> # TODO: Populate with appropriate output when uploading the repo.
+> ```ouput
+> 09c9b3b (HEAD -> main) Revert "Added instruction to enjoy"
+> 366f4b5 Added 1/2 onion to ingredients
+> 1171d94 Added instruction to enjoy
+> 6ff8aa5 adding ingredients and instructions
 > ```
 > 
 > You can explore the contents of the files in the repo as usual with your favourite
@@ -231,7 +235,7 @@ different features in parallel. You may have already spotted the typo in
 our work on the `experiment` branch. We could correct the typo with a new commit
 in `experiment` but it doesn't fit in very well here - if we decide to discard
 our experiment then we also lose the correction. Instead it makes much more
-sense to create a correcting commit in `main`. First, move to (checkout) the master branch:
+sense to create a correcting commit in `main`. First, move to (checkout) the main branch:
 
 ~~~
 $ git checkout main
