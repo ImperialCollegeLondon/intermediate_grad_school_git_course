@@ -35,7 +35,7 @@ for your benefit and that of your collaborators.
 This is the simplest method of rewriting history: it lets you (guess what?) amend the
 last commit you made so you can incorporate more changes, fix an error you have spotted
 and that is worth incorporating as part of that commit and not as a separate one or just
-improve your commit message. 
+improve your commit message.
 
 TODO: Include example
 
@@ -60,7 +60,7 @@ commit your files, as usual.
 A way more dangerous option uses the flag `--hard`. When doing this, you completely
 remove the commits up to the specified one, updating the files in the working directory
 accordingly. In other words, **any work done since the chosen commit will be completely
-erased**. 
+erased**.
 
 To undo just the last commit, you can do:
 ~~~
@@ -78,7 +78,7 @@ Let's put this into practice! After all the work done in the previous episode ad
 the amount of salt, you conclude that it was nonesense and you should keep the original
 amount. You could obviusly just create a new commit with the correct amount of salt, but
 that will leave your poor attempts to improve the recipe in the commit history, so you
-decide to totally erase them. 
+decide to totally erase them.
 
 First, we check how far back we need to go with `git graph`:
 ~~~
@@ -185,7 +185,74 @@ Now there is truly no trace of your attempts to change the content of salt!
 
 ### Reversing a commit
 
-TODO: everything
+As pointed out, using `reset` can be dangerous and it is not suitable if you need to be
+more surgical in what you want to change, affecting just what was done on a commit a
+while ago, potentially already shared with collaborators. To address that, we have
+`revert`.
+
+`git revert` creates a commit that exactly cancels the changes made by a previous one.
+It is a new commit, so it is part of the history, but its purpose is to undo something
+done in the past.
+
+The syntax in this case is:
+~~~
+$ git revert --no-edit COMMIT_HASH
+~~~
+{: .commands}
+
+Let's try this and remove the onion from the recipe. After all, you don't like onion
+that much (use your own hash!).
+~~~
+$ git revert --no-edit 5cb4883
+~~~
+{: .commands}
+The process, unfortunately, will fail anc create a conflict. The reason is that both,
+adding the onion and the coriander affect the last line of the code, so git it is unable
+to decide on its own how to remove the onion given that something has been added in the
+same part of the recipe afterwards.
+
+The ingredients file now will look like this:
+~~~
+* 2 avocados
+* 1 lime
+* 2 tsp salt
+<<<<<<< HEAD
+* 1/2 onion
+* 1 tbsp coriander
+=======
+>>>>>>> parent of 5cb4883 (Added 1/2 onion)
+~~~
+{: .output}
+
+To move forward, fix the conflics as it was done in the previous section - rmeoving the
+<< and >> lines as well as "1/2 onion" and run:
+~~~
+$ git add ingredients.md
+$ git revert --continue --no-edit
+$ git graph
+~~~
+{: .commands}
+~~~
+* 53371e5 (HEAD -> master) Revert "Added 1/2 onion"
+*   fe0d257 Merge branch 'experiment'
+|\
+| * 99b2352 Reduced the amount of coriander
+* | 2c2d0e2 Merge branch 'experiment'
+|\|
+| * d9043d2 Try with some coriander
+* | 6a2a76f Corrected typo in ingredients.md
+|/
+* 57d4505 Revert "Added instruction to enjoy"
+* 5cb4883 Added 1/2 onion
+* 43536f3 Added instruction to enjoy
+* 745fb8b Adding ingredients and instructions
+~~~
+{: .output}
+Using `git revert` has added a new commit which reverses *exactly* the changes made in
+the specified commit (after solving the conflict).
+
+This is yet another good example of why making separate commits for each change is a
+good idea, so they can, potentially, be reversed if needed in the future with no fuss.
 
 ### Set aside your work safely with `stash`
 
