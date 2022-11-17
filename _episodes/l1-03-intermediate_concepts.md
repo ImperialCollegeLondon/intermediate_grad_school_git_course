@@ -25,28 +25,17 @@ keypoints:
 While version control is useful to keep track of changes made to a piece of work over
 time, it also let you to modify the timeline of commits. There are several totally
 ligitimate reasons why you might want to do that, from keeping the commit history clean
-of unseccesful attempts to do something to incorporate work done by someone else.
+of unsuccessful attempts to do something to incorporate work done by someone else.
 
 This episode explores some of the commands `git` offers to manipulate the commit history
 for your benefit and that of your collaborators.
 
-### Commit --amend
-
-This is the simplest method of rewriting history: it lets you (guess what?) amend the
-last commit you made so you can incorporate more changes, fix an error you have spotted
-and that is worth incorporating as part of that commit and not as a separate one or just
-improve your commit message.
-
-TODO: Include example
-
-Do not amend commits that other people might already have as the ament commit is an
-entirely new commit altogether that will be in your history but not in theirs partly
-doing the same thing - and therefore resulting in conflicts!
-
 ### Reset
 
-In it simplest form, `git reset` can be similar to the `--amend` option above: it let
-you change the last commit to add or modify things done there. This is achieved with
+This is the simplest method of rewriting history: it lets you redo the
+last (or last few) commit(s) you made so you can incorporate more changes, fix an error
+you have spotted and that is worth incorporating as part of that commit and not as a
+separate one or just improve your commit message.
 
 ```bash
 $ git reset --soft HEAD^
@@ -55,7 +44,12 @@ $ git reset --soft HEAD^
 This reset the staging area to match the most recent commit, but leaves the working
 directory unchanged - so no information is lost. Now you can review the files you
 modified, make more changes or whatever you like. When you are ready, you stag and
-commit your files, as usual.
+commit your files, as usual. You can go back 2 commits, 3, etc with `HEAD^2`,
+`HEAD^3`... but the further you go, the more chances there are to leave orphan commits -
+commits without a previous commit they go after -, resulting in a messy (but potentially
+recoverable) repository, as information is not lost. You can read about this recovery
+process in this [blog post in
+Medium](https://www.ocpsoft.org/tutorials/git/use-reflog-and-cherry-pick-to-restore-lost-commits/).
 
 A way more dangerous option uses the flag `--hard`. When doing this, you completely
 remove the commits up to the specified one, updating the files in the working directory
