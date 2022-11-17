@@ -250,7 +250,57 @@ good idea, so they can, potentially, be reversed if needed in the future with no
 
 ### Set aside your work safely with `stash`
 
-TODO: everything
+It is not rare that, while you are working on some feature, you need to check something
+else in another branch. Very often this is the case when you want to try some
+contributor's code as part of a pull request review process (see next episodes). You
+can commit the work you are doing, but if it is not in a state ready to be committed,
+what would you do?
+
+`git stash` is the answer. It lets you put your current, not committed work aside in a
+special state, reverting the working directory to the way it was in the last commit.
+Then, you can easily switch branches, pull new ones or do whatever you want. Once you
+are ready to go back to work, you can recover the stashed work as continue as if
+nothing had happen.
+
+The following are the `git stash` commands needed to make this happen:
+
+- Stash the current state of the repository, giving some message to remind yourself what
+  was this about. The working directory becomes identical to the last commit.
+~~~
+$ git stash save "Some informative message"
+~~~
+{: .commands}
+- List the stashes available in reverse chronological order (last one stashed goes on
+  top).
+~~~
+$ git stash list
+~~~
+{: .commands}
+- Extracts the stash with the given number from the list, updating the working directory
+  with its content.
+~~~
+$ git stash pop stash@{NUMBER}
+~~~
+{: .commands}
+- Applies the given stash without removing it from the list, so you can apply it to
+  other branches, if needed.
+~~~
+$ git stash apply stash@{NUMBER}
+~~~
+{: .commands}
+
+If you want more information, you can [read this article on Git
+stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash).
+
+> ## Practice stashing
+>
+> Now try how stashing work with the recipe repository. For example, add some
+> ingredients, stash the changes, modify the instructions, stash also that. Then have a
+> look at the list of stashes and bring those changes back to the working directory
+> using `stash pop` and `stash apply`, and see how the list of stashes changes in either
+> case.
+>
+{: .challenge}
 
 ### Incorporate past commits with `rebase`
 
