@@ -57,11 +57,9 @@ directory unchanged - so no information is lost. Now you can review the files yo
 modified, make more changes or whatever you like. When you are ready, you stag and
 commit your files, as usual.
 
-TODO: Include example
-
-A way more dangerous option uses the flag `--hard`. When doing this, you completly
+A way more dangerous option uses the flag `--hard`. When doing this, you completely
 remove the commits up to the specified one, updating the files in the working directory
-accordingly. In other words, **any work done since the chosen commit will be compltely
+accordingly. In other words, **any work done since the chosen commit will be completely
 erased**. 
 
 To undo just the last commit, you can do:
@@ -84,56 +82,58 @@ decide to totally erase them.
 
 First, we check how far back we need to go with `git graph`:
 ~~~
-*   e361d2b (HEAD -> main) Merged experiment into main
-|\  
-| * d5fb141 (experiment) Added salt to balance coriander
-* | 7477632 reduce salt
-* |   567307e Merge branch 'experiment'
-|\ \  
-| |/  
-| * 9a4b298 Reduced the amount of coriander
-* |   40070a5 Merge branch 'experiment'
-|\ \  
-| |/  
-| * 96fe069 try with some coriander
-* | d4ca89f Corrected typo in ingredients.md
-|/  
-* ddef60e Revert "Added instruction to enjoy"
-* 8bfd0ff Added 1/2 onion to ingredients
-* 2bf7ece Added instruction to enjoy
-* ae3255a Adding ingredients and instructions
+*   c9d9bfe (HEAD -> master) Merged experiment into master
+|\
+| * 84a371d (experiment) Added salt to balance coriander
+* | 54467fa Reduce salt
+* | fe0d257 Merge branch 'experiment'
+|\|
+| * 99b2352 Reduced the amount of coriander
+* | 2c2d0e2 Merge branch 'experiment'
+|\|
+| * d9043d2 Try with some coriander
+* | 6a2a76f Corrected typo in ingredients.md
+|/
+* 57d4505 Revert "Added instruction to enjoy"
+* 5cb4883 Added 1/2 onion
+* 43536f3 Added instruction to enjoy
+* 745fb8b Adding ingredients and instructions
 ~~~
 {: .output}
 
-We can see in the example that we want to discard the last three commits from history and go back to
-`567307e`, when we merged the `experiment` branch after reducing the amount of
-coriander. Let's do it (use your own commit hash!):
+We can see in the example that we want to discard the last three commits from history
+and go back to `fe0d257`, when we merged the `experiment` branch after reducing the
+amount of coriander. Let's do it (use your own commit hash!):
 ~~~
-$ git reset --hard 567307e
+$ git reset --hard fe0d257
 $ git graph
 ~~~
 {: .commands}
 
 Now, the commit history should look as:
 ~~~
-* 567307e (HEAD -> main) Merge branch 'experiment'
-|\ 
-| * 9a4b298 (experiment) Reduced the amount of coriander
-* |   40070a5 Merge branch 'experiment'
-|\ \  
-| |/  
-| * 96fe069 try with some coriander
-* | d4ca89f Corrected typo in ingredients.md
-|/  
-* ddef60e Revert "Added instruction to enjoy"
-* 8bfd0ff Added 1/2 onion to ingredients
-* 2bf7ece Added instruction to enjoy
-* ae3255a Adding ingredients and instructions
+* 84a371d (experiment) Added salt to balance coriander
+| *   fe0d257 (HEAD -> master) Merge branch 'experiment'
+| |\
+| |/
+|/|
+* | 99b2352 Reduced the amount of coriander
+| *   2c2d0e2 Merge branch 'experiment'
+| |\
+| |/
+|/|
+* | d9043d2 Try with some coriander
+| * 6a2a76f Corrected typo in ingredients.md
+|/
+* 57d4505 Revert "Added instruction to enjoy"
+* 5cb4883 Added 1/2 onion
+* 43536f3 Added instruction to enjoy
+* 745fb8b Adding ingredients and instructions
 ~~~
 {: .output}
-
-Not only the commit history now shows no trace of the salty adventure, but your working
-directory has become identical to before starting that adventure.
+Note that while the `experiment` branch still mentions the adjustment of salt, that is
+no longer part of the `main` commit history. Your working directory has become identical
+to before starting the salty that adventure.
 
 > ## Changing History Can Have Unexpected Consequences
 >
@@ -144,6 +144,44 @@ directory has become identical to before starting that adventure.
 > only recommend this approach for commits that are only in your local working
 > copy of a repository.
 {: .callout}
+
+
+### Removing branches once you are done with them is good practice
+Over time, you will accumulate lots of branches to implement different features in you
+code. It is good practice to remove them once they have fulfil their purpose. You can do
+that using the `-D` flag with the `git branch` command:
+
+~~~
+$ git branch -D BRANCH_NAME
+~~~
+{: .commands}
+
+As we are done with the `experiment` branch, let's delete it to have a cleaner history.
+
+~~~
+$ git branch -D experiment
+$ git graph
+~~~
+{: .commands}
+
+Now, the commit history should look as:
+~~~
+*   fe0d257 (HEAD -> master) Merge branch 'experiment'
+|\
+| * 99b2352 Reduced the amount of coriander
+* | 2c2d0e2 Merge branch 'experiment'
+|\|
+| * d9043d2 Try with some coriander
+* | 6a2a76f Corrected typo in ingredients.md
+|/
+* 57d4505 Revert "Added instruction to enjoy"
+* 5cb4883 Added 1/2 onion
+* 43536f3 Added instruction to enjoy
+* 745fb8b Adding ingredients and instructions
+~~~
+{: .output}
+
+Now there is truly no trace of your attempts to change the content of salt!
 
 ### Reversing a commit
 
