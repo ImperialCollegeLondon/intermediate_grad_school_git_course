@@ -194,56 +194,64 @@ $ git revert --no-edit COMMIT_HASH
 ~~~
 {: .commands}
 
-Let's try this and remove the onion from the recipe. After all, you don't like onion
-that much (use your own hash!).
-~~~
-$ git revert --no-edit 5cb4883
-~~~
-{: .commands}
-The process, unfortunately, will fail anc create a conflict. The reason is that both,
-adding the onion and the coriander affect the last line of the code, so git it is unable
-to decide on its own how to remove the onion given that something has been added in the
-same part of the recipe afterwards.
-
-The ingredients file now will look like this:
-~~~
-* 2 avocados
-* 1 lime
-* 2 tsp salt
-<<<<<<< HEAD
-* 1/2 onion
-* 1 tbsp coriander
-=======
->>>>>>> parent of 5cb4883 (Added 1/2 onion)
-~~~
-{: .output}
-
-To move forward, fix the conflicts as it was done in the previous section - removing the
-<< and >> lines as well as "1/2 onion" and run:
-~~~
-$ git add ingredients.md
-$ git revert --continue --no-edit
-$ git graph
-~~~
-{: .commands}
-~~~
-* 53371e5 (HEAD -> main) Revert "Added 1/2 onion"
-*   fe0d257 Merge branch 'experiment'
-|\
-| * 99b2352 Reduced the amount of coriander
-* | 2c2d0e2 Merge branch 'experiment'
-|\|
-| * d9043d2 Try with some coriander
-* | 6a2a76f Corrected typo in ingredients.md
-|/
-* 57d4505 Revert "Added instruction to enjoy"
-* 5cb4883 Added 1/2 onion
-* 43536f3 Added instruction to enjoy
-* 745fb8b Adding ingredients and instructions
-~~~
-{: .output}
-Using `git revert` has added a new commit which reverses *exactly* the changes made in
-the specified commit (after solving the conflict).
+> ## Remove the onion!
+>
+> Let's try this and remove the onion from the recipe. After all, you don't like onion
+> that much!
+> >
+> > ## Solution
+> > ~~~
+> > $ git revert --no-edit 5cb4883
+> > ~~~
+> > {: .commands}
+> > The process, unfortunately, will fail and create a conflict. The reason is that both,
+> > adding the onion and the coriander affect the last line of the code, so git is unable
+> > to decide on its own how to remove the onion given that something has been added in the
+> > same part of the recipe afterwards.
+> >
+> > The ingredients file now will look like this:
+> > ~~~
+> > * 2 avocados
+> > * 1 lime
+> > * 2 tsp salt
+> > <<<<<<< HEAD
+> > * 1/2 onion
+> > * 1 tbsp coriander
+> > =======
+> > >>>>>>> parent of 5cb4883 (Added 1/2 onion)
+> > ~~~
+> > {: .output}
+> >
+> > To move forward, fix the conflicts as it was done in the previous section - removing the
+> > << and >> lines as well as "1/2 onion" and run:
+> > ~~~
+> > $ git add ingredients.md
+> > $ git revert --continue --no-edit
+> > $ git graph
+> > ~~~
+> > {: .commands}
+> > ~~~
+> > * 53371e5 (HEAD -> main) Revert "Added 1/2 onion"
+> > *   fe0d257 Merge branch 'experiment'
+> > |\
+> > | * 99b2352 Reduced the amount of coriander
+> > * | 2c2d0e2 Merge branch 'experiment'
+> > |\|
+> > | * d9043d2 Try with some coriander
+> > * | 6a2a76f Corrected typo in ingredients.md
+> > |/
+> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 5cb4883 Added 1/2 onion
+> > * 43536f3 Added instruction to enjoy
+> > * 745fb8b Adding ingredients and instructions
+> > ~~~
+> > {: .output}
+> > Using `git revert` has added a new commit which reverses *exactly* the changes made in
+> > the specified commit (after solving the conflict).
+> >
+> {: .solution}
+>
+{: .challenge}
 
 This is yet another good example of why making separate commits for each change is a
 good idea, so they can, potentially, be reversed if needed in the future with no fuss.
