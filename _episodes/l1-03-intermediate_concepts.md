@@ -76,7 +76,7 @@ decide to totally erase them.
 
 First, we check how far back we need to go with `git graph`:
 ~~~
-*   c9d9bfe (HEAD -> master) Merged experiment into master
+*   c9d9bfe (HEAD -> main) Merged experiment into main
 |\
 | * 84a371d (experiment) Added salt to balance coriander
 * | 54467fa Reduce salt
@@ -107,7 +107,7 @@ $ git graph
 Now, the commit history should look as:
 ~~~
 * 84a371d (experiment) Added salt to balance coriander
-| *   fe0d257 (HEAD -> master) Merge branch 'experiment'
+| *   fe0d257 (HEAD -> main) Merge branch 'experiment'
 | |\
 | |/
 |/|
@@ -160,7 +160,7 @@ $ git graph
 
 Now, the commit history should look as:
 ~~~
-*   fe0d257 (HEAD -> master) Merge branch 'experiment'
+*   fe0d257 (HEAD -> main) Merge branch 'experiment'
 |\
 | * 99b2352 Reduced the amount of coriander
 * | 2c2d0e2 Merge branch 'experiment'
@@ -227,7 +227,7 @@ $ git graph
 ~~~
 {: .commands}
 ~~~
-* 53371e5 (HEAD -> master) Revert "Added 1/2 onion"
+* 53371e5 (HEAD -> main) Revert "Added 1/2 onion"
 *   fe0d257 Merge branch 'experiment'
 |\
 | * 99b2352 Reduced the amount of coriander
@@ -304,8 +304,119 @@ stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash).
 
 ### Incorporate past commits with `rebase`
 
-TODO: everything
+Rebasing is the process of moving or combining a sequence of commits to a new base
+commit. In other words, you take a collection of commits that you have created that
+branched off a particular commit and make them appear as if they branched off a
+different one.
 
+The most common use case for `git rebase` happens when you are working on your feature
+branch (let's say `experiment`) and, in the meantime there have been commits done to the
+base branch (for example, `main`). You might want to use in your own work some upstream
+changes done by someone else or simply keep the history of the repository linear,
+facilitating merging back in the future.
 
+The command is straight forward:
+~~~
+$ git rebase NEW_BASE
+~~~
+{: .commands}
+where `NEW_BASE` can be either a commit hash or a branch name we want to use as the new
+base.
+
+The following figure illustrates the process where, after rebasing, the two commits of
+the feature branch have been recreated after the last commit of the main branch.
+
+![Rebase process with a feature branch being moved to another branch]({{ site.baseurl }}https://wac-cdn.atlassian.com/dam/jcr:4e576671-1b7f-43db-afb5-cf8db8df8e4a/01%20What%20is%20git%20rebase.svg?cdnVersion=636
+"Rebase process with a feature branch being moved to another branch"){:class="img-responsive"}
+
+For a very thorough description about how this process work, read this [article on Git
+rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
+
+> ## Practice rebasing
+>
+> We are going to practice rebasing in a simple scenario with the recipe repository.
+> We need to do some preparatory work to do this:
+>
+> - Create a `spicy` branch
+> - Add some chillies to the list of ingredients and commit the changes
+> - Switch back to the `main` branch
+> - Add an final step in the instructions indicating that this should be served cold
+> - Go back to the `spicy` branch
+>
+> If you were to add now instructions to chop the chillies finely and put some on top
+> of the mix, chances are that you will have conflicts later on when merging back to
+> main. We can merge `main` into `spicy`, as we did in the previous episode, but that
+> will result in a non-linear history (not a big deal in this case, but things can get
+> really complicated).
+>
+> So let's use `git rebase` to bring the `spice` branch as it it would have been
+> branched off `main` after indicating that the guacamole needs to be served cold.
+>
+> > ## Solution
+> > After the following commands (and modifications to the files) the repository history
+> > should look like the graph below:
+> > ~~~
+> > $ git checkout -b spicy
+> > $ # add the chillies to ingredients.md
+> > $ git add ingredients.md
+> > $ git commit -m "Chillies added to the mix"
+> > $ git checkout main
+> > $ # Indicate that should be served cold in instructions.md
+> > $ git add instructions.md
+> > $ git commit -m "Guacamole must be served cold"
+> > $ git graph
+> > ~~~
+> > {: .commands}
+> > ~~~
+> > * d10e1e9 (HEAD -> main) Guacamole must be served cold
+> > | * e0350e4 (spicy) Chillies added to the mix
+> > |/
+> > * 5344d8f Revert "Added 1/2 onion"
+> > *   fe0d257 Merge branch 'experiment'
+> > |\
+> > | * 99b2352 Reduced the amount of coriander
+> > * | 2c2d0e2 Merge branch 'experiment'
+> > |\|
+> > | * d9043d2 Try with some coriander
+> > * | 6a2a76f Corrected typo in ingredients.md
+> > |/
+> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 5cb4883 Added 1/2 onion
+> > * 43536f3 Added instruction to enjoy
+> > * 745fb8b Adding ingredients and instructions
+> > ~~~
+> > {: .output}
+> > Now, let's go back to `spicy` and do the `git rebase`:
+> > ~~~
+> > $ git checkout spicy
+> > $ git rebase main
+> > $ git graph
+> > ~~~
+> > {: .commands}
+> > ~~~
+> > * a34042b (HEAD -> spicy) Chillies added to the mix
+> > * d10e1e9 (main) Guacamole must be served cold
+> > * 5344d8f Revert "Added 1/2 onion"
+> > *   fe0d257 Merge branch 'experiment'
+> > |\
+> > | * 99b2352 Reduced the amount of coriander
+> > * | 2c2d0e2 Merge branch 'experiment'
+> > |\|
+> > | * d9043d2 Try with some coriander
+> > * | 6a2a76f Corrected typo in ingredients.md
+> > |/
+> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 5cb4883 Added 1/2 onion
+> > * 43536f3 Added instruction to enjoy
+> > * 745fb8b Adding ingredients and instructions
+> > ~~~
+> > {: .output}
+> >
+> > Can you spot the difference with the coriander experiment? Now the commit history is
+> > linear and we have avoided the risk of conflicts.
+> >
+> {: .solution}
+>
+{: .challenge}
 
 {% include links.md %}
