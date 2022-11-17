@@ -1,7 +1,7 @@
 ---
 title: "Intermediate git concepts"
-teaching: 0 # TBD
-exercises: 0 # TBD
+teaching: 15
+exercises: 20
 questions:
 - "How can multiple collaborators work efficiently on the same code?"
 - "When should I use rebasing, merging and stashing?"
@@ -68,67 +68,73 @@ $ git reset --hard COMMIT_HASH
 ~~~
 {: .commands}
 
-Let's put this into practice! After all the work done in the previous episode adjusting
-the amount of salt, you conclude that it was nonsense and you should keep the original
-amount. You could obviously just create a new commit with the correct amount of salt, but
-that will leave your poor attempts to improve the recipe in the commit history, so you
-decide to totally erase them.
-
-First, we check how far back we need to go with `git graph`:
-~~~
-*   c9d9bfe (HEAD -> main) Merged experiment into main
-|\
-| * 84a371d (experiment) Added salt to balance coriander
-* | 54467fa Reduce salt
-* | fe0d257 Merge branch 'experiment'
-|\|
-| * 99b2352 Reduced the amount of coriander
-* | 2c2d0e2 Merge branch 'experiment'
-|\|
-| * d9043d2 Try with some coriander
-* | 6a2a76f Corrected typo in ingredients.md
-|/
-* 57d4505 Revert "Added instruction to enjoy"
-* 5cb4883 Added 1/2 onion
-* 43536f3 Added instruction to enjoy
-* 745fb8b Adding ingredients and instructions
-~~~
-{: .output}
-
-We can see in the example that we want to discard the last three commits from history
-and go back to `fe0d257`, when we merged the `experiment` branch after reducing the
-amount of coriander. Let's do it (use your own commit hash!):
-~~~
-$ git reset --hard fe0d257
-$ git graph
-~~~
-{: .commands}
-
-Now, the commit history should look as:
-~~~
-* 84a371d (experiment) Added salt to balance coriander
-| *   fe0d257 (HEAD -> main) Merge branch 'experiment'
-| |\
-| |/
-|/|
-* | 99b2352 Reduced the amount of coriander
-| *   2c2d0e2 Merge branch 'experiment'
-| |\
-| |/
-|/|
-* | d9043d2 Try with some coriander
-| * 6a2a76f Corrected typo in ingredients.md
-|/
-* 57d4505 Revert "Added instruction to enjoy"
-* 5cb4883 Added 1/2 onion
-* 43536f3 Added instruction to enjoy
-* 745fb8b Adding ingredients and instructions
-~~~
-{: .output}
-Note that while the `experiment` branch still mentions the adjustment of salt, that is
-no longer part of the `main` commit history. Your working directory has become identical
-to before starting the salty that adventure.
-
+> ## Don't mess with the salt
+>
+> Let's put this into practice! After all the work done in the previous episode adjusting
+> the amount of salt, you conclude that it was nonsense and you should keep the original
+> amount. You could obviously just create a new commit with the correct amount of salt, but
+> that will leave your poor attempts to improve the recipe in the commit history, so you
+> decide to totally erase them.
+> >
+> > ## Solution
+> > First, we check how far back we need to go with `git graph`:
+> > ~~~
+> > *   c9d9bfe (HEAD -> main) Merged experiment into main
+> > |\
+> > | * 84a371d (experiment) Added salt to balance coriander
+> > * | 54467fa Reduce salt
+> > * | fe0d257 Merge branch 'experiment'
+> > |\|
+> > | * 99b2352 Reduced the amount of coriander
+> > * | 2c2d0e2 Merge branch 'experiment'
+> > |\|
+> > | * d9043d2 Try with some coriander
+> > * | 6a2a76f Corrected typo in ingredients.md
+> > |/
+> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 5cb4883 Added 1/2 onion
+> > * 43536f3 Added instruction to enjoy
+> > * 745fb8b Adding ingredients and instructions
+> > ~~~
+> > {: .output}
+> >
+> > We can see in the example that we want to discard the last three commits from history
+> > and go back to `fe0d257`, when we merged the `experiment` branch after reducing the
+> > amount of coriander. Let's do it (use your own commit hash!):
+> > ~~~
+> > $ git reset --hard fe0d257
+> > $ git graph
+> > ~~~
+> > {: .commands}
+> >
+> > Now, the commit history should look as:
+> > ~~~
+> > * 84a371d (experiment) Added salt to balance coriander
+> > | *   fe0d257 (HEAD -> main) Merge branch 'experiment'
+> > | |\
+> > | |/
+> > |/|
+> > * | 99b2352 Reduced the amount of coriander
+> > | *   2c2d0e2 Merge branch 'experiment'
+> > | |\
+> > | |/
+> > |/|
+> > * | d9043d2 Try with some coriander
+> > | * 6a2a76f Corrected typo in ingredients.md
+> > |/
+> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 5cb4883 Added 1/2 onion
+> > * 43536f3 Added instruction to enjoy
+> > * 745fb8b Adding ingredients and instructions
+> > ~~~
+> > {: .output}
+> > Note that while the `experiment` branch still mentions the adjustment of salt, that is
+> > no longer part of the `main` commit history. Your working directory has become identical
+> > to before starting the salty that adventure.
+> >
+> {: .solution}
+>
+{: .challenge}
 > ## Changing History Can Have Unexpected Consequences
 >
 > Using `git reset` to remove a commit is a bad idea if
@@ -150,33 +156,38 @@ $ git branch -D BRANCH_NAME
 ~~~
 {: .commands}
 
-As we are done with the `experiment` branch, let's delete it to have a cleaner history.
-
-~~~
-$ git branch -D experiment
-$ git graph
-~~~
-{: .commands}
-
-Now, the commit history should look as:
-~~~
-*   fe0d257 (HEAD -> main) Merge branch 'experiment'
-|\
-| * 99b2352 Reduced the amount of coriander
-* | 2c2d0e2 Merge branch 'experiment'
-|\|
-| * d9043d2 Try with some coriander
-* | 6a2a76f Corrected typo in ingredients.md
-|/
-* 57d4505 Revert "Added instruction to enjoy"
-* 5cb4883 Added 1/2 onion
-* 43536f3 Added instruction to enjoy
-* 745fb8b Adding ingredients and instructions
-~~~
-{: .output}
-
-Now there is truly no trace of your attempts to change the content of salt!
-
+> ## Getting rid of the experiment
+> As we are done with the `experiment` branch, let's delete it to have a cleaner history.
+> >
+> > ## Solution
+> > ~~~
+> > $ git branch -D experiment
+> > $ git graph
+> > ~~~
+> > {: .commands}
+> >
+> > Now, the commit history should look as:
+> > ~~~
+> > *   fe0d257 (HEAD -> main) Merge branch 'experiment'
+> > |\
+> > | * 99b2352 Reduced the amount of coriander
+> > * | 2c2d0e2 Merge branch 'experiment'
+> > |\|
+> > | * d9043d2 Try with some coriander
+> > * | 6a2a76f Corrected typo in ingredients.md
+> > |/
+> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 5cb4883 Added 1/2 onion
+> > * 43536f3 Added instruction to enjoy
+> > * 745fb8b Adding ingredients and instructions
+> > ~~~
+> > {: .output}
+> >
+> > Now there is truly no trace of your attempts to change the content of salt!
+> >
+> {: .solution}
+>
+{: .challenge}
 ### Reversing a commit
 
 As pointed out, using `reset` can be dangerous and it is not suitable if you need to be
