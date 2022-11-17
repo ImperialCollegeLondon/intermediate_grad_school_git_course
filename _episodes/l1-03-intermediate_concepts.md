@@ -62,15 +62,15 @@ $ git reset --hard HEAD^
 ~~~
 {: .commands}
 
-Otherwise, to go back in time to a specific commit, you woudl do:
+Otherwise, to go back in time to a specific commit, you would do:
 ~~~
 $ git reset --hard COMMIT_HASH
 ~~~
 {: .commands}
 
 Let's put this into practice! After all the work done in the previous episode adjusting
-the amount of salt, you conclude that it was nonesense and you should keep the original
-amount. You could obviusly just create a new commit with the correct amount of salt, but
+the amount of salt, you conclude that it was nonsense and you should keep the original
+amount. You could obviously just create a new commit with the correct amount of salt, but
 that will leave your poor attempts to improve the recipe in the commit history, so you
 decide to totally erase them.
 
@@ -131,7 +131,7 @@ to before starting the salty that adventure.
 
 > ## Changing History Can Have Unexpected Consequences
 >
-> Like witht he `--amend` flag, using `git reset` to remove a commit is a bad idea if
+> Using `git reset` to remove a commit is a bad idea if
 > you have **shared** it yet with other people. If you make a commit and share it on
 > GitHub or with a colleague by other means then removing that commit from your Git
 > history will cause inconsistencies that may be difficult to resolve later. We
@@ -218,7 +218,7 @@ The ingredients file now will look like this:
 ~~~
 {: .output}
 
-To move forward, fix the conflics as it was done in the previous section - rmeoving the
+To move forward, fix the conflicts as it was done in the previous section - removing the
 << and >> lines as well as "1/2 onion" and run:
 ~~~
 $ git add ingredients.md
