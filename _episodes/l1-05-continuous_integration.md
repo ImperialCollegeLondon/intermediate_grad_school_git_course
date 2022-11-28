@@ -30,7 +30,7 @@ workflows that apply checks and tests to a code commit. Failure of these workflo
 complete successfully is indicated via the code hosting platform and can be used to
 block code from being merged into branches.
 
-Continuous integration (CI) is often paired with additional workflows that run after a
+CI is often paired with additional workflows that run after a
 code contribution has been accepted. These workflows are often used to publish or deploy
 the code for use, a practice known as continuous delivery (CD). Generally the terms CI,
 CD or CI/CD can be used somewhat interchangeably to refer to any computational workflows
@@ -287,7 +287,7 @@ Now a CI failure for a pull request looks like this:
 request user interface showing failing CI checks with merging blocked due to a branch
 protection rule"){:class="img-responsive"}
 
-Now its much harder to get anything passed peer review that doesn't meet the required
+Now it's much harder to get anything past peer review that doesn't meet the required
 standard. There remains an option to "bypass branch protections" but this is only
 available to administrators of the repository and can be removed by further refining the
 rule.
@@ -353,8 +353,8 @@ toolchain. Common compilers (e.g. gcc, g++) and tools (e.g. Make) are pre-instal
 you may need additional setup actions if you have specific requirements for different
 versions.
 
-The value of this kind of workflow is pretty straight forward. You can check that a
-freshly checked out version of your can be successfully built. You can run similar
+The value of this kind of workflow is pretty straightforward. You can check that a
+freshly checked out version of your code can be successfully built. You can run similar
 builds across a variety of operating systems and compilers to ensure broad
 compatibility.
 
@@ -382,7 +382,7 @@ Writing tests is an important best practice for software development. Even bette
 incorporating tests into your CI so you know they pass in a newly checked-out repository
 on another computer.
 
-The below shows an example of runnitg the tests of a Python project:
+The below shows an example of running the tests of a Python project:
 
 ```yaml
 on:
