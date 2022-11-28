@@ -25,10 +25,11 @@ keypoints:
 ## Explanation of CI
 
 Continuous integration (CI) is a software development practice that ensures all
-contributions to a code base meet a defined standard. This is enforced via computational
-workflows that apply checks and tests to a code commit. Failure of these workflows to
-complete successfully is indicated via the code hosting platform and can be used to
-block code from being merged into branches.
+contributions to a code base meet defined criteria (e.g. formatting or testing
+conventions). This is enforced via computational workflows that apply checks and
+tests to a code commit. Failure of these workflows to complete successfully is
+indicated via the code hosting platform and can be used to block code from being
+merged into branches.
 
 CI is often paired with additional workflows that run after a
 code contribution has been accepted. These workflows are often used to publish or deploy
@@ -403,7 +404,9 @@ jobs:
 
 Once we've accepted changes into our repository it can then be useful to trigger
 actions. The below workflow builds and publishes a Docker image only when new commits
-are added to the `main` branch:
+are added to the `main` branch. Docker is a tool for packaging and distributing software
+along with all of its requirements. Once published the Docker image can then be
+downloaded and used by other users or services.
 
 ```yaml
 on: push
@@ -429,9 +432,6 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
 ```
-
-Once published the Docker image can then be downloaded and used by other users or
-services.
 
 ### A Realistic Example
 
