@@ -12,10 +12,10 @@ objectives:
 - "Understand the risks associated with rewriting history"
 keypoints:
 - "There are several ways of rewriting git history, each with specific use cases associated to them"
-- "Rewriting history can have unexpected consequences and you risk loosing information irremedaibly"
+- "Rewriting history can have unexpected consequences and you risk losing information permanently"
 - "Reset: You have made a mistake and want to keep the commit history tidy for the benefit of collaborators"
 - "Revert: You want to undo something done in the past without messing too much with the timeline, upsetting your collaborators"
-- "Stash: You want to do somnething else - eg. checkout someone else's branch - without loosing your current work"
+- "Stash: You want to do something else -- e.g. checkout someone else's branch -- without losing your current work"
 - "Rebase: Someone else has updated the main branch while you've been working and need to bring those changes to your branch"
 ---
 
@@ -24,7 +24,7 @@ keypoints:
 
 While version control is useful to keep track of changes made to a piece of work over
 time, it also let you to modify the timeline of commits. There are several totally
-ligitimate reasons why you might want to do that, from keeping the commit history clean
+legitimate reasons why you might want to do that, from keeping the commit history clean
 of unsuccessful attempts to do something to incorporate work done by someone else.
 
 This episode explores some of the commands `git` offers to manipulate the commit history
@@ -41,12 +41,12 @@ separate one or just improve your commit message.
 $ git reset --soft HEAD^
 ```
 
-This reset the staging area to match the most recent commit, but leaves the working
+This resets the staging area to match the most recent commit, but leaves the working
 directory unchanged - so no information is lost. Now you can review the files you
-modified, make more changes or whatever you like. When you are ready, you stag and
+modified, make more changes or whatever you like. When you are ready, you stage and
 commit your files, as usual. You can go back 2 commits, 3, etc with `HEAD^2`,
 `HEAD^3`... but the further you go, the more chances there are to leave orphan commits -
-commits without a previous commit they go after -, resulting in a messy (but potentially
+commits without a previous commit they go after - resulting in a messy (but potentially
 recoverable) repository, as information is not lost. You can read about this recovery
 process in this [blog post in
 Medium](https://www.ocpsoft.org/tutorials/git/use-reflog-and-cherry-pick-to-restore-lost-commits/).
@@ -188,7 +188,7 @@ $ git branch -D BRANCH_NAME
 > {: .solution}
 >
 {: .challenge}
-### Reversing a commit
+### Reverting a commit
 
 As pointed out, using `reset` can be dangerous and it is not suitable if you need to be
 more surgical in what you want to change, affecting just what was done on a commit a
@@ -275,11 +275,11 @@ contributor's code as part of a pull request review process (see next episodes).
 can commit the work you are doing, but if it is not in a state ready to be committed,
 what would you do?
 
-`git stash` is the answer. It lets you put your current, not committed work aside in a
+`git stash` is the answer. It lets you put your current, uncommitted work aside in a
 special state, reverting the working directory to the way it was in the last commit.
 Then, you can easily switch branches, pull new ones or do whatever you want. Once you
 are ready to go back to work, you can recover the stashed work as continue as if
-nothing had happen.
+nothing had happened.
 
 The following are the `git stash` commands needed to make this happen:
 
@@ -295,13 +295,13 @@ $ git stash save "Some informative message"
 $ git stash list
 ~~~
 {: .commands}
-- Extracts the stash with the given number from the list, updating the working directory
+- Extract the stash with the given number from the list, updating the working directory
   with its content.
 ~~~
 $ git stash pop stash@{NUMBER}
 ~~~
 {: .commands}
-- Applies the given stash without removing it from the list, so you can apply it to
+- Apply the given stash without removing it from the list, so you can apply it to
   other branches, if needed.
 ~~~
 $ git stash apply stash@{NUMBER}
@@ -334,7 +334,7 @@ base branch (for example, `main`). You might want to use in your own work some u
 changes done by someone else or simply keep the history of the repository linear,
 facilitating merging back in the future.
 
-The command is straight forward:
+The command is straightforward:
 ~~~
 $ git rebase NEW_BASE
 ~~~
@@ -348,13 +348,13 @@ the feature branch have been recreated after the last commit of the main branch.
 ![Rebase process with a feature branch being moved to another branch]({{ site.baseurl }}https://wac-cdn.atlassian.com/dam/jcr:4e576671-1b7f-43db-afb5-cf8db8df8e4a/01%20What%20is%20git%20rebase.svg?cdnVersion=636
 "Rebase process with a feature branch being moved to another branch"){:class="img-responsive"}
 
-For a very thorough description about how this process work, read this [article on Git
+For a very thorough description about how this process works, read this [article on Git
 rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 
 > ## Practice rebasing
 >
 > We are going to practice rebasing in a simple scenario with the recipe repository.
-> We need to do some preparatory work to do this:
+> We need to do some preparatory work first:
 >
 > - Create a `spicy` branch
 > - Add some chillies to the list of ingredients and commit the changes
@@ -368,7 +368,7 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > will result in a non-linear history (not a big deal in this case, but things can get
 > really complicated).
 >
-> So let's use `git rebase` to bring the `spice` branch as it it would have been
+> So let's use `git rebase` to bring the `spicy` branch as it it would have been
 > branched off `main` after indicating that the guacamole needs to be served cold.
 >
 > > ## Solution
