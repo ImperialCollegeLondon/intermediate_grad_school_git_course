@@ -85,6 +85,137 @@ whatever the latest commit on `main` is.
 
 ## Labelling a particular commit with `git tag`
 
+Firstly, remind yourself what the history for your `recipe` repository looks like with
+`git log`. Mine looks like this:
 
+~~~
+$ git log
+~~~
+{: .commands}
+~~~
+commit 09c9b3ba757d0073d021bbaeba809a55b6c78d8e
+Author: Diego Alonso Álvarez <d.alonso-alvarez@imperial.ac.uk>
+Date:   Tue Nov 15 14:01:47 2022 +0000
+
+    Revert "Added instruction to enjoy"
+
+    This reverts commit 1171d948be795eed6d4fe79d51e6889aed7f5821.
+
+commit 366f4b51e661fd96a9bde001138886a4216b7da1
+Author: Diego Alonso Álvarez <d.alonso-alvarez@imperial.ac.uk>
+Date:   Tue Nov 15 13:55:39 2022 +0000
+
+    Added 1/2 onion to ingredients
+
+commit 1171d948be795eed6d4fe79d51e6889aed7f5821
+Author: Diego Alonso Álvarez <d.alonso-alvarez@imperial.ac.uk>
+Date:   Tue Nov 15 13:55:16 2022 +0000
+
+    Added instruction to enjoy
+
+commit 6ff8aa58e55545956cf816baf676a17aeb74d993
+Author: Diego Alonso Álvarez <d.alonso-alvarez@imperial.ac.uk>
+Date:   Tue Nov 15 13:51:55 2022 +0000
+
+    adding ingredients and instructions
+~~~
+{: .output}
+
+(Note that yours may look different depending on whether you followed the steps yourself
+or downloaded the pre-made repository.)
+
+Let's say that you have decided that the point at which you added half an onion was a
+highpoint in the recipe's history and you want to make a note of which commit that was
+for a future date by giving it the tag "tasty". You can do this like so:
+
+~~~
+$ git tag tasty [commit hash]
+~~~
+
+In my case, I ran:
+
+~~~
+$ git tag tasty 366f4b51e661fd96a9bde001138886a4216b7da1
+~~~
+
+You can list the tags for your repo by running `git tag` without any arguments:
+
+~~~
+$ git tag
+~~~
+{: .commands}
+~~~
+tasty
+~~~
+{: .output}
+
+To check which commit hash this corresponds to, use:
+
+~~~
+$ git rev-parse tasty
+~~~
+{: .commands}
+~~~
+366f4b51e661fd96a9bde001138886a4216b7da1
+~~~
+{: .output}
+
+Double-check that this is the commit you intended to tag by running `git log` again.
+
+Note that `tasty` can now be used like other git references, such as commit hashes and
+branch names. For example, you can run `git checkout tasty` to (temporarily) update the
+contents of your repo to be as they were back when you added half an onion to the
+instructions.
+
+You may now be wondering, if this is the case, then how is a tag different from a
+branch? Try checking out `tasty` to see what happens:
+
+~~~
+git checkout tasty
+~~~
+{: .commands}
+~~~
+Note: switching to 'tasty'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 366f4b5 Added 1/2 onion to ingredients
+~~~
+{:. output}
+
+Git provides some helpful output describing what you've just done (although note that we
+don't cover the `git switch` command in this course). The "detached `HEAD` state" is
+git's way of saying that your repo is not on any branch at all, so if you commit any
+changes, they won't be saved to any branch. Note that your tag will stay pointing to the
+same commit it was before. *This* is the difference between a branch and a tag. The tip
+of a branch points to the last committed change to the branch, whereas a tag always
+points to a specific commit. Think about it this way: when you release a piece of
+software, you want that version -- say, v1.0 -- to represent the code *in one unique
+state*. You don't want two of your users to be using two different versions of the code
+both labelled v1.0, for example.
+
+Fortunately, a detached `HEAD` is a much less serious affliction for git repos than
+human beings, and you can reattach it by simply checking out a branch:
+
+~~~
+$ git checkout main
+~~~
+
+There is one last important thing to remember about git tags. Like branches, they are
+not automatically synced with your remote (e.g. GitHub) and have to be pushed
+explicitly.
 
 {% include links.md %}
