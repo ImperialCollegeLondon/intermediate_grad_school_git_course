@@ -1,5 +1,5 @@
 ---
-title: "Intermediate git concepts"
+title: "Rewriting history with Git"
 teaching: 15
 exercises: 20
 questions:
@@ -205,6 +205,10 @@ $ git revert --no-edit COMMIT_HASH
 ~~~
 {: .commands}
 
+You can omit the `--no-edit` flag and use `-m` to give a one-line description for the
+process or also omit `-m` to enter into the default text editor to leave a more complete
+description and rationale for the revert.
+
 > ## Remove the onion!
 >
 > Let's try this and remove the onion from the recipe. After all, you don't like onion
@@ -276,7 +280,7 @@ can commit the work you are doing, but if it is not in a state ready to be commi
 what would you do?
 
 `git stash` is the answer. It lets you put your current, not committed work aside in a
-special state, reverting the working directory to the way it was in the last commit.
+special state, turning the working directory to the way it was in the last commit.
 Then, you can easily switch branches, pull new ones or do whatever you want. Once you
 are ready to go back to work, you can recover the stashed work as continue as if
 nothing had happen.
@@ -295,10 +299,22 @@ $ git stash save "Some informative message"
 $ git stash list
 ~~~
 {: .commands}
+- Extracts the **last stash** of the list, updating the working directory
+  with its content.
+~~~
+$ git stash pop
+~~~
+{: .commands}
 - Extracts the stash with the given number from the list, updating the working directory
   with its content.
 ~~~
 $ git stash pop stash@{NUMBER}
+~~~
+{: .commands}
+- Applies the **last stash** without removing it from the list, so you can apply it to
+  other branches, if needed.
+~~~
+$ git stash apply
 ~~~
 {: .commands}
 - Applies the given stash without removing it from the list, so you can apply it to
