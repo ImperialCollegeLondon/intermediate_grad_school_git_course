@@ -282,3 +282,60 @@ v0.0.1
 
 Now your repository has a proper version tag. Next, let's push this tag to GitHub so the
 rest of the world can see it.
+
+## Pushing your tags and publishing a release
+
+To push your tags to GitHub, do the following:
+
+~~~
+$ git push --tags
+~~~
+{: .commands}
+
+You should see something like this:
+
+~~~
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/alexdewar/recipe.git
+ * [new tag]         v0.0.1 -> v0.0.1
+~~~
+{: .output}
+
+Now open your browser and go to the GitHub page for your recipe repository (see the link
+in the command output). [Mine is here, for
+example.](https://github.com/alexdewar/recipe)
+
+If you look in the right-hand pane, under "Releases", you should now see "1 tags":
+
+![1 tags]({{ site.baseurl }}/fig/releases_repo.png "1 tags")
+
+This refers to the `v0.0.1` tag you just pushed. (If there are two tags, you may have
+forgotten to delete the `tasty` tag, which doesn't matter much.)
+
+Under "1 tags", there is a link entitled "Create a new release". Click it and you should
+see something like the following:
+
+![Creating a new release]({{ site.baseurl }}/fig/releases_new_release.png "Creating a
+new release")
+
+Click "Choose a tag" then select your tag "v0.0.1" from the dropdown list:
+
+![Choose your tag]({{ site.baseurl }}/fig/releases_choose_a_tag.png "Choose your tag")
+
+For the release title, you can just put "v0.0.1" again. Then add a description of your
+choosing. (You can check the "Set as pre-release" box if you want to indicate to your
+users that the recipe isn't production ready.) When you're finished, click "Publish
+release":
+
+![Publish your release]({{ site.baseurl }}/fig/releases_publish.png "Publish your
+release")
+
+Now you should be redirected to a page that looks like this:
+
+![View release]({{ site.baseurl }}/fig/releases_view.png "View release")
+
+Congratulations, you have made your first release! You can share the link to this page
+with others if you want to notify them of the release. Alternatively, users can find
+your release from the repo's main page by clicking on "Releases".
+
+{% include links.md %}
