@@ -6,20 +6,29 @@ questions:
 - "What is a Git tag and how does it differ from a branch?"
 - "How and when should I release a new version of my code?"
 - "What is the difference between major and minor version changes?"
-- "How can I effectively communicate what has changed between code version?"
+- "How can I effectively communicate what has changed between versions?"
+- "How can I tag commits?"
+- "How can I publish a release on Github?"
 objectives:
 - "Understand what is meant by a release and a version"
+- "Know how to tag a given commit"
 - "Understand how to give your software meaningful version numbers with semantic versioning"
+- "Know how to push your tags and publish a release of your software"
 keypoints:
 - "A version of your code with a release number (e.g. v13.4.2) is referred to as a *release*"
 - "A version of your code represented by a commit hash (e.g. 047e4fe) is just referred to as a *commit*"
+- "Publishing a release can be a good way to bundle features and ensure your users use a specific version of your code"
+- "`git tag` allows you to give a commit a human-readable name, such as a version number"
+- "Semantic versioning is a common convention for conveying to your users what a new version number means"
+- "Tags need to be explicitly pushed to remotes with `git push --tags`"
+- "You can use a tag as the basis for a release on GitHub"
 ---
 
 ## Background: To release or not to release?
 
 All of you will already be familiar with the concept of software versioning. Often when
 you download a piece of software from its website it'll tell you that it's `v13.4.2` (or
-whatever) that you're downloading. [!!!!!!1]
+whatever) that you're downloading.
 
 Releasing software with an explicit version number like this is a common practice and
 one that you may eventually consider for some of your own projects. We will show you how
@@ -85,6 +94,9 @@ whatever the latest commit on `main` is.
 
 ## Labelling a particular commit with `git tag`
 
+Git tags provide a way to give human-readable names to a specific commits. We will now
+go through how to add and remove tags to your repository.
+
 Firstly, remind yourself what the history for your `recipe` repository looks like with
 `git log`. Mine looks like this:
 
@@ -126,7 +138,7 @@ or downloaded the pre-made repository.)
 
 Let's say that you have decided that the point at which you added half an onion was a
 highpoint in the recipe's history and you want to make a note of which commit that was
-for a future date by giving it the tag "tasty". You can do this like so:
+for a future date by giving it the tag "tasty".  You can do this like so:
 
 ~~~
 $ git tag tasty [commit hash]
@@ -324,7 +336,11 @@ Click "Choose a tag" then select your tag "v0.0.1" from the dropdown list:
 
 For the release title, you can just put "v0.0.1" again. Then add a description of your
 choosing. (You can check the "Set as pre-release" box if you want to indicate to your
-users that the recipe isn't production ready.) When you're finished, click "Publish
+users that the recipe isn't production ready.) Note that there is another field: "Attach
+binaries". We won't be using this now, but if you did have a compiled version of your
+software (e.g. as an `.exe` file), this is where you could upload it.
+
+When you're finished, click "Publish
 release":
 
 ![Publish your release]({{ site.baseurl }}/fig/releases_publish.png "Publish your
