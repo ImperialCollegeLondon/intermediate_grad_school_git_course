@@ -214,8 +214,71 @@ human beings, and you can reattach it by simply checking out a branch:
 $ git checkout main
 ~~~
 
-There is one last important thing to remember about git tags. Like branches, they are
-not automatically synced with your remote (e.g. GitHub) and have to be pushed
-explicitly.
+Assume now that you have decided that you no longer want this tag (perhaps on eating, it
+turned out not to be tasty after all). You can delete the tag like so:
 
-{% include links.md %}
+~~~
+$ git tag -d tasty
+~~~
+{: .commands}
+~~~
+Deleted tag 'tasty' (was 366f4b5)
+~~~
+{: .output}
+
+There is one last important thing to know about git tags. Like branches, they are not
+automatically synced with your remote (e.g. GitHub) and have to be pushed explicitly. We
+will cover this later, but first let's discuss how to give your software a descriptive
+version number.
+
+## What's in a version number?
+
+While your code will no doubt smell as sweet however you number your releases, it is
+useful for your users if you use a versioning scheme that conveys some information about
+the kind of thing that is likely to have changed since the last version. Unfortunately,
+this practice is not universal. Often with software releases, the meaning behind the
+version number is rather opaque, except for the fact that higher numbers generally mean
+"newer". It often isn't obvious to what extent a new version of a piece of software is
+compatable with older versions -- if at all!
+
+Amidst this confusion, a convention that is becoming increasingly common is so-called
+[semantic versioning](https://semver.org/). A semantic version number is composed of
+three numbers separated by dots, e.g. `v1.2.3`. In order, these numbers are referred to
+as the "major version", "minor version" and "patch version". Generally speaking, changes
+to the numbers are less significant as you go to the right, i.e. an increase in the
+major version number indicates that more has changed than an increase in the minor
+version number.
+
+However, the semantic versioning specification actually has stricter requirements than
+this, namely that you should increment:
+
+1. The **major** version when you make incompatible changes
+2. The **minor** version when you add functionality in a backwards compatible manner
+3. The **patch** version when you make backwards compatible bug fixes
+
+While this degree of precision may not be required for any of your own projects, it is a
+good convention to stick to nonetheless as other developers will probably assume that
+this is what you are using.
+
+Let's add a proper version tag to the `recipe` repository. Give the first commit to the
+repository (in mine this is `6ff8aa5`) the tag `v0.0.1`, which is often used as the
+first tagged release for a project. (Another common convention is to indicate that the
+software is still experimental by giving it a major version number of zero.)
+
+~~~
+$ git tag v0.0.1 6ff8aa58e55545956cf816baf676a17aeb74d993
+~~~
+
+Verify that the tag has been added:
+
+~~~
+git tag
+~~~
+{: .commands}
+~~~
+v0.0.1
+~~~
+{: .output}
+
+Now your repository has a proper version tag. Next, let's push this tag to GitHub so the
+rest of the world can see it.
