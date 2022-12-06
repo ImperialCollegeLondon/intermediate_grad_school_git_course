@@ -258,7 +258,7 @@ user interface showing failing CI checks"){:class="img-responsive"}
 
 GitHub makes the failure of the CI pretty apparent but, by default, it will still allow
 the PR to be merged. At this point the CI is a useful aid to peer review but we can
-take things further by implementing some policy in the form of a "branch projection
+take things further by implementing some policy in the form of a "branch protection
 rule". We can use this to put two restrictions in place:
 
 1. No code can be pushed directly to the `main` branch, it must always be added via pull
