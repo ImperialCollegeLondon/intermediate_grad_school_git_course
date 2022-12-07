@@ -1,6 +1,6 @@
 ---
 title: "Rewriting history with Git"
-teaching: 15
+teaching: 20
 exercises: 20
 questions:
 - "How can multiple collaborators work efficiently on the same code?"
@@ -294,6 +294,19 @@ description and rationale for the revert.
 
 This is yet another good example of why making separate commits for each change is a
 good idea, so they can, potentially, be reversed if needed in the future with no fuss.
+
+> ## `reset` vs `reverse`
+>
+> Both commands let you undo things done in the past, but they both have very different
+> use cases.
+> - `reset` uses brute force, potentially with destructive consequences, to
+> make those changes and is suitable only if the work has not been shared with others
+> already. Use when you want to get rid of recent work you're not happy with and start
+> all over again.
+> - `reverse` is more light weight and surgical, to target specific changes and
+> creating new commits to history. Use when code has already been shared with others or
+> when changes are small and clearly isolated.
+{: .callout}
 
 ### Set aside your work safely with `stash`
 
