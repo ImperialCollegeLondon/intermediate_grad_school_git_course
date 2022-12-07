@@ -30,9 +30,33 @@ of unsuccessful attempts to do something to incorporate work done by someone els
 This episode explores some of the commands `git` offers to manipulate the commit history
 for your benefit and that of your collaborators.
 
+### Amend
+
+This is the simplest method of rewriting history: it lets you amend the last commit you
+made, maybe adding some files you forgot to stag or fixing a typo in the commit message.
+
+After you have made those last minute changes - and `stagged` them, if needed - all you
+need to do to amend the last commit while keeping the same commit message is:
+
+```bash
+$ git commit --amend --no-edit
+```
+
+Or this:
+
+```bash
+$ git commit --amend -m "New commit message"
+```
+
+if you want to write a new commit message:
+
+Note that this will replace the previous commit with a new one - the commit hash will be
+different, so this approach must not be used if the commit was already pushed to the
+remote repository and shared with collaborators.
+
 ### Reset
 
-This is the simplest method of rewriting history: it lets you redo the
+The next level of complexity rewriting history is `reset`: it lets you redo the
 last (or last few) commit(s) you made so you can incorporate more changes, fix an error
 you have spotted and that is worth incorporating as part of that commit and not as a
 separate one or just improve your commit message.
@@ -137,7 +161,7 @@ $ git reset --hard COMMIT_HASH
 {: .challenge}
 > ## Changing History Can Have Unexpected Consequences
 >
-> Using `git reset` to remove a commit is a bad idea if
+> Like with `git commit --amend`, using `git reset` to remove a commit is a bad idea if
 > you have **shared** it yet with other people. If you make a commit and share it on
 > GitHub or with a colleague by other means then removing that commit from your Git
 > history will cause inconsistencies that may be difficult to resolve later. We
