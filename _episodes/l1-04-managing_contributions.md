@@ -1,0 +1,69 @@
+---
+title: "Managing contributions to code"
+teaching: 0 # TBD
+exercises: 0 # TBD
+questions:
+- "What is the difference between forking and branching?"
+- "How can my group use GitHub pull requests to manage changes to a code?"
+- "How can I suggest changes to other people's code?"
+- "What makes a good pull request review?"
+
+objectives:
+- Create a pull request from a branch within a repository.
+- Create a pull request from a forked repository.
+keypoints:
+- TODO
+---
+
+## Pull Requests
+Pull requests are a GitHub feature which allows collaborators tell each other about changes that have been pushed to a branch in a repository. Similar to **issues**, an open pull request can contain discussions about the requested changes and allows collaborators to follow up with proposed ammendments and follow-up commits before changes are either rejected or accepted and merged into the base branch.
+
+## Branching and forking
+There are two main workflows when creating a pull request which reflect the type of development model used in the project you are contributing to; 1. Pull request from a branch within a repository and, 2. Pull request from a forked repository.
+
+> ### About forks
+> Before we get into understanding pull requests, we should first get to grips with what a fork is, and how it differs from a branch. Forking a repository is like copying a repository. Except, more than just being a copy, GitHub has functionality for forks where you can;
+> 1. Use pull requests to suggest changes from your user-owned fork to the original repository, and
+> 2. You can bring changes from an upstream repository to your local fork.
+>
+>Essentially, the way you use pull requests will depend on what permissions you have for the repository you are contributing to. If the repository owner has not granted you write permission, then you will not be able to create and push a branch to that repository. Conversely, anyone can fork an existing repository and push changes to their personal repository.
+{: .callout}
+
+Now let's take a closer look at those two types of development models;
+
+### 1. Pull request from a branch within a repository
+This type of pull request is used when working with a **shared repository model**. Typically, with this development model, you and your collaborators will have access (and write permission) to a single shared repository. We saw in a previous episode how branches can be used to separate out work on different features of your project. With pull requests, we can request that work done on a feature branch be merged into the `main` branch after a successful review. In fact, we can specify that the work done on our feature branch be merged into *any* branch, not just `main`. We'll see how this can be done a bit later in this episode.
+
+Pull requests can be created by visiting the `Pull request` tab in the repository.
+
+>#### Changing *head* and *base* branch
+>
+>By default, pull requests are based on the parent repository's default branch. You can change both the parent repository and the branch in the drop-down lists. It's important to select the correct order here; the *head branch* contains the changes you would like to make, the *base branch* is where you want the changes to be applied.
+
+>![Open a pull request]({{ site.baseurl }}/fig/create_pull_request.png "Open a pull request"){:class="img-responsive"}
+{: .callout}
+
+> ## Now you try
+> Let's revisit our recipe repository. If you have lost your copy of the recipe repository you can download a completed copy [here](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/code/recipe_with_history.zip)
+> 1. Create a remote repository with your recipe repository.
+> 2. Create a new branch with some changes and push the branch to the remote repository.
+> 3. Create a pull request with a suitable title and description to merge the branch containing your changes into the main branch.
+>
+>> ## Solution
+>> 1. On GitHub.com, navigate to your repository and choose your branch which contains your changes from the "Branch" menu.
+>> ![Choose branch]({{ site.baseurl }}/fig/choose_branch.png "Choose branch"){:class="img-responsive"}
+>> 2. From the "Contribute" drop-down menu, choose the "Open pull request" button.
+>> ![Open pull request]({{ site.baseurl }}/fig/pull_request_button.png "Open pull request"){:class="img-responsive"}
+>> 3. From the *base* branch drop-down menu, choose the branch you want your changes to be merged into, and in the *compare* drop-down menu, choose the branch which contains your changes.
+>> ![Choose the base and compare branches from the drop-down]({{ site.baseurl }}/fig/base_compare_drop_down.png "Choose the base and compare branches from the drop-down"){:class="img-responsive"}
+>> 4. After giving a suitable title and description for your pull request, click the "Create pull request" button.
+>> ![Pull request title and description fields and create pull request button]({{ site.baseurl }}/fig/pr_title_description.png "Pull request title and description fields and create pull request button"){:class="img-responsive"}
+> {: .solution}
+{: .challenge}
+
+### 2. Pull request from a forked repository
+Let's start with forking a repository, where we can then get on to how pull requests from forked repositories work slightly differently to that of pull requests from a branch within a repository.
+
+todo: finish this section on forking and creating pull requests from forks.
+
+{% include links.md %}
