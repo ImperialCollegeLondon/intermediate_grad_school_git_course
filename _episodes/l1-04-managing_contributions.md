@@ -62,8 +62,23 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 {: .challenge}
 
 ### 2. Pull request from a forked repository
-Let's start with forking a repository, where we can then get on to how pull requests from forked repositories work slightly differently to that of pull requests from a branch within a repository.
+Forks are often used in large, open-source projects where you do not have write access to the upstream repository (as opposed to smaller project that you may work on with a smaller team). Proposing changes to someone else's project in this way is called the **fork and pull model**, and follows these three steps;
+1. Fork the repository.
+2. Make the fix.
+3. Submit a pull request to the project owner.
 
-todo: finish this section on forking and creating pull requests from forks.
+This fork and pull model is a key aspect of open-source projects, allowing community contributions whilst reducing the amount of friction for new contributors in terms of being able to work independently without upfront coordination. Another benefit of forking is that it allows you to use someone else's propject as a starting point for your own idea.
+
+Pull requests from forked repositories work slightly differently to that of pull requests from a branch within a repository.
+
+> ## Forking a repository
+> Let's have a go at forking the book_of_recipes repository on the Imperial College London GitHub organisation.
+> 1. First, navigate to the repository at [https://github.com/ImperialCollegeLondon/book_of_recipes](https://github.com/ImperialCollegeLondon/book_of_recipes) and in the top-right corner click **Fork**.
+> ![Fork button]({{ site.baseurl }}/fig/fork_button.png "Pull request title and description fields and create pull request button"){:class="img-responsive"}
+> 2. Select an owner for the forked repository (if you belong to any GitHub organisations, they will appear here) and give it a suitable name. I am receiving a warning in the screenshot below as I chose myself as the owner and already have a repository with this name; GitHub does not allow you to own two repositories of the same name.
+> ![Create a fork with repository name emphasised]({{ site.baseurl }}/fig/fork_choose_owner_name.png "Create a fork with repository name emphasised"){:class="img-responsive"}
+> 3. Adding a description for your fork is optional. There is also a checkbox asking if you want to copy only the default branch of the repository (in this instance this is called `master`) or whether you want to copy all the branches. In most cases you will only want to copy the default branch. This option is selected by default. Finally, click **Create fork**.
+> ![Create a fork with description and create button]({{ site.baseurl }}/fig/fork_description_create.png "Create a fork with description and create button"){:class="img-responsive"}
+{: .challenge}
 
 {% include links.md %}
