@@ -12,13 +12,16 @@ objectives:
 - Create a pull request from a branch within a repository.
 - Create a pull request from a forked repository.
 keypoints:
-- TODO
+- Forks and pull requests are GitHub concepts, not git.
+- Pull request can be opened to branches on your own repository or any other fork.
+- Some branches are restricted, meaning that PR cannot be open against them.
+- Merging a PR does not delete the original branch, just modifies the target one.
+- PR are often created to solve specific issues.
 ---
 
 ## Pull Requests
 Pull requests are a GitHub feature which allows collaborators tell each other about changes that have been pushed to a branch in a repository. Similar to **issues**, an open pull request can contain discussions about the requested changes and allows collaborators to follow up with proposed ammendments and follow-up commits before changes are either rejected or accepted and merged into the base branch.
 
-## Branching and Forking
 There are two main workflows when creating a pull request which reflect the type of development model used in the project you are contributing to;
 1. Pull request from a branch within a repository and,
 2. Pull request from a forked repository.
@@ -39,19 +42,19 @@ There are two main workflows when creating a pull request which reflect the type
 Now let's take a closer look at those two types of development models;
 
 ### 1. Pull request from a branch within a repository
-This type of pull request is used when working with a **shared repository model**. Typically, with this development model, you and your collaborators will have access (and write permission) to a single shared repository. We saw in a previous episode how branches can be used to separate out work on different features of your project. With pull requests, we can request that work done on a feature branch be merged into the `main` branch after a successful review. In fact, we can specify that the work done on our feature branch be merged into *any* branch, not just `main`. We'll see how this can be done a bit later in this episode.
+This type of pull request is used when working with a **shared repository model**. Typically, with this development model, you and your collaborators will have access (and write permission) to a single shared repository. We saw in a previous episode how branches can be used to separate out work on different features of your project. With pull requests, we can request that work done on a feature branch be merged into the `main` branch after a successful review. In fact, we can specify that the work done on our feature branch be merged into *any* branch, not just `main`.
 
 Pull requests can be created by visiting the `Pull request` tab in the repository.
-
->#### Changing *head* and *base* branch
->
->By default, pull requests are based on the parent repository's default branch. You can change both the parent repository and the branch in the drop-down lists. It's important to select the correct order here; the *head branch* contains the changes you would like to make, the *base branch* is where you want the changes to be applied.
 
 >![Open a pull request]({{ site.baseurl }}/fig/create_pull_request.png "Open a pull request"){:class="img-responsive"}
 {: .callout}
 
+>#### Changing *head* and *base* branch
+>By default, pull requests are based on the parent repository's default branch. You can change both the parent repository and the branch in the drop-down lists. It's important to select the correct order here; the *head branch* contains the changes you would like to make, the *base branch* is where you want the changes to be applied.
+{: .callout}
+
 > ## Now you try
-> Let's revisit our recipe repository. If you have lost your copy of the recipe repository you can download a completed copy [here](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/code/recipe_with_history.zip)
+> Let's revisit our recipe repository. If you have lost your copy of the recipe repository you can download a completed copy [here](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/code/recipe_with_history.zip).
 > 1. Create a remote repository with your recipe repository.
 > 2. Create a new branch with some changes and push the branch to the remote repository.
 > 3. Create a pull request with a suitable title and description to merge the branch containing your changes into the main branch.
@@ -74,9 +77,7 @@ Forks are often used in large, open-source projects where you do not have write 
 2. Make the fix.
 3. Submit a pull request to the project owner.
 
-This fork and pull model is a key aspect of open-source projects, allowing community contributions whilst reducing the amount of friction for new contributors in terms of being able to work independently without upfront coordination. Another benefit of forking is that it allows you to use someone else's propject as a starting point for your own idea.
-
-Pull requests from forked repositories work slightly differently to that of pull requests from a branch within a repository.
+This fork and pull model is a key aspect of open-source projects, allowing community contributions whilst reducing the amount of friction for new contributors in terms of being able to work independently without upfront coordination. Another benefit of forking is that it allows you to use someone else's propject as a starting point for your own idea. Let's have a go at working through the three steps of the fork and pull model. First step is forking the repository;
 
 > ## Forking a repository
 > Let's have a go at forking the *book_of_recipes* repository on the Imperial College London GitHub organisation.
@@ -87,5 +88,67 @@ Pull requests from forked repositories work slightly differently to that of pull
 > 3. Adding a description for your fork is optional. There is also a checkbox asking if you want to copy only the default branch of the repository (in this instance this is called `master`) or whether you want to copy all the branches. In most cases you will only want to copy the default branch. This option is selected by default. Finally, click **Create fork**.
 > ![Create a fork with description and create button]({{ site.baseurl }}/fig/fork_description_create.png "Create a fork with description and create button"){:class="img-responsive"}
 {: .challenge}
+
+After forking the repository, the second step is to make our fix/changes. First we will need to clone **our fork** so that we have the files in that repository locally on our computer (`clone` command was covered in the [introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html)). From here we can go ahead and create a new fix/feature branch and make our changes. When we are happy with the changes we have made, we can `commit` and `push` our upstream, forked repository.
+
+The third and final step in the workflow is to create a pull request. This is done in the same way as in the shared repository model above (navigate to your forked repository, click on the "Contribute" drop-down menu, then click the "Open pull request" button), only this time instead of the base branch being one in your repository, it is a branch in the upstream repository that you forked.
+
+![Drop-down menus for choosing the base fork and branch]({{ site.baseurl }}/fig/fork_pr_choose_branch.png "Drop-down menus for choosing the base fork and branch"){:class="img-responsive"}
+
+Another difference with pull requests from forked repositories is that you can allow anyone with push access to the upstream repository to make changes to your pull request. This is done by selecting **Allow edits from maintainers**.
+
+![Allow maintainers to make edits checkbox]({{ site.baseurl }}/fig/maintainer_edits.png "Allow maintainers to make edits checkbox"){:class="img-responsive"}
+
+### Requesting reviewers
+- When opening a PR, you can request it to be reviewed by someone else, so there is another pair of eyes making sure that your contribution is correct and does not introduce any bugs.
+- Reviewers can just comment on the PR, approve it, or request changes before it can be approved.
+- Some repositories might require the approval of one or more reviewers before the changes can be merged into the target branch.
+- Only administrators of the target repository can merge PR.
+
+### Reviewing a PR
+- When reviewing a PR, you will be shown, for each file changed, a comparison between the old and the new version, much like git diff (indeed, it is git diff between the original and target branches, just nicely formatted).
+- You can add comments and suggest changes to specific lines in the code.
+- Comments and suggestions must be constructive and help the code to become better. Comments of the type “this can be done better” are discouraged. The CONTRIBUTING or the CODE_OF_CONDUCT files often contain information on how to make a good review.
+
+## Issues
+
+- Issues are another feature of GitHub, used to report bugs, request
+ features or enhancements, or to discuss implementation details of some parts
+  of the code. 
+- Issues are a kind of TODO list, with pending and completed tasks as well as
+ serving to prioritise the development activity. 
+- Labels can be added to the issues by the repository administrator to inform
+ at a first glance what the issue is about. Typical labels are "bug",
+  "enhancement", "low priority" or "good first issue", for example.
+- Issues also can have one or more people assigned to them who will take care
+ of sorting them out and closing them when done or if no longer relevant.
+ - By default any GitHub user can create an issue in a public repository
+
+> ## Mentioning other issues and PR
+>
+> All issues and PR receive a tag number starting at 1 and preceded by #, 
+> like #40 or #110. If you want to refer to an issue or PR in any comment
+> anywhere in GitHub, just use its tag number and these will be automatically
+> linked from the comment. 
+ {: .callout}
+
+> ## Claim issues
+>
+> There are some [restrictions][] on who can be assigned to an issue. If you do
+> not have write access to the repository (which is often the case) and you are
+> not part of the same organisation of the repository, the only way of being
+> assigned to an Issue is by making a comment on the Issue. This also serves to
+> warn others that you are volunteering to work on that. A "Hey, I can tackle
+> this." is often enough.
+{: .callout}
+
+[restrictions]: https://help.github.com/en/github/managing-your-work-on-github/assigning-issues-and-pull-requests-to-other-github-users
+
+> ## Closing issues
+>
+> If a PR tackles a particular issue, you can automatically close that issue
+> when the PR is merged by indicating `Close #ISSUE_NUMBER` in any commit
+> message of the PR or in a comment within the PR. 
+ {: .callout}
 
 {% include links.md %}
