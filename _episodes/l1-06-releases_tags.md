@@ -147,7 +147,7 @@ $ git tag tasty [commit hash]
 In my case, I ran:
 
 ~~~
-$ git tag tasty 366f4b51e661fd96a9bde001138886a4216b7da1
+$ git tag tasty 366f4b5
 ~~~
 
 You can list the tags for your repo by running `git tag` without any arguments:
@@ -164,11 +164,11 @@ tasty
 To check which commit hash this corresponds to, use:
 
 ~~~
-$ git rev-parse tasty
+$ git rev-parse --short tasty
 ~~~
 {: .commands}
 ~~~
-366f4b51e661fd96a9bde001138886a4216b7da1
+366f4b5
 ~~~
 {: .output}
 
@@ -278,7 +278,7 @@ first tagged release for a project. (Another common convention is to indicate th
 software is still experimental by giving it a major version number of zero.)
 
 ~~~
-$ git tag v0.0.1 6ff8aa58e55545956cf816baf676a17aeb74d993
+$ git tag v0.0.1 6ff8aa5
 ~~~
 
 Verify that the tag has been added:
