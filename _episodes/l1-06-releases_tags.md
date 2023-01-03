@@ -4,10 +4,10 @@ teaching: 0 # TBD
 exercises: 0 # TBD
 questions:
 - "What is a Git tag and how does it differ from a branch?"
+- "How can I tag commits?"
 - "How and when should I release a new version of my code?"
 - "What is the difference between major and minor version changes?"
 - "How can I effectively communicate what has changed between versions?"
-- "How can I tag commits?"
 - "How can I publish a release on Github?"
 objectives:
 - "Understand what is meant by a release and a version"
