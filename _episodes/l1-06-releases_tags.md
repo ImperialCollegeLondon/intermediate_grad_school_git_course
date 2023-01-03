@@ -50,6 +50,26 @@ different version of the code and can be represented by a unique commit hash (e.
 To avoid confusion, people usually refer to the first kind of version as a "release" and
 the second as a "commit", which is what we'll do here.
 
+### When should I consider creating releases?
+
+You *might* consider creating releases if:
+
+- You have a large, distributed user base and you don't want them just using some
+  random commit from your repository
+- You periodically add or change features in a non-backwards-compatible way
+- You want to bundle these features together and advertise them to your users
+- Your software is complex and you can't guarantee that every commit on `main` has been
+  thoroughly tested
+- You want to be able to support several versions of your software simultaneously (e.g.
+  you intend to maintain a v2 of your software, even after v3 has been released)
+- You want to provide a place to download files that you've generated (such as `.exe`
+  files) and distribute them to users
+
+In general, though, creating a release is also just a convenient way to label a
+particular commit, so it's a useful way to ensure that the users you're sharing it with
+-- who may not be technically savvy -- are using a specific commit, rather than simply
+whatever the latest commit on `main` is.
+
 ### When *don't* I need to create releases for my software?
 
 You probably don't need to create releases for your software if:
@@ -71,26 +91,6 @@ $ git rev-parse --short HEAD
 047e4fe
 ~~~
 {: .output}
-
-### When should I consider creating releases?
-
-You *might* consider creating releases if:
-
-- You have a large, distributed user base and you don't want them just using some
-  random commit from your repository
-- You periodically add or change features in a non-backwards-compatible way
-- You want to bundle these features together and advertise them to your users
-- Your software is complex and you can't guarantee that every commit on `main` has been
-  thoroughly tested
-- You want to be able to support several versions of your software simultaneously (e.g.
-  you intend to maintain a v2 of your software, even after v3 has been released)
-- You want to provide a place to download files that you've generated (such as `.exe`
-  files) and distribute them to users
-
-In general, though, creating a release is also just a convenient way to label a
-particular commit, so it's a useful way to ensure that the users you're sharing it with
--- who may not be technically savvy -- are using a specific commit, rather than simply
-whatever the latest commit on `main` is.
 
 ## Labelling a particular commit with `git tag`
 
