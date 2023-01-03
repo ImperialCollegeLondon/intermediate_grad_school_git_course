@@ -238,6 +238,13 @@ Deleted tag 'tasty' (was 366f4b5)
 ~~~
 {: .output}
 
+> ## Exercise: Try creating your own tag
+>
+> Now try it yourself. Choose a different commit and give it a label using `git tag`.
+> Confirm that you can check out this commit. Once you have finished, delete it.
+>
+{: .challenge}
+
 There is one last important thing to know about git tags. Like branches, they are not
 automatically synced with your remote (e.g. GitHub) and have to be pushed explicitly. We
 will cover this later, but first let's discuss how to give your software a descriptive
@@ -353,5 +360,19 @@ Now you should be redirected to a page that looks like this:
 Congratulations, you have made your first release! You can share the link to this page
 with others if you want to notify them of the release. Alternatively, users can find
 your release from the repo's main page by clicking on "Releases".
+
+> ## Exercise: Publish another release
+>
+> Now try creating another release corresponding to a newer version of the recipe,
+> following the same steps you did for `v0.0.1`.
+>
+> Your first task will be to choose a sensible version number for the release, using
+> semantic versioning. This is necessarily a bit subjective, but you should be able to
+> justify your decision 🙂.
+>
+> End by pushing the tag to GitHub and issuing another release, with an appropriate
+> description.
+>
+{: .challenge}
 
 {% include links.md %}
