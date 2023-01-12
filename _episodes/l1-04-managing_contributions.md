@@ -20,7 +20,12 @@ keypoints:
 ---
 
 ## Pull Requests
-Pull requests are a GitHub feature which allows collaborators tell each other about changes that have been pushed to a branch in a repository. Similar to **issues**, an open pull request can contain discussions about the requested changes and allows collaborators to follow up with proposed ammendments and follow-up commits before changes are either rejected or accepted and merged into the base branch.
+Pull requests are a GitHub feature which allows collaborators tell each other about changes that have been pushed to a branch in a repository. Similar to **issues**, an open pull request can contain discussions about the requested changes and allows collaborators to review proposed ammendments and follow-up commits before changes are either rejected or accepted and merged into the base branch.
+
+> The term "Pull Request" may sound counterintuitive because, from your perspective, you're not actually requesting to pull anything. Essentially it means “Hey, I have some changes I would like to contribute to your repo. Please, have a look at them and pull them into your own.”
+>
+> You may see the term `merge request` instead of `pull request`. These are essentially the same thing. Different platforms use different terms but they're both asking the receiver of the request to review those changes prior to merging them.
+{: .callout}
 
 There are two main workflows when creating a pull request which reflect the type of development model used in the project you are contributing to;
 1. Pull request from a branch within a repository and,
@@ -50,7 +55,7 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 {: .callout}
 
 >#### Changing *head* and *base* branch
->By default, pull requests are based on the parent repository's default branch. You can change both the parent repository and the branch in the drop-down lists. It's important to select the correct order here; the *head branch* contains the changes you would like to make, the *base branch* is where you want the changes to be applied.
+>By default, pull requests are based on the parent repository's default branch. You can change both the parent repository and the branch in the drop-down lists. It's important to select the correct order here; the *head branch* contains the changes you would like to make, the *base branch* is where you want the changes to be applied. The arrow between the drop-downs is a useful indicator for the direction of the "pull".
 {: .callout}
 
 > ## Now you try
@@ -60,24 +65,29 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 > 3. Create a pull request with a suitable title and description to merge the branch containing your changes into the main branch.
 >
 >> ## Solution
->> 1. On GitHub.com, navigate to your repository and choose your branch which contains your changes from the "Branch" menu.
+>> 1. If you need a reminder for how to configure a remote repository from a local one, see [this section in the introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html).
+>> 2. The above page will also help you with pushing a branch to a remote repository. 
+>> 3. On GitHub.com, navigate to your repository and choose your branch which contains your changes from the "Branch" menu.
 >> ![Choose branch]({{ site.baseurl }}/fig/choose_branch.png "Choose branch"){:class="img-responsive"}
->> 2. From the "Contribute" drop-down menu, choose the "Open pull request" button.
+>> 4. From the "Contribute" drop-down menu, choose the "Open pull request" button.
 >> ![Open pull request]({{ site.baseurl }}/fig/pull_request_button.png "Open pull request"){:class="img-responsive"}
->> 3. From the *base* branch drop-down menu, choose the branch you want your changes to be merged into, and in the *compare* drop-down menu, choose the branch which contains your changes.
+>> 5. From the *base* branch drop-down menu, choose the branch you want your changes to be merged into, and in the *compare* drop-down menu, choose the branch which contains your changes.
 >> ![Choose the base and compare branches from the drop-down]({{ site.baseurl }}/fig/base_compare_drop_down.png "Choose the base and compare branches from the drop-down"){:class="img-responsive"}
->> 4. After giving a suitable title and description for your pull request, click the "Create pull request" button.
+>> 6. After giving a suitable title and description for your pull request, click the "Create pull request" button.
 >> ![Pull request title and description fields and create pull request button]({{ site.baseurl }}/fig/pr_title_description.png "Pull request title and description fields and create pull request button"){:class="img-responsive"}
 > {: .solution}
 {: .challenge}
 
+> For a deeper dive into this "feature branch workflow", have a read of the Atlassian example - [Git Feature Branch Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
+{: .callout}
+
 ### 2. Pull request from a forked repository
 Forks are often used in large, open-source projects where you do not have write access to the upstream repository (as opposed to smaller project that you may work on with a smaller team). Proposing changes to someone else's project in this way is called the **fork and pull model**, and follows these three steps;
 1. Fork the repository.
-2. Make the fix.
+2. Make the changes.
 3. Submit a pull request to the project owner.
 
-This fork and pull model is a key aspect of open-source projects, allowing community contributions whilst reducing the amount of friction for new contributors in terms of being able to work independently without upfront coordination. Another benefit of forking is that it allows you to use someone else's propject as a starting point for your own idea. Let's have a go at working through the three steps of the fork and pull model. First step is forking the repository;
+This fork and pull model is a key aspect of open-source projects, allowing community contributions whilst reducing the amount of friction for new contributors in terms of being able to work independently without upfront coordination. Another benefit of forking is that it allows you to use someone else's project as a starting point for your own idea. Let's have a go at working through the three steps of the fork and pull model. First step is forking the repository;
 
 > ## Forking a repository
 > Let's have a go at forking the *book_of_recipes* repository on the Imperial College London GitHub organisation.
@@ -99,14 +109,16 @@ Another difference with pull requests from forked repositories is that you can a
 
 ![Allow maintainers to make edits checkbox]({{ site.baseurl }}/fig/maintainer_edits.png "Allow maintainers to make edits checkbox"){:class="img-responsive"}
 
+> As with the **shared repository model**, Atlassian has a nice [Forking Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow) example if you want a deeper dive.
+
 ### Requesting reviewers
 - When opening a PR, you can request it to be reviewed by someone else, so there is another pair of eyes making sure that your contribution is correct and does not introduce any bugs.
 - Reviewers can just comment on the PR, approve it, or request changes before it can be approved.
-- Some repositories might require the approval of one or more reviewers before the changes can be merged into the target branch.
+- Some repositories might require the approval of one or more reviewers before the changes can be merged into the target branch. This can be set up by the repository manager(s) as a [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule).
 - Only administrators of the target repository can merge PR.
 
 ### Reviewing a PR
-- When reviewing a PR, you will be shown, for each file changed, a comparison between the old and the new version, much like git diff (indeed, it is git diff between the original and target branches, just nicely formatted).
+- When reviewing a PR, you will be shown, for each file changed, a comparison between the old and the new version, much like the `git diff` command (indeed, it is `git diff` between the original and target branches, just nicely formatted).
 - You can add comments and suggest changes to specific lines in the code.
 - Comments and suggestions must be constructive and help the code to become better. Comments of the type “this can be done better” are discouraged. The CONTRIBUTING or the CODE_OF_CONDUCT files often contain information on how to make a good review.
 
