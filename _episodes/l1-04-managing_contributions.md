@@ -114,7 +114,7 @@ Another difference with pull requests from forked repositories is that you can a
 - When opening a PR, you can request it to be reviewed by someone else, so there is another pair of eyes making sure that your contribution is correct and does not introduce any bugs.
 - Reviewers can just comment on the PR, approve it, or request changes before it can be approved.
 - Some repositories might require the approval of one or more reviewers before the changes can be merged into the target branch. This can be set up by the repository manager(s) as a [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule).
-- Only administrators of the target repository can merge PR.
+- Only maintainers of the target repository can merge PR.
 
 ### Reviewing a PR
 - When reviewing a PR, you will be shown, for each file changed, a comparison between the old and the new version, much like the `git diff` command (indeed, it is `git diff` between the original and target branches, just nicely formatted).
