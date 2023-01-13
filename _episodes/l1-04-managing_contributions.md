@@ -31,6 +31,8 @@ There are two main workflows when creating a pull request which reflect the type
 1. Pull request from a branch within a repository and,
 2. Pull request from a forked repository.
 
+Essentially, the way you use pull requests will depend on what permissions you have for the repository you are contributing to. If the repository owner has not granted you write permission, then you will not be able to create and push a branch to that repository. Conversely, anyone can fork an existing repository and push changes to their personal repository.
+
 > ## About forks
 > Before we get into understanding pull requests, we should first get to grips with what a fork is, and how it differs from a branch.
 > - By default, a public repository can be seen by anyone but only the owner can make changes e.g. create new commits or branches.
@@ -40,8 +42,6 @@ There are two main workflows when creating a pull request which reflect the type
 > - Forks are related to the original repository, and the number of forks a given repository has can be seen in the upper right corner of the repo page.
 > - If you have some changes in your fork that you want to contribute to the original repo, you open a `pull request`.
 > - You can bring changes from an upstream repository to your local fork.
->
->Essentially, the way you use pull requests will depend on what permissions you have for the repository you are contributing to. If the repository owner has not granted you write permission, then you will not be able to create and push a branch to that repository. Conversely, anyone can fork an existing repository and push changes to their personal repository.
 {: .callout}
 
 Now let's take a closer look at those two types of development models;
@@ -121,41 +121,8 @@ Another difference with pull requests from forked repositories is that you can a
 - You can add comments and suggest changes to specific lines in the code.
 - Comments and suggestions must be constructive and help the code to become better. Comments of the type “this can be done better” are discouraged. The CONTRIBUTING or the CODE_OF_CONDUCT files often contain information on how to make a good review.
 
-## Issues
-
-- Issues are another feature of GitHub, used to report bugs, request
- features or enhancements, or to discuss implementation details of some parts
-  of the code. 
-- Issues are a kind of TODO list, with pending and completed tasks as well as
- serving to prioritise the development activity. 
-- Labels can be added to the issues by the repository administrator to inform
- at a first glance what the issue is about. Typical labels are "bug",
-  "enhancement", "low priority" or "good first issue", for example.
-- Issues also can have one or more people assigned to them who will take care
- of sorting them out and closing them when done or if no longer relevant.
- - By default any GitHub user can create an issue in a public repository
-
-> ## Mentioning other issues and PR
->
-> All issues and PR receive a tag number starting at 1 and preceded by #, 
-> like #40 or #110. If you want to refer to an issue or PR in any comment
-> anywhere in GitHub, just use its tag number and these will be automatically
-> linked from the comment. 
- {: .callout}
-
-> ## Claim issues
->
-> There are some [restrictions][] on who can be assigned to an issue. If you do
-> not have write access to the repository (which is often the case) and you are
-> not part of the same organisation of the repository, the only way of being
-> assigned to an Issue is by making a comment on the Issue. This also serves to
-> warn others that you are volunteering to work on that. A "Hey, I can tackle
-> this." is often enough.
-{: .callout}
-
-[restrictions]: https://help.github.com/en/github/managing-your-work-on-github/assigning-issues-and-pull-requests-to-other-github-users
-
 > ## Closing issues
+> The introductory course - [Using GitHub Issues](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/%7C1-06-issues/index.html) - describes how issues work on GitHub, but one handy functionality that is specific to pull requests is being able to automatically close an issue from a pull request.
 >
 > If a PR tackles a particular issue, you can automatically close that issue
 > when the PR is merged by indicating `Close #ISSUE_NUMBER` in any commit
