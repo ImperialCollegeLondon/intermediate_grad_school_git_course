@@ -33,9 +33,9 @@ for your benefit and that of your collaborators.
 ### Amend
 
 This is the simplest method of rewriting history: it lets you amend the last commit you
-made, maybe adding some files you forgot to stag or fixing a typo in the commit message.
+made, maybe adding some files you forgot to stage or fixing a typo in the commit message.
 
-After you have made those last minute changes - and `stagged` them, if needed - all you
+After you have made those last minute changes - and `staged` them, if needed - all you
 need to do to amend the last commit while keeping the same commit message is:
 
 ```bash
@@ -162,7 +162,7 @@ $ git reset --hard COMMIT_HASH
 > ## Changing History Can Have Unexpected Consequences
 >
 > Like with `git commit --amend`, using `git reset` to remove a commit is a bad idea if
-> you have **shared** it yet with other people. If you make a commit and share it on
+> you have **already shared** it with other people. If you make a commit and share it on
 > GitHub or with a colleague by other means then removing that commit from your Git
 > history will cause inconsistencies that may be difficult to resolve later. We
 > only recommend this approach for commits that are only in your local working
@@ -295,7 +295,7 @@ description and rationale for the revert.
 This is yet another good example of why making separate commits for each change is a
 good idea, so they can, potentially, be reversed if needed in the future with no fuss.
 
-> ## `reset` vs `reverse`
+> ## `reset` vs `revert`
 >
 > Both commands let you undo things done in the past, but they both have very different
 > use cases.
@@ -303,7 +303,7 @@ good idea, so they can, potentially, be reversed if needed in the future with no
 > make those changes and is suitable only if the work has not been shared with others
 > already. Use when you want to get rid of recent work you're not happy with and start
 > all over again.
-> - `reverse` is more light weight and surgical, to target specific changes and
+> - `revert` is more lightweight and surgical, to target specific changes and
 > creating new commits to history. Use when code has already been shared with others or
 > when changes are small and clearly isolated.
 {: .callout}
@@ -317,7 +317,7 @@ can commit the work you are doing, but if it is not in a state ready to be commi
 what would you do?
 
 `git stash` is the answer. It lets you put your current, uncommitted work aside in a
-special state, turning the working directory to the way it was in the last commit.
+special state, turning the working directory back to the way it was in the last commit.
 Then, you can easily switch branches, pull new ones or do whatever you want. Once you
 are ready to go back to work, you can recover the stashed work as continue as if
 nothing had happened.
