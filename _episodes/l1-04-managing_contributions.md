@@ -1,7 +1,7 @@
 ---
 title: "Managing contributions to code"
-teaching: 0 # TBD
-exercises: 0 # TBD
+teaching: 20
+exercises: 20
 questions:
 - "What is the difference between forking and branching?"
 - "How can my group use GitHub pull requests to manage changes to a code?"
