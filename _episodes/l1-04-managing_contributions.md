@@ -51,8 +51,7 @@ This type of pull request is used when working with a **shared repository model*
 
 Pull requests can be created by visiting the `Pull request` tab in the repository.
 
->![Open a pull request]({{ site.baseurl }}/fig/create_pull_request.png "Open a pull request"){:class="img-responsive"}
-{: .callout}
+![Open a pull request]({{ site.baseurl }}/fig/create_pull_request.png "Open a pull request"){:class="img-responsive"}
 
 >#### Changing *head* and *base* branch
 >By default, pull requests are based on the parent repository's default branch. You can change both the parent repository and the branch in the drop-down lists. It's important to select the correct order here; the *head branch* contains the changes you would like to make, the *base branch* is where you want the changes to be applied. The arrow between the drop-downs is a useful indicator for the direction of the "pull".
