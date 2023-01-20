@@ -24,7 +24,7 @@ Pull requests are a GitHub feature which allows collaborators tell each other ab
 
 > The term "Pull Request" may sound counterintuitive because, from your perspective, you're not actually requesting to pull anything. Essentially it means “Hey, I have some changes I would like to contribute to your repo. Please, have a look at them and pull them into your own.”
 >
-> You may see the term `merge request` instead of `pull request`. These are essentially the same thing. Different platforms use different terms but they're both asking the receiver of the request to review those changes prior to merging them.
+> You may see the term `merge request` instead of `pull request`. These are exactly the same thing. Different platforms use different terms but they're both asking the receiver of the request to review those changes prior to merging them.
 {: .callout}
 
 There are two main workflows when creating a pull request which reflect the type of development model used in the project you are contributing to;
