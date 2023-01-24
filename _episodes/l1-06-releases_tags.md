@@ -1,7 +1,7 @@
 ---
 title: "Code versions, releases and tags"
-teaching: 0 # TBD
-exercises: 0 # TBD
+teaching: 15
+exercises: 5
 questions:
 - "What is a Git tag and how does it differ from a branch?"
 - "How can I tag commits?"
