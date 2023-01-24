@@ -223,7 +223,6 @@ $ git graph
 ~~~
 {: .output}
 
-
 ![Git collaborative]({{ site.baseurl }}/fig/branch4.png
 "Repository with one commit on experiment branch"){:class="img-responsive"}
 
