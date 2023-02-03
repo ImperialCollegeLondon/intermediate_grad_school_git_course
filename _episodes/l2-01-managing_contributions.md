@@ -7,7 +7,6 @@ questions:
 - "How can my group use GitHub pull requests to manage changes to a code?"
 - "How can I suggest changes to other people's code?"
 - "What makes a good pull request review?"
-
 objectives:
 - Create a pull request from a branch within a repository.
 - Create a pull request from a forked repository.
@@ -65,7 +64,7 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 >
 >> ## Solution
 >> 1. If you need a reminder for how to configure a remote repository from a local one, see [this section in the introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html).
->> 2. The above page will also help you with pushing a branch to a remote repository. 
+>> 2. The above page will also help you with pushing a branch to a remote repository.
 >> 3. On GitHub.com, navigate to your repository and choose your branch which contains your changes from the "Branch" menu.
 >> ![Choose branch]({{ site.baseurl }}/fig/choose_branch.png "Choose branch"){:class="img-responsive"}
 >> 4. From the "Contribute" drop-down menu, choose the "Open pull request" button.
@@ -126,7 +125,7 @@ Another difference with pull requests from forked repositories is that you can a
 >
 > If a PR tackles a particular issue, you can automatically close that issue
 > when the PR is merged by indicating `Close #ISSUE_NUMBER` in any commit
-> message of the PR or in a comment within the PR. 
+> message of the PR or in a comment within the PR.
  {: .callout}
 
 {% include links.md %}
