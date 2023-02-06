@@ -11,7 +11,7 @@ objectives:
 - Manage other people's contributions.
 - Create releases at key points of the development.
 keypoints:
-- Working collaboratively require coordination - use Issues to discuss with your colleagues who is doing what.
+- Working collaboratively requires coordination - use Issues to discuss with your colleagues who is doing what.
 - Notifications from GitHub are very useful but also overwhelming when there are many contributions - you will need to manage them.
 ---
 
@@ -57,7 +57,7 @@ knowledge acquired so far.
 >  and pushing those changes back to the remote repository. You can even try a
 >  [gitflow aproach](https://nvie.com/posts/a-successful-git-branching-model/)
 >  if you feel ambitious!
-> - When ready, open a PR to the administrator's repo and request his/her review.
+> - When ready, open a PR to the administrator's repo and request their review.
 > - Administrator, review the PR, request some changes and accept others. Make sure the
 >   relevant checks performed by the continuous integration system are all passing.
 > - When ready, merge the PR.
