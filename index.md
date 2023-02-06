@@ -5,7 +5,7 @@ permalink: index.html  # Is the only page that doesn't follow the pattern /:path
 ---
 
 This course introduces intermediate concepts and functionality of the version control
-system Git and the code repository GitHub, focused on ensuring an effective and healthy
+system Git and the code repository GitHub. The course is focused on ensuring an effective and healthy
 collaborative process. When collaborating with others, measures and tooling need to be
 in place to manage the process in an effective way, keeping track of the sequence of
 changes, reviewing, and approving what those changes are and undoing them, if needed.
@@ -31,7 +31,7 @@ identified.
 ## Learning outcomes
 
 After completing this workshop, you will be better able to
-1.	Use advance Git commands to manage the parallel development of multiple features
+1.	Use advanced Git commands to manage the parallel development of multiple features
 2.	Collaborate effectively with others on a code base to achieve larger goals
 3.	Apply continuous integration to automate tasks
 
@@ -41,17 +41,17 @@ Material will be delivered as a lecture with task following the Carpentries teac
 style.
 
 - The instructor will walk you through the theoretical material of the course,
-  executing themselves the relevant code or instructions. **You are highly encouraged to
+ demonstrating the execution of the relevant code and instructions. **You are highly encouraged to
   code along** and execute the instructions at the same time.
-- Throughout the lessons, there are **yellow boxes** highlighting particularly difficult
-  or important ideas.
+- Throughout the lessons, there are **yellow boxes** highlighting particularly challenging
+  or important concepts.
 - There are also exercises in **orange boxes**. The instructor will give you time to try
-  to do them yourselves before going through the solution. This is often available in a
+  to do them yourself before going through the solution. This is often available in a
   folded part of the orange box, so you can check it at any time.
 - When doing exercises, put a green sticker in your computer whenever you are done, or a
-  pick/orange one if you need support. A helper will go to you.
-- For online sessions, rise your hand if you are done with the exercise and write
-  directly your question or problem in the chat, so a helper can try to solve it.
+  pink/orange one if you need support. A helper will go to you.
+- For online sessions, raise your hand if you are done with the exercise and write
+ any questions or problems directly into the chat, so a helper can try to solve it.
 
 > ## Prerequisites
 >
