@@ -11,7 +11,7 @@ objectives:
 - Manage other people's contributions.
 - Create releases at key points of the development.
 keypoints:
-- Working collaboratively require coordination - use Issues to discuss with your colleagues who is doing what.
+- Working collaboratively requires coordination - use Issues to discuss with your colleagues who is doing what.
 - Notifications from GitHub are very useful but also overwhelming when there are many contributions - you will need to manage them.
 ---
 
@@ -47,8 +47,9 @@ knowledge acquired so far.
 >  will like to have in the book.
 > - Administrator, add some tags, prioritising some of the recipes, and assign
 >  yourself or one of your colleagues as responsible for each of them.
->  Remember you will need to "Claim the Issue" first in order to be assigned
->  to it, as discussed above.
+>  Remember that if you do not have write access to the repository (which is the case here) 
+>  and you are not part of the same organisation of the repository, the only way of being 
+>  assigned to an Issue is by making a comment on the Issue.
 > - Fork the administrator's repository. Administrator, did you notice how the
 >  number of forks increases? Which GitHub users forked it from you? And from
 >  the original repo?
@@ -57,7 +58,7 @@ knowledge acquired so far.
 >  and pushing those changes back to the remote repository. You can even try a
 >  [gitflow aproach](https://nvie.com/posts/a-successful-git-branching-model/)
 >  if you feel ambitious!
-> - When ready, open a PR to the administrator's repo and request his/her review.
+> - When ready, open a PR to the administrator's repo and request their review.
 > - Administrator, review the PR, request some changes and accept others. Make sure the
 >   relevant checks performed by the continuous integration system are all passing.
 > - When ready, merge the PR.
