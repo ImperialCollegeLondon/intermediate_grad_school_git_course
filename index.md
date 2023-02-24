@@ -31,9 +31,11 @@ identified.
 ## Learning outcomes
 
 After completing this workshop, you will be better able to
-1.	Use advanced Git commands to manage the parallel development of multiple features
-2.	Collaborate effectively with others on a code base to achieve larger goals
-3.	Apply continuous integration to automate tasks
+
+1. Use advance Git commands to manage the parallel development of multiple features
+2. Collaborate effectively with others on a code base to achieve larger goals
+3. Apply continuous integration to automate tasks
+4. Understand how to access support for research computing via the Research Computing Service at Imperial College
 
 ## Delivery of the course
 
