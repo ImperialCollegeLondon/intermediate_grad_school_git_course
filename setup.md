@@ -10,7 +10,7 @@ file and, if not already available, install Git.
 ## Downloading the Zip File
 
 The zip archive containing files that will be used in the session is available
-[here](code/recipe.zip). Please download and **save it in your home directory,
+[here](code/recipe_with_history.zip). Please download and **save it in your home directory,
 do not extract it yet**.
 
 ## Install Git
