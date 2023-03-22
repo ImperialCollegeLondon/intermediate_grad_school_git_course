@@ -84,7 +84,7 @@ interface" or "fixing bug in matrix inversion algorithm".
 > ## Starting point
 >
 > This episode will take as starting point for further development [a zipped repository
-> containing the recipe for guacamole sauce](../code/recipe.zip).
+> containing the recipe for guacamole sauce](../code/recipe_with_history.zip).
 > 
 > This repository, when unzipped, contains a hidden `.git` folder that contains information
 > about the repository history. You can use it straight way simply by navigating to
