@@ -42,12 +42,32 @@ should be able to launch Git Bash from the Start Menu. Within the window that
 launches enter the command `git --version` and press enter. You should see
 output similar to the below:
 ```
-git version 2.34.1.windows-1
+git version 2.40.0.windows-1
 ```
 
 ### MacOS
 
-**For OS X 10.9 and higher**, install Git for Mac by downloading and running the
+Apple provide a suite of UNIX-style command line tools that includes git. Install
+them by opening the "Terminal" app and running:
+
+```bash
+$ xcode-select --install
+xcode-select: note: install requested for command line developer tools
+```
+
+This will open  dialog that asks for your confirmation to install the tools. If
+it does not open a dialog, it may be because it is already installed (the error
+message will be clear).
+
+To check the installation was successful open the "Terminal" app. In the window
+that launches enter the command `git --version` and press enter. You should see
+output similar to the below:
+```
+git version 2.37.1 (Apple Git-137.1)
+```
+
+**If the above does not work**, you may have and older version of MacOS.
+Try the following: install Git for Mac by downloading and running the
 most recent "mavericks" installer from [this list][installer-list]. Because this
 installer is not signed by the developer, you may have to right click (control
 click) on the .pkg file, click Open, and click Open on the pop up window. After
@@ -59,13 +79,6 @@ here][snow-leopard].
 [installer-list]: http://sourceforge.net/projects/git-osx-installer/files/
 [snow-leopard]: http://sourceforge.net/projects/git-osx-installer/files/
 
-To check the installation was successful open the "Terminal" app. In the window
-that launches enter the command `git --version` and press enter. You should see
-output similar to the below:
-```
-git version 2.33.0
-```
-
 ### Linux
 
 If Git is not already available on your machine you can try to install it via
@@ -76,7 +89,7 @@ To check the installation was successful open a new terminal. In the window that
 launches enter the command `git --version` and press enter. You should see
 output similar to the below:
 ```
-git version 2.25.0
+git version 2.40.0
 ```
 
 {% include links.md %}
