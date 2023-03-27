@@ -1,7 +1,7 @@
 ---
 title: "Branching and Merging"
 teaching: 40
-exercises: 20
+exercises: 10
 questions:
 - How can I or my team work on multiple features in parallel?
 - How can changes from parallel tracks of work be combined?
@@ -49,6 +49,7 @@ repository"){:class="img-responsive"}
   href="https://twitter.com/jay_gee/status/703360688618536960">https://twitter.com/jay_gee/status/703360688618536960</a>
   </div>
 
+
 Software development is often not linear:
 
 * We typically need at least one version of the code to "work" (to compile, to
@@ -70,8 +71,8 @@ of commit history wit multiple branches and merges"){:class="img-responsive"}
   a branch.
 * Commits form a directed acyclic graph (arrows point from parent commits to
   child commits).
-* Commits are **relative** to the preceding (parent) commit. Whilst we
-  previously talked about Git taking "snapshots" of your project this is
+* Commits are **relative** to the preceding (parent) commit. Whilst
+  Git can be described as taking "snapshots" of your project this is
   slightly misleading. Git actually records *the changes made since the last
   commit*. The difference is subtle but powerful, it makes commands like `git
   revert` possible.
@@ -87,7 +88,7 @@ interface" or "fixing bug in matrix inversion algorithm".
 > containing the recipe for guacamole sauce](../code/recipe_with_history.zip).
 > 
 > This repository, when unzipped, contains a hidden `.git` folder that contains information
-> about the repository history. You can use it straight way simply by navigating to
+> about the repository history. You can use it straight away simply by navigating to
 > the repository in the terminal. If you then type `git log --oneline`, you should see
 > something like:
 >
@@ -176,7 +177,7 @@ $ git graph
 {: .output}
 
 Notice that the name of our new branch has appeared next to latest commit. HEAD
-is still pointing main however denoting that we have created a new branch but
+is still pointing to main however denoting that we have created a new branch but
 we're not using it yet. This looks like:
 
 ![Git collaborative]({{ site.baseurl }}/fig/branch2.png
@@ -198,14 +199,14 @@ $ git graph
 
 Now we see `HEAD -> experiment` next to the top commit indicating that we are
 now working with, and any commits we make will be part of the `experiment`
-branch. As shown before which branch is currently checkout out can be confirmed
+branch. As shown before which branch is currently checked out can be confirmed
 with `git branch`.
 
 ![Git collaborative]({{ site.baseurl }}/fig/branch3.png
 "Repository with HEAD at new experiment branch"){:class="img-responsive"}
 
 Now when we make new commits they will be part of the `experiment` branch. To
-test this let's add 2 tbsp coriander to `ingredients.md`. Stage this and commit
+test this let's add 1 tbsp coriander to `ingredients.md`. Stage this and commit
 it with the message "try with some coriander".
 
 ~~~
@@ -447,9 +448,9 @@ Let's look at ingredients.md to understand the conflict:
 Git has changed this file for us and added some lines which highlight the
 location of the conflict. This may be confusing at first glance (a good editor
 may add some highlighting which can help), but you are essentially being asked
-to choose between the two versions presented. The tags `<<<<<<< HEAD` and
-`>>>>>>> experiment` are used to indicate which branch each version came from
-(HEAD here corresponds to `main` as that is our checked out branch). 
+to choose between the two versions presented. The tags `<<<<<<< HEAD`, `=======`
+and `>>>>>>> experiment` are used to indicate which branch each version came
+from (HEAD here corresponds to `main` as that is our checked out branch).
 
 The conflict makes sense, we can either have 1 tsp of salt or 3. There is no way
 for Git to know which it should be so it has to ask you. Let's resolve it by
@@ -504,6 +505,12 @@ As a reminder, remote and local repositories are not automatically synchronised,
 rather it is a manual process done via `git pull` and `git push` commands. This
 synchronisation needs to be done **branch by branch** with all of those you want to keep
 in sync.
+
+Before you can complete the below steps, you need to create a repository on your
+personal GitHub account and set it as the remote for this `recipe` repository you have
+locally. If you do not know how to do this, you can follow the steps in the "Configuring
+a remote repository from a local one" exercise in
+[this lesson.](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html)
 
 ### Pushing
 
