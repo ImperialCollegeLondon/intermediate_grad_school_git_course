@@ -373,6 +373,7 @@ stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash).
 > Now try using `git stash` with the recipe repository. For example:
 > - Add some ingredients then stash the changes (do not stage or commit them)
 > - Modify the instructions and also stash those change
+> 
 > Then have a look at the list of stashes and bring those changes back to the
 > working directory using `stash pop` and `stash apply`, and see how the list of
 > stashes changes in either case.
