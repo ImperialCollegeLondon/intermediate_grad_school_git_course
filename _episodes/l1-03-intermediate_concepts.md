@@ -1,6 +1,6 @@
 ---
 title: "Rewriting history with Git"
-teaching: 20
+teaching: 30
 exercises: 20
 questions:
 - "How can multiple collaborators work efficiently on the same code?"
@@ -23,7 +23,7 @@ keypoints:
 ## Rewriting history with Git
 
 While version control is useful to keep track of changes made to a piece of work over
-time, it also let you to modify the timeline of commits. There are several totally
+time, it also lets you to modify the timeline of commits. There are several totally
 legitimate reasons why you might want to do that, from keeping the commit history clean
 of unsuccessful attempts to do something to incorporate work done by someone else.
 
@@ -69,10 +69,9 @@ This resets the staging area to match the most recent commit, but leaves the wor
 directory unchanged - so no information is lost. Now you can review the files you
 modified, make more changes or whatever you like. When you are ready, you stage and
 commit your files, as usual. You can go back 2 commits, 3, etc with `HEAD^2`,
-`HEAD^3`... but the further you go, the more chances there are to leave orphan commits -
-commits without a previous commit they go after - resulting in a messy (but potentially
-recoverable) repository, as information is not lost. You can read about this recovery
-process in this [blog post in
+`HEAD^3`... but the further you go, the more chances there are to leave commits
+without a parent commit. Resulting in a messy (but potentially recoverable) repository,
+as information is not lost. You can read about this recovery process in this [blog post in
 Medium](https://www.ocpsoft.org/tutorials/git/use-reflog-and-cherry-pick-to-restore-lost-commits/).
 
 A way more dangerous option uses the flag `--hard`. When doing this, you completely
@@ -319,43 +318,48 @@ what would you do?
 `git stash` is the answer. It lets you put your current, uncommitted work aside in a
 special state, turning the working directory back to the way it was in the last commit.
 Then, you can easily switch branches, pull new ones or do whatever you want. Once you
-are ready to go back to work, you can recover the stashed work as continue as if
+are ready to go back to work, you can recover the stashed work and continue as if
 nothing had happened.
 
 The following are the `git stash` commands needed to make this happen:
 
-- Stash the current state of the repository, giving some message to remind yourself what
-  was this about. The working directory becomes identical to the last commit.
+Stash the current state of the repository, giving some message to remind yourself what
+was this about. The working directory becomes identical to the last commit.
 ~~~
 $ git stash save "Some informative message"
 ~~~
 {: .commands}
-- List the stashes available in reverse chronological order (last one stashed goes on
-  top).
+
+List the stashes available in reverse chronological order (last one stashed goes on
+top).
 ~~~
 $ git stash list
 ~~~
 {: .commands}
-- Extract the **last stash** of the list, updating the working directory
-  with its content.
+
+Extract the **last stash** of the list, updating the working directory
+with its content.
 ~~~
 $ git stash pop
 ~~~
 {: .commands}
-- Extract the stash with the given number from the list, updating the working directory
-  with its content.
+
+Extract the stash with the given number from the list, updating the working directory
+with its content.
 ~~~
 $ git stash pop stash@{NUMBER}
 ~~~
 {: .commands}
-- Apply the **last stash** without removing it from the list, so you can apply it to
-  other branches, if needed.
+
+Apply the **last stash** without removing it from the list, so you can apply it to
+other branches, if needed.
 ~~~
 $ git stash apply
 ~~~
 {: .commands}
-- Apply the given stash without removing it from the list, so you can apply it to
-  other branches, if needed.
+
+Apply the given stash without removing it from the list, so you can apply it to
+other branches, if needed.
 ~~~
 $ git stash apply stash@{NUMBER}
 ~~~
@@ -366,11 +370,12 @@ stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash).
 
 > ## Practice stashing
 >
-> Now try how stashing work with the recipe repository. For example, add some
-> ingredients, stash the changes, modify the instructions, stash also that. Then have a
-> look at the list of stashes and bring those changes back to the working directory
-> using `stash pop` and `stash apply`, and see how the list of stashes changes in either
-> case.
+> Now try using `git stash` with the recipe repository. For example:
+> - Add some ingredients then stash the changes (do not stage or commit them)
+> - Modify the instructions and also stash those change
+> Then have a look at the list of stashes and bring those changes back to the
+> working directory using `stash pop` and `stash apply`, and see how the list of
+> stashes changes in either case.
 >
 {: .challenge}
 
@@ -412,7 +417,7 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > - Create a `spicy` branch
 > - Add some chillies to the list of ingredients and commit the changes
 > - Switch back to the `main` branch
-> - Add an final step in the instructions indicating that this should be served cold
+> - Add a final step in the instructions indicating that this should be served cold
 > - Go back to the `spicy` branch
 >
 > If you were to add now instructions to chop the chillies finely and put some on top
