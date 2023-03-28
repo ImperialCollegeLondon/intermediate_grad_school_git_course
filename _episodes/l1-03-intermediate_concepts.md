@@ -404,8 +404,8 @@ base.
 The following figure illustrates the process where, after rebasing, the two commits of
 the feature branch have been recreated after the last commit of the main branch.
 
-![Rebase process with a feature branch being moved to another branch]({{ site.baseurl }} https://www.becomebetterprogrammer.com/wp-content/uploads/2021/12/git-rebase.png
-"Rebase process with a feature branch being moved to another branch"){:class="img-responsive"}
+![Rebase process with a feature branch being moved to another branch]({{ site.baseurl }}/fig/rebase.png
+"Rebase process with a feature branch being moved to another branch")
 
 For a very thorough description about how this process works, read this [article on Git
 rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
