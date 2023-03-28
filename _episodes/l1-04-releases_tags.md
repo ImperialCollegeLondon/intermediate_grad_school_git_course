@@ -198,17 +198,17 @@ state without impacting any branches by switching back to a branch.
 If you want to create a new branch to retain commits you create, you may
 do so (now or later) by using -c with the switch command. Example:
 
-  git switch -c <new-branch-name>
+    git switch -c <new-branch-name>
 
 Or undo this operation with:
 
-  git switch -
+    git switch -
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
 HEAD is now at 366f4b5 Added 1/2 onion to ingredients
 ~~~
-{:. output}
+{: .output}
 
 Git provides some helpful output describing what you've just done (although note that we
 don't cover the `git switch` command in this course). The "detached `HEAD` state" is
