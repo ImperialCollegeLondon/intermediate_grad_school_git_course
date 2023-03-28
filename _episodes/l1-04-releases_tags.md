@@ -94,7 +94,7 @@ $ git rev-parse --short HEAD
 
 ## Labelling a particular commit with `git tag`
 
-Git tags provide a way to give human-readable names to a specific commits. We will now
+Git tags provide a way to give human-readable names to specific commits. We will now
 go through how to add and remove tags to your repository.
 
 Firstly, remind yourself what the history for your `recipe` repository looks like with
@@ -172,7 +172,8 @@ $ git rev-parse --short tasty
 ~~~
 {: .output}
 
-Double-check that this is the commit you intended to tag by running `git log` again.
+Double-check that this is the commit you intended to tag by running `git log` (or
+`git graph`) again.
 
 Note that `tasty` can now be used like other git references, such as commit hashes and
 branch names. For example, you can run `git checkout tasty` to (temporarily) update the
@@ -186,6 +187,7 @@ branch? Try checking out `tasty` to see what happens:
 git checkout tasty
 ~~~
 {: .commands}
+
 ~~~
 Note: switching to 'tasty'.
 
