@@ -61,7 +61,11 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 > 3. Create a pull request with a suitable title and description to merge the branch containing your changes into the main branch.
 > 
 >> ### Note
->> 
+>> You may need to sync your `main` branch with the remote if you reset your history in the previous episode. Do this by:
+>> 1. Checkout the `main` branch: `git checkout main`
+>> 2. Force push to your remote: `git push -f`
+> {: .callout}
+>
 >> ## Solution
 >> 1. If you need a reminder for how to configure a remote repository from a local one, see [this section in the introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html).
 >> 2. The above page will also help you with pushing a branch to a remote repository.
