@@ -60,7 +60,7 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 > 2. Create a new branch with some changes and push the branch to the remote repository.
 > 3. Create a pull request with a suitable title and description to merge the branch containing your changes into the main branch.
 > 
->> ### Note
+>> #### Note
 >> You may need to sync your `main` branch with the remote if you reset your history in the previous episode. Do this by:
 >> 1. Checkout the `main` branch: `git checkout main`
 >> 2. Force push to your remote: `git push -f`
