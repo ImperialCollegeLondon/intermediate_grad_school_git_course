@@ -94,7 +94,7 @@ $ git rev-parse --short HEAD
 
 ## Labelling a particular commit with `git tag`
 
-Git tags provide a way to give human-readable names to a specific commits. We will now
+Git tags provide a way to give human-readable names to specific commits. We will now
 go through how to add and remove tags to your repository.
 
 Firstly, remind yourself what the history for your `recipe` repository looks like with
@@ -172,7 +172,8 @@ $ git rev-parse --short tasty
 ~~~
 {: .output}
 
-Double-check that this is the commit you intended to tag by running `git log` again.
+Double-check that this is the commit you intended to tag by running `git log` (or
+`git graph`) again.
 
 Note that `tasty` can now be used like other git references, such as commit hashes and
 branch names. For example, you can run `git checkout tasty` to (temporarily) update the
@@ -186,6 +187,7 @@ branch? Try checking out `tasty` to see what happens:
 git checkout tasty
 ~~~
 {: .commands}
+
 ~~~
 Note: switching to 'tasty'.
 
@@ -196,17 +198,17 @@ state without impacting any branches by switching back to a branch.
 If you want to create a new branch to retain commits you create, you may
 do so (now or later) by using -c with the switch command. Example:
 
-  git switch -c <new-branch-name>
+    git switch -c <new-branch-name>
 
 Or undo this operation with:
 
-  git switch -
+    git switch -
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
 HEAD is now at 366f4b5 Added 1/2 onion to ingredients
 ~~~
-{:. output}
+{: .output}
 
 Git provides some helpful output describing what you've just done (although note that we
 don't cover the `git switch` command in this course). The "detached `HEAD` state" is

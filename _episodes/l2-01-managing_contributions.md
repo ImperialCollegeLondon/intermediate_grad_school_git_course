@@ -1,7 +1,7 @@
 ---
 title: "Managing contributions to code"
 teaching: 20
-exercises: 20
+exercises: 10
 questions:
 - "What is the difference between forking and branching?"
 - "How can my group use GitHub pull requests to manage changes to a code?"
@@ -50,8 +50,6 @@ This type of pull request is used when working with a **shared repository model*
 
 Pull requests can be created by visiting the `Pull request` tab in the repository.
 
-![Open a pull request]({{ site.baseurl }}/fig/create_pull_request.png "Open a pull request"){:class="img-responsive"}
-
 >#### Changing *head* and *base* branch
 >By default, pull requests are based on the parent repository's default branch. You can change both the parent repository and the branch in the drop-down lists. It's important to select the correct order here; the *head branch* contains the changes you would like to make, the *base branch* is where you want the changes to be applied. The arrow between the drop-downs is a useful indicator for the direction of the "pull".
 {: .callout}
@@ -61,6 +59,12 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 > 1. Create a remote repository with your recipe repository.
 > 2. Create a new branch with some changes and push the branch to the remote repository.
 > 3. Create a pull request with a suitable title and description to merge the branch containing your changes into the main branch.
+> 
+>> #### Note
+>> You may need to sync your `main` branch with the remote if you reset your history in the previous episode. Do this by:
+>> 1. Checkout the `main` branch: `git checkout main`
+>> 2. Force push to your remote: `git push -f`
+> {: .callout}
 >
 >> ## Solution
 >> 1. If you need a reminder for how to configure a remote repository from a local one, see [this section in the introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html).
@@ -95,6 +99,7 @@ This fork and pull model is a key aspect of open-source projects, allowing commu
 > ![Create a fork with repository name emphasised]({{ site.baseurl }}/fig/fork_choose_owner_name.png "Create a fork with repository name emphasised"){:class="img-responsive"}
 > 3. Adding a description for your fork is optional. There is also a checkbox asking if you want to copy only the default branch of the repository (in this instance this is called `master`) or whether you want to copy all the branches. In most cases you will only want to copy the default branch. This option is selected by default. Finally, click **Create fork**.
 > ![Create a fork with description and create button]({{ site.baseurl }}/fig/fork_description_create.png "Create a fork with description and create button"){:class="img-responsive"}
+> **Note:** This fork will be used in the final exercise at the end of this course
 {: .challenge}
 
 After forking the repository, the second step is to make our fix/changes. First we will need to clone **our fork** so that we have the files in that repository locally on our computer (`clone` command was covered in the [introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html)). From here we can go ahead and create a new fix/feature branch and make our changes. When we are happy with the changes we have made, we can `commit` and `push` our upstream, forked repository.
@@ -120,7 +125,7 @@ Another difference with pull requests from forked repositories is that you can a
 - You can add comments and suggest changes to specific lines in the code.
 - Comments and suggestions must be constructive and help the code to become better. Comments of the type “this can be done better” are discouraged. The CONTRIBUTING or the CODE_OF_CONDUCT files often contain information on how to make a good review.
 
-> ## Closing issues
+> ## Closing GitHub Issues
 > The introductory course - [Using GitHub Issues](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/%7C1-06-issues/index.html) - describes how issues work on GitHub, but one handy functionality that is specific to pull requests is being able to automatically close an issue from a pull request.
 >
 > If a PR tackles a particular issue, you can automatically close that issue

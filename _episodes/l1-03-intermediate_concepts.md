@@ -373,6 +373,7 @@ stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash).
 > Now try using `git stash` with the recipe repository. For example:
 > - Add some ingredients then stash the changes (do not stage or commit them)
 > - Modify the instructions and also stash those change
+> 
 > Then have a look at the list of stashes and bring those changes back to the
 > working directory using `stash pop` and `stash apply`, and see how the list of
 > stashes changes in either case.
@@ -403,8 +404,8 @@ base.
 The following figure illustrates the process where, after rebasing, the two commits of
 the feature branch have been recreated after the last commit of the main branch.
 
-![Rebase process with a feature branch being moved to another branch]({{ site.baseurl }} https://www.becomebetterprogrammer.com/wp-content/uploads/2021/12/git-rebase.png
-"Rebase process with a feature branch being moved to another branch"){:class="img-responsive"}
+![Rebase process with a feature branch being moved to another branch]({{ site.baseurl }}/fig/rebase.png
+"Rebase process with a feature branch being moved to another branch")
 
 For a very thorough description about how this process works, read this [article on Git
 rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).

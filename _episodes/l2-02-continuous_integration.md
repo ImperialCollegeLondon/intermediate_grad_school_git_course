@@ -62,7 +62,8 @@ There are two requirements to use GitHub Actions:
 
 1. You must have a repository on GitHub with Actions enabled. This is the default in the
    majority of circumstances but Actions may be initially disabled on a fork. You can
-   check by going to the Actions tab in the GitHub user interface.
+   check by going to the Actions Settings in the GitHub user interface (under Settings
+   -> Actions -> General).
 1. Your repository must contain a workflow file in the directory `.github/workflows`. A
    workflow file contains the instructions that specify when your CI should run and what
    to do when it runs. You can have as many workflow files as you want and they will all
@@ -115,7 +116,7 @@ on:
 
 This will additionally trigger the workflow to run when a pull request is created. The
 "push" and "pull_request" triggers are probably the most commonly used however, there
-are a great many available (see [GitHub Docs: Events that rigger
+are a great many available (see [GitHub Docs: Events that trigger
 workflows][actions-triggers]). This is an example of where GitHub Actions goes further
 than most CI systems as you can automate pretty much any behaviour in a repository.
 
@@ -402,11 +403,11 @@ jobs:
 
 ### Publish
 
-Once we've accepted changes into our repository it can then be useful to trigger
-actions. The below workflow builds and publishes a Docker image only when new commits
-are added to the `main` branch. Docker is a tool for packaging and distributing software
-along with all of its requirements. Once published the Docker image can then be
-downloaded and used by other users or services.
+Once we've accepted changes into our repository it can then be useful to trigger a
+publish action. The below workflow builds and publishes a Docker image only when new
+commits are added to the `main` branch. Docker is a tool for packaging and distributing
+software along with all of its requirements. Once published the Docker image can then
+be downloaded and used by other users or services.
 
 ```yaml
 on: push
