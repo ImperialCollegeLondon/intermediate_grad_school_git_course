@@ -506,12 +506,6 @@ rather it is a manual process done via `git pull` and `git push` commands. This
 synchronisation needs to be done **branch by branch** with all of those you want to keep
 in sync.
 
-Before you can complete the below steps, you need to create a repository on your
-personal GitHub account and set it as the remote for this `recipe` repository you have
-locally. If you do not know how to do this, you can follow the steps in the "Configuring
-a remote repository from a local one" exercise in
-[this lesson.](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html)
-
 ### Pushing
 
 - Its basic use is to synchronise **any committed changes** in your current
