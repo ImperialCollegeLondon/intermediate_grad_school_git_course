@@ -84,8 +84,8 @@ interface" or "fixing bug in matrix inversion algorithm".
 
 > ## Starting point
 >
-> Navigate to your `recipe` directory, containing the guacamole recipe repository
-> developed in the [introductory course]().
+> Navigate to your `recipe` directory, containing the guacamole recipe
+> repository.
 > 
 > If you then type `git log --oneline`, you should see something like:
 >
