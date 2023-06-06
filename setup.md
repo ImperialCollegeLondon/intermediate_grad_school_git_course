@@ -4,8 +4,8 @@ title: Setup
 
 Completing this course requires you to have access to a computer with Git installed and
 a [GitHub](https://github.com) account. This course is currently being delivered in
-person and remotely so  please make sure you have access to a suitable computer. All
-attendees should configure their recipe repository and be comfortable with using Git.
+person and remotely so please make sure you have access to a suitable computer. All
+attendees should configure their `recipe` repository and be comfortable with using Git.
 
 ## Configure your recipe repository
 
@@ -30,8 +30,8 @@ a remote repository from a local one" exercise in
 
 > ## Important!
 >
-> If you do not already have Git installed and are comfortable with using it for simple
-> version control tasks, you should consider attending our
+> If you do not already have Git installed or are not comfortable with using it for
+> simple version control tasks, you should consider attending our
 > [Introduction to using Git and GitHub for software development][intro-course] course
 > first.
 {: .callout}
