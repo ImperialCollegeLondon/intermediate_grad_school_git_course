@@ -114,7 +114,7 @@ $ git reset --hard COMMIT_HASH
 > > | * d9043d2 Try with some coriander
 > > * | 6a2a76f Corrected typo in ingredients.md
 > > |/
-> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 57d4505 (origin/main) Revert "Added instruction to enjoy"
 > > * 5cb4883 Added 1/2 onion
 > > * 43536f3 Added instruction to enjoy
 > > * 745fb8b Adding ingredients and instructions
@@ -145,7 +145,7 @@ $ git reset --hard COMMIT_HASH
 > > * | d9043d2 Try with some coriander
 > > | * 6a2a76f Corrected typo in ingredients.md
 > > |/
-> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 57d4505 (origin/main) Revert "Added instruction to enjoy"
 > > * 5cb4883 Added 1/2 onion
 > > * 43536f3 Added instruction to enjoy
 > > * 745fb8b Adding ingredients and instructions
@@ -153,7 +153,7 @@ $ git reset --hard COMMIT_HASH
 > > {: .output}
 > > Note that while the `experiment` branch still mentions the adjustment of salt, that is
 > > no longer part of the `main` commit history. Your working directory has become identical
-> > to before starting the salty that adventure.
+> > to that before starting the salty adventure.
 > >
 > {: .solution}
 >
@@ -199,7 +199,7 @@ $ git branch -D BRANCH_NAME
 > > | * d9043d2 Try with some coriander
 > > * | 6a2a76f Corrected typo in ingredients.md
 > > |/
-> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 57d4505 (origin/main) Revert "Added instruction to enjoy"
 > > * 5cb4883 Added 1/2 onion
 > > * 43536f3 Added instruction to enjoy
 > > * 745fb8b Adding ingredients and instructions
@@ -278,7 +278,7 @@ description and rationale for the revert.
 > > | * d9043d2 Try with some coriander
 > > * | 6a2a76f Corrected typo in ingredients.md
 > > |/
-> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 57d4505 (origin/main) Revert "Added instruction to enjoy"
 > > * 5cb4883 Added 1/2 onion
 > > * 43536f3 Added instruction to enjoy
 > > * 745fb8b Adding ingredients and instructions
@@ -458,7 +458,7 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > > | * d9043d2 Try with some coriander
 > > * | 6a2a76f Corrected typo in ingredients.md
 > > |/
-> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 57d4505 (origin/main) Revert "Added instruction to enjoy"
 > > * 5cb4883 Added 1/2 onion
 > > * 43536f3 Added instruction to enjoy
 > > * 745fb8b Adding ingredients and instructions
@@ -483,7 +483,7 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > > | * d9043d2 Try with some coriander
 > > * | 6a2a76f Corrected typo in ingredients.md
 > > |/
-> > * 57d4505 Revert "Added instruction to enjoy"
+> > * 57d4505 (origin/main) Revert "Added instruction to enjoy"
 > > * 5cb4883 Added 1/2 onion
 > > * 43536f3 Added instruction to enjoy
 > > * 745fb8b Adding ingredients and instructions
