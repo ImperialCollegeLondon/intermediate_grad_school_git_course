@@ -2,18 +2,41 @@
 title: Setup
 ---
 
-Completing this course requires you to have access to a computer with Git
-installed. This course is currently being delivered remotely so please make sure
-you have access to a suitable computer. All attendees should download the zip
-file and, if not already available, install Git.
+Completing this course requires you to have access to a computer with Git installed and
+a [GitHub](https://github.com) account. This course is currently being delivered in
+person and remotely so please make sure you have access to a suitable computer. All
+attendees should configure their `recipe` repository and be comfortable with using Git.
 
-## Downloading the Zip File
+## Configure your recipe repository
 
-The zip archive containing files that will be used in the session is available
-[here](code/recipe_with_history.zip). Please download and **save it in your home directory,
-do not extract it yet**.
+If you **have** completed our
+[Introduction to using Git and GitHub for software development][intro-course] course,
+you should have a `recipe` repository in your GitHub account that will be used in this
+course. Make sure you have a clone of that repo in your home directory.
+
+If you **have not** completed the intro course:
+- Download [this zip archive](code/recipe_with_history.zip) that contains the `recipe`
+repo with some previous commit history that will be used in the session.
+- Extract it into your home directory.
+- Create a repository on your personal GitHub account and set it as the remote for this
+`recipe` repository you have locally.
+
+If you do not know how to do this, you can follow the steps in the "Configuring
+a remote repository from a local one" exercise in
+[this lesson.](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html)
+
 
 ## Install Git
+
+> ## Important!
+>
+> If you do not already have Git installed or are not comfortable with using it for
+> simple version control tasks, you should consider attending our
+> [Introduction to using Git and GitHub for software development][intro-course] course
+> first.
+{: .callout}
+
+[intro-course]: https://imperialcollegelondon.github.io/introductory_grad_school_git_course/
 
 Please follow the relevant instructions depending on your operating system.
 
