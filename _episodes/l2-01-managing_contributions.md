@@ -55,27 +55,22 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 {: .callout}
 
 > ## Now you try
-> Let's revisit our recipe repository. If you have lost your copy of the recipe repository you can download a completed copy [here](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/code/recipe_with_history.zip).
-> 1. Create a remote repository with your recipe repository.
-> 2. Create a new branch with some changes and push the branch to the remote repository.
-> 3. Create a pull request with a suitable title and description to merge the branch containing your changes into the main branch.
-> 
->> #### Note
->> You may need to sync your `main` branch with the remote if you reset your history in the previous episode. Do this by:
->> 1. Checkout the `main` branch: `git checkout main`
->> 2. Force push to your remote: `git push -f`
+> Let's revisit our `recipe` repository.
+> 1. Create a new branch, make some changes and push the branch to the remote repository.
+> 2. Create a pull request with a suitable title and description to merge the branch containing your changes into the main branch.
 > {: .callout}
 >
 >> ## Solution
->> 1. If you need a reminder for how to configure a remote repository from a local one, see [this section in the introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html).
->> 2. The above page will also help you with pushing a branch to a remote repository.
->> 3. On GitHub.com, navigate to your repository and choose your branch which contains your changes from the "Branch" menu.
+>> 1. git branch more_avacados
+>> 2. git checkout more_avacados
+>> 3. # make, stage and commit changes
+>> 4. On GitHub.com, navigate to your repository and choose your branch which contains your changes from the "Branch" menu.
 >> ![Choose branch]({{ site.baseurl }}/fig/choose_branch.png "Choose branch"){:class="img-responsive"}
->> 4. From the "Contribute" drop-down menu, choose the "Open pull request" button.
+>> 5. From the "Contribute" drop-down menu, choose the "Open pull request" button.
 >> ![Open pull request]({{ site.baseurl }}/fig/pull_request_button.png "Open pull request"){:class="img-responsive"}
->> 5. From the *base* branch drop-down menu, choose the branch you want your changes to be merged into, and in the *compare* drop-down menu, choose the branch which contains your changes.
+>> 6. From the *base* branch drop-down menu, choose the branch you want your changes to be merged into, and in the *compare* drop-down menu, choose the branch which contains your changes.
 >> ![Choose the base and compare branches from the drop-down]({{ site.baseurl }}/fig/base_compare_drop_down.png "Choose the base and compare branches from the drop-down"){:class="img-responsive"}
->> 6. After giving a suitable title and description for your pull request, click the "Create pull request" button.
+>> 7. After giving a suitable title and description for your pull request, click the "Create pull request" button.
 >> ![Pull request title and description fields and create pull request button]({{ site.baseurl }}/fig/pr_title_description.png "Pull request title and description fields and create pull request button"){:class="img-responsive"}
 > {: .solution}
 {: .challenge}
