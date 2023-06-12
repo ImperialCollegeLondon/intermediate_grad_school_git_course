@@ -84,24 +84,18 @@ interface" or "fixing bug in matrix inversion algorithm".
 
 > ## Starting point
 >
-> This episode will take as starting point for further development [a zipped repository
-> containing the recipe for guacamole sauce](../code/recipe_with_history.zip).
+> Navigate to your `recipe` directory, containing the guacamole recipe
+> repository.
 > 
-> This repository, when unzipped, contains a hidden `.git` folder that contains information
-> about the repository history. You can use it straight away simply by navigating to
-> the repository in the terminal. If you then type `git log --oneline`, you should see
-> something like:
+> If you then type `git log --oneline`, you should see something like:
 >
 > ```ouput
-> 09c9b3b (HEAD -> main) Revert "Added instruction to enjoy"
+> 09c9b3b (HEAD -> main, origin/main) Revert "Added instruction to enjoy"
 > 366f4b5 Added 1/2 onion to ingredients
 > 1171d94 Added instruction to enjoy
 > 6ff8aa5 adding ingredients and instructions
 > ```
 > 
-> You can explore the contents of the files in the repo as usual with your favourite
-> text editor.
->
 {: .callout}
 
 ### Which Branch Are We Using?
@@ -169,7 +163,7 @@ $ git graph
 ~~~
 {: .commands}
 ~~~
-* ddef60e (HEAD -> main, experiment) Revert "Added instruction to enjoy"
+* ddef60e (HEAD -> main, origin/main, experiment) Revert "Added instruction to enjoy"
 * 8bfd0ff Added 1/2 onion to ingredients
 * 2bf7ece Added instruction to enjoy
 * ae3255a Adding ingredients and instructions
@@ -190,7 +184,7 @@ $ git graph
 ~~~
 {: .commands}
 ~~~
-* ddef60e (HEAD -> experiment, main) Revert "Added instruction to enjoy"
+* ddef60e (HEAD -> experiment, origin/main, main) Revert "Added instruction to enjoy"
 * 8bfd0ff Added 1/2 onion to ingredients
 * 2bf7ece Added instruction to enjoy
 * ae3255a Adding ingredients and instructions
@@ -217,7 +211,7 @@ $ git graph
 {: .commands}
 ~~~
 * 96fe069 (HEAD -> experiment) try with some coriander
-* ddef60e (main) Revert "Added instruction to enjoy"
+* ddef60e (origin/main, main) Revert "Added instruction to enjoy"
 * 8bfd0ff Added 1/2 onion to ingredients
 * 2bf7ece Added instruction to enjoy
 * ae3255a Adding ingredients and instructions
@@ -255,7 +249,7 @@ $ git graph
 * d4ca89f (HEAD -> main) Corrected typo in ingredients.md
 | * 96fe069 (experiment) try with some coriander
 |/  
-* ddef60e Revert "Added instruction to enjoy"
+* ddef60e (origin/main) Revert "Added instruction to enjoy"
 * 8bfd0ff Added 1/2 onion to ingredients
 * 2bf7ece Added instruction to enjoy
 * ae3255a Adding ingredients and instructions
@@ -291,7 +285,7 @@ $ git graph
 | * 96fe069 (experiment) try with some coriander
 * | d4ca89f Corrected typo in ingredients.md
 |/
-* ddef60e Revert "Added instruction to enjoy"
+* ddef60e (origin/main) Revert "Added instruction to enjoy"
 * 8bfd0ff Added 1/2 onion to ingredients
 * 2bf7ece Added instruction to enjoy
 * ae3255a Adding ingredients and instructions
@@ -340,7 +334,7 @@ repository.
 > > | * 96fe069 try with some coriander
 > > * | d4ca89f Corrected typo in ingredients.md
 > > |/
-> > * ddef60e Revert "Added instruction to enjoy"
+> > * ddef60e (origin/main) Revert "Added instruction to enjoy"
 > > * 8bfd0ff Added 1/2 onion to ingredients
 > > * 2bf7ece Added instruction to enjoy
 > > * ae3255a Adding ingredients and instructions
@@ -382,7 +376,7 @@ $ git graph
 * | 96fe069 try with some coriander
 | * d4ca89f Corrected typo in ingredients.md
 |/  
-* ddef60e Revert "Added instruction to enjoy"
+* ddef60e (origin/main) Revert "Added instruction to enjoy"
 * 8bfd0ff Added 1/2 onion to ingredients
 * 2bf7ece Added instruction to enjoy
 * ae3255a Adding ingredients and instructions
@@ -414,6 +408,9 @@ $ git status
 {: .commands}
 ~~~
 On branch main
+Your branch is ahead of 'origin/main' by 6 commits.
+  (use "git push" to publish your local commits)
+
 You have unmerged paths.
   (fix conflicts and run "git commit")
   (use "git merge --abort" to abort the merge)
@@ -486,7 +483,7 @@ $ git graph
 | * 96fe069 try with some coriander
 * | d4ca89f Corrected typo in ingredients.md
 |/  
-* ddef60e Revert "Added instruction to enjoy"
+* ddef60e (origin/main) Revert "Added instruction to enjoy"
 * 8bfd0ff Added 1/2 onion to ingredients
 * 2bf7ece Added instruction to enjoy
 * ae3255a Adding ingredients and instructions
