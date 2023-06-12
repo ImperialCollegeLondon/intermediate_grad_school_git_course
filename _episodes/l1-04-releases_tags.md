@@ -45,7 +45,7 @@ in the context of Git. Ordinarily, when people talk about a particular version o
 piece of software, they mean a version with a particular release number, such as
 `v13.4.2`. However, in another sense, each commit in your repository represents a
 different version of the code and can be represented by a unique commit hash (e.g.
-`047e4fe`).
+`a34042b`).
 
 To avoid confusion, people usually refer to the first kind of version as a "release" and
 the second as a "commit", which is what we'll do here.
@@ -81,14 +81,14 @@ You probably don't need to create releases for your software if:
 - The software is simple and doesn't change much from one commit to the next
 
 In this case, if you just need to clarify which commit you're working from (e.g. to a
-colleague), remember that you can always obtain the current commit hash like so:
+colleague), you can always obtain the current commit hash like so:
 
 ~~~sh
 $ git rev-parse --short HEAD
 ~~~
 {: .commands}
 ~~~
-047e4fe
+a34042b
 ~~~
 {: .output}
 
@@ -101,35 +101,22 @@ Firstly, remind yourself what the history for your `recipe` repository looks lik
 `git log`. Mine looks like this:
 
 ~~~
-$ git log
+$ git log --oneline
 ~~~
 {: .commands}
 ~~~
-commit 09c9b3ba757d0073d021bbaeba809a55b6c78d8e
-Author: Diego Alonso Álvarez <d.alonso-alvarez@imperial.ac.uk>
-Date:   Tue Nov 15 14:01:47 2022 +0000
-
-    Revert "Added instruction to enjoy"
-
-    This reverts commit 1171d948be795eed6d4fe79d51e6889aed7f5821.
-
-commit 366f4b51e661fd96a9bde001138886a4216b7da1
-Author: Diego Alonso Álvarez <d.alonso-alvarez@imperial.ac.uk>
-Date:   Tue Nov 15 13:55:39 2022 +0000
-
-    Added 1/2 onion to ingredients
-
-commit 1171d948be795eed6d4fe79d51e6889aed7f5821
-Author: Diego Alonso Álvarez <d.alonso-alvarez@imperial.ac.uk>
-Date:   Tue Nov 15 13:55:16 2022 +0000
-
-    Added instruction to enjoy
-
-commit 6ff8aa58e55545956cf816baf676a17aeb74d993
-Author: Diego Alonso Álvarez <d.alonso-alvarez@imperial.ac.uk>
-Date:   Tue Nov 15 13:51:55 2022 +0000
-
-    adding ingredients and instructions
+a34042b (HEAD -> spicy) Chillies added to the mix
+d10e1e9 (main) Guacamole must be served cold
+5344d8f Revert "Added 1/2 onion to ingredients"
+fe0d257 Merge branch 'experiment'
+99b2352 Reduced the amount of coriander
+2c2d0e2 Merge branch 'experiment'
+6a2a76f Corrected typo in ingredients.md
+d9043d2 try with some coriander
+57d4505 (origin/main) Revert "Added instruction to enjoy"
+5cb4883 Added 1/2 onion to ingredients
+43536f3 Added instruction to enjoy
+745fb8b adding ingredients and instructions
 ~~~
 {: .output}
 
@@ -147,7 +134,7 @@ $ git tag tasty [commit hash]
 In my case, I ran:
 
 ~~~
-$ git tag tasty 366f4b5
+$ git tag tasty 5cb4883
 ~~~
 
 You can list the tags for your repo by running `git tag` without any arguments:
@@ -168,7 +155,7 @@ $ git rev-parse --short tasty
 ~~~
 {: .commands}
 ~~~
-366f4b5
+5cb4883
 ~~~
 {: .output}
 
@@ -206,7 +193,7 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at 366f4b5 Added 1/2 onion to ingredients
+HEAD is now at 5cb4883 Added 1/2 onion to ingredients
 ~~~
 {: .output}
 
@@ -236,7 +223,7 @@ $ git tag -d tasty
 ~~~
 {: .commands}
 ~~~
-Deleted tag 'tasty' (was 366f4b5)
+Deleted tag 'tasty' (was 5cb4883)
 ~~~
 {: .output}
 
@@ -282,12 +269,12 @@ good convention to stick to nonetheless as other developers will probably assume
 this is what you are using.
 
 Let's add a proper version tag to the `recipe` repository. Give the first commit to the
-repository (in mine this is `6ff8aa5`) the tag `v0.0.1`, which is often used as the
+repository (in mine this is `745fb8b`) the tag `v0.0.1`, which is often used as the
 first tagged release for a project. (Another common convention is to indicate that the
 software is still experimental by giving it a major version number of zero.)
 
 ~~~
-$ git tag v0.0.1 6ff8aa5
+$ git tag v0.0.1 745fb8b
 ~~~
 
 Verify that the tag has been added:
