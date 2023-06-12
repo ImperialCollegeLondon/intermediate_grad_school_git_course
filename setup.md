@@ -36,7 +36,7 @@ a remote repository from a local one" exercise in
 > first.
 {: .callout}
 
-[intro-course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/)
+[intro-course]: https://imperialcollegelondon.github.io/introductory_grad_school_git_course/
 
 Please follow the relevant instructions depending on your operating system.
 
