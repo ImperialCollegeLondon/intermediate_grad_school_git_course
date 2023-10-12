@@ -409,6 +409,8 @@ commits are added to the `main` branch. Docker is a tool for packaging and distr
 software along with all of its requirements. Once published the Docker image can then
 be downloaded and used by other users or services.
 
+{% raw %}
+
 ```yaml
 on: push
 jobs:
@@ -434,6 +436,8 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
 ```
 
+{% endraw %}
+
 ### A Realistic Example
 
 If we put together a few things we've seen so far, we can start to build more realistic
@@ -441,6 +445,8 @@ and useful workflows. The below example is taken from a template for Python
 repositories (see [Github Python Poetry Template Repository][poetry]).
 
 [poetry]: https://github.com/ImperialCollegeLondon/poetry_template_2/blob/main/.github/workflows/ci.yml
+
+{% raw %}
 
 ```yaml
 name: Test and build  # workflows can have a name that appears in the GitHub UI
@@ -488,5 +494,7 @@ jobs:
     - name: Run tests
       run: poetry run pytest
 ```
+
+{% endraw %}
 
 {% include links.md %}
