@@ -21,7 +21,7 @@ fi
 
 echo
 echo "Extracting recipe.zip"
-if unzip recipe.zip && cd recipe 
+if unzip recipe.zip && cd recipe
 then
     echo
     echo "Setup succesful. You're ready to proceed with the course"

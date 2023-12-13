@@ -83,13 +83,13 @@ You probably don't need to create releases for your software if:
 In this case, if you just need to clarify which commit you're working from (e.g. to a
 colleague), you can always obtain the current commit hash like so:
 
-~~~sh
-$ git rev-parse --short HEAD
-~~~
+```sh
+git rev-parse --short HEAD
+```
 {: .commands}
-~~~
+```
 a34042b
-~~~
+```
 {: .output}
 
 ## Labelling a particular commit with `git tag`
@@ -100,11 +100,11 @@ go through how to add and remove tags to your repository.
 Firstly, remind yourself what the history for your `recipe` repository looks like with
 `git log`. Mine looks like this:
 
-~~~
-$ git log --oneline
-~~~
+```
+git log --oneline
+```
 {: .commands}
-~~~
+```
 a34042b (HEAD -> spicy) Chillies added to the mix
 d10e1e9 (main) Guacamole must be served cold
 5344d8f Revert "Added 1/2 onion to ingredients"
@@ -117,7 +117,7 @@ d9043d2 try with some coriander
 5cb4883 Added 1/2 onion to ingredients
 43536f3 Added instruction to enjoy
 745fb8b adding ingredients and instructions
-~~~
+```
 {: .output}
 
 (Note that yours may look different depending on whether you followed the steps yourself
@@ -127,36 +127,36 @@ Let's say that you have decided that the point at which you added half an onion 
 highpoint in the recipe's history and you want to make a note of which commit that was
 for a future date by giving it the tag "tasty".  You can do this like so:
 
-~~~
-$ git tag tasty [commit hash]
-~~~
+```
+git tag tasty [commit hash]
+```
 
 In my case, I ran:
 
-~~~
-$ git tag tasty 5cb4883
-~~~
+```
+git tag tasty 5cb4883
+```
 
 You can list the tags for your repo by running `git tag` without any arguments:
 
-~~~
-$ git tag
-~~~
+```
+git tag
+```
 {: .commands}
-~~~
+```
 tasty
-~~~
+```
 {: .output}
 
 To check which commit hash this corresponds to, use:
 
-~~~
-$ git rev-parse --short tasty
-~~~
+```
+git rev-parse --short tasty
+```
 {: .commands}
-~~~
+```
 5cb4883
-~~~
+```
 {: .output}
 
 Double-check that this is the commit you intended to tag by running `git log` (or
@@ -170,12 +170,12 @@ instructions.
 You may now be wondering, if this is the case, then how is a tag different from a
 branch? Try checking out `tasty` to see what happens:
 
-~~~
+```
 git checkout tasty
-~~~
+```
 {: .commands}
 
-~~~
+```
 Note: switching to 'tasty'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
@@ -194,7 +194,7 @@ Or undo this operation with:
 Turn off this advice by setting config variable advice.detachedHead to false
 
 HEAD is now at 5cb4883 Added 1/2 onion to ingredients
-~~~
+```
 {: .output}
 
 Git provides some helpful output describing what you've just done (although note that we
@@ -211,20 +211,20 @@ both labelled v1.0, for example.
 Fortunately, a detached `HEAD` is a much less serious affliction for git repos than
 human beings, and you can reattach it by simply checking out a branch:
 
-~~~
-$ git checkout main
-~~~
+```
+git checkout main
+```
 
 Assume now that you have decided that you no longer want this tag (perhaps on eating, it
 turned out not to be tasty after all). You can delete the tag like so:
 
-~~~
-$ git tag -d tasty
-~~~
+```
+git tag -d tasty
+```
 {: .commands}
-~~~
+```
 Deleted tag 'tasty' (was 5cb4883)
-~~~
+```
 {: .output}
 
 > ## Exercise: Try creating your own tag
@@ -247,7 +247,7 @@ the kind of thing that is likely to have changed since the last version. Unfortu
 this practice is not universal. Often with software releases, the meaning behind the
 version number is rather opaque, except for the fact that higher numbers generally mean
 "newer". It often isn't obvious to what extent a new version of a piece of software is
-compatable with older versions -- if at all!
+compatible with older versions -- if at all!
 
 Amidst this confusion, a convention that is becoming increasingly common is so-called
 [semantic versioning](https://semver.org/). A semantic version number is composed of
@@ -273,19 +273,19 @@ repository (in mine this is `745fb8b`) the tag `v0.0.1`, which is often used as 
 first tagged release for a project. (Another common convention is to indicate that the
 software is still experimental by giving it a major version number of zero.)
 
-~~~
-$ git tag v0.0.1 745fb8b
-~~~
+```
+git tag v0.0.1 745fb8b
+```
 
 Verify that the tag has been added:
 
-~~~
+```
 git tag
-~~~
+```
 {: .commands}
-~~~
+```
 v0.0.1
-~~~
+```
 {: .output}
 
 Now your repository has a proper version tag. Next, let's push this tag to GitHub so the
@@ -295,18 +295,18 @@ rest of the world can see it.
 
 To push your tags to GitHub, do the following:
 
-~~~
-$ git push --tags
-~~~
+```
+git push --tags
+```
 {: .commands}
 
 You should see something like this:
 
-~~~
+```
 Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
 To https://github.com/alexdewar/recipe.git
  * [new tag]         v0.0.1 -> v0.0.1
-~~~
+```
 {: .output}
 
 Now open your browser and go to the GitHub page for your recipe repository (see the link

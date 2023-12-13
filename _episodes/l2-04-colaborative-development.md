@@ -36,19 +36,21 @@ knowledge acquired so far.
 >
 > Form groups of 3-4 people and choose one to act as administrator. This
 > person should:
+>
 >- Fork the [Book of Recipes repository](https://github.com/ImperialCollegeLondon/book_of_recipes)
 > with the skeleton of the book.
 >- Pass the link to the repo to your colleagues.
 >
 > Now, start collaborating!
+>
 > - The administrator creates a new release, let's say `1.0.0`, as the starting point of
 >   the book.
 > - All, including the administrator, open new issues with recipes for sauces you
 >  will like to have in the book.
 > - Administrator, add some tags, prioritising some of the recipes, and assign
 >  yourself or one of your colleagues as responsible for each of them.
->  Remember that if you do not have write access to the repository (which is the case here) 
->  and you are not part of the same organisation of the repository, the only way of being 
+>  Remember that if you do not have write access to the repository (which is the case here)
+>  and you are not part of the same organisation of the repository, the only way of being
 >  assigned to an Issue is by making a comment on the Issue.
 > - Fork the administrator's repository. Administrator, did you notice how the
 >  number of forks increases? Which GitHub users forked it from you? And from
@@ -56,7 +58,7 @@ knowledge acquired so far.
 > - Work on the recipes you have been assigned. Practice the concepts learnt
 >  in previous episodes about cloning a repository, making the changes locally
 >  and pushing those changes back to the remote repository. You can even try a
->  [gitflow aproach](https://nvie.com/posts/a-successful-git-branching-model/)
+>  [gitflow approach](https://nvie.com/posts/a-successful-git-branching-model/)
 >  if you feel ambitious!
 > - When ready, open a PR to the administrator's repo and request their review.
 > - Administrator, review the PR, request some changes and accept others. Make sure the
@@ -77,6 +79,5 @@ instructions to make sure that your own forks are kept up to date.
 
 - [Configuring a remote for a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork)
 - [Syncing a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)
-
 
 {% include links.md %}

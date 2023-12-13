@@ -61,7 +61,7 @@
     \begin{tikzpicture}
       % Commit DAG
       \gitDAG[grow right sep = 2em]{
-        A -- B -- { 
+        A -- B -- {
           C,
           D -- E,
         }
@@ -80,7 +80,7 @@
         {C}             % target
       % Branch
       \gitbranch
-        {main}     % node name and text 
+        {main}     % node name and text
         {above=of E} % node placement
         {E}          % target
       % HEAD reference
