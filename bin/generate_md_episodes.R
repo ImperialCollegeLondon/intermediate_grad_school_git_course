@@ -1,7 +1,7 @@
 generate_md_episodes <- function() {
 
   library("methods")
-  
+
   if (!require("remotes", quietly = TRUE)) {
     install.packages("remotes", repos = c(CRAN = "https://cloud.r-project.org/"))
   }

@@ -1,10 +1,10 @@
-dist: xenial  # Ubuntu 16.04 (required for python 3.7)
+dist: xenial # Ubuntu 16.04 (required for python 3.7)
 language: python
 python: 3.7
 branches:
   only:
-  - gh-pages
-  - /.*/
+    - gh-pages
+    - /.*/
 before_install:
   - sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
   - echo "deb https://cran.rstudio.com/bin/linux/ubuntu trusty/" | sudo tee -a /etc/apt/sources.list
