@@ -236,7 +236,8 @@ git checkout main
 ```
 {: .commands}
 
-Then fix the typing mistake in `ingredients.md`. And finally, commit that change:
+Then fix the typing mistake in `ingredients.md`. And finally, commit that change (hint: 
+'avo' look at the first ingredient):
 
 ```
 git add ingredients.md
