@@ -57,7 +57,7 @@ style.
 
 > ## Prerequisites
 >
-> Basic familiarity with Git and GitHub (see our [basic course](https://imperialcollegelondon.github.io/grad_school_git_course/))
+> Basic familiarity with Git and GitHub (see our [basic course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/index.html))
 {: .prereq}
 
 {% include links.md %}
