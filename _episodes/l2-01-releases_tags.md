@@ -276,6 +276,7 @@ software is still experimental by giving it a major version number of zero.)
 ```
 git tag v0.0.1 745fb8b
 ```
+{: .commands}
 
 Verify that the tag has been added:
 
