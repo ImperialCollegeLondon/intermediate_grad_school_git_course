@@ -17,6 +17,7 @@ keypoints:
 - "Revert: You want to undo something done in the past without messing too much with the timeline, upsetting your collaborators"
 - "Stash: You want to do something else -- e.g. checkout someone else's branch -- without losing your current work"
 - "Rebase: Someone else has updated the main branch while you've been working and need to bring those changes to your branch"
+- "More information: [Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)"
 ---
 
 
@@ -126,8 +127,8 @@ git reset --hard COMMIT_HASH
 > > and go back to `fe0d257`, when we merged the `experiment` branch after reducing the
 > > amount of coriander. Let's do it (use your own commit hash!):
 > > ```
-> > $ git reset --hard fe0d257
-> > $ git graph
+> > git reset --hard fe0d257
+> > git graph
 > > ```
 > > {: .commands}
 > >
@@ -188,8 +189,8 @@ git branch -D BRANCH_NAME
 > > ## Solution
 > >
 > > ```
-> > $ git branch -D experiment
-> > $ git graph
+> > git branch -D experiment
+> > git graph
 > > ```
 > > {: .commands}
 > >
@@ -245,7 +246,7 @@ description and rationale for the revert.
 > > ## Solution
 > >
 > > ```
-> > $ git revert --no-edit 5cb4883
+> > git revert --no-edit 5cb4883
 > > ```
 > > {: .commands}
 > > The process, unfortunately, will fail and create a conflict. The reason is that both,
@@ -269,9 +270,9 @@ description and rationale for the revert.
 > > To move forward, fix the conflicts as it was done in the previous section - removing the
 > > << and >> lines as well as "1/2 onion" and run:
 > > ```
-> > $ git add ingredients.md
-> > $ git revert --continue --no-edit
-> > $ git graph
+> > git add ingredients.md
+> > git revert --continue --no-edit
+> > git graph
 > > ```
 > > {: .commands}
 > > ```
@@ -443,15 +444,15 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > > After the following commands (and modifications to the files) the repository history
 > > should look like the graph below:
 > > ```
-> > $ git checkout -b spicy
-> > $ # add the chillies to ingredients.md
-> > $ git add ingredients.md
-> > $ git commit -m "Chillies added to the mix"
-> > $ git checkout main
-> > $ # Indicate that should be served cold in instructions.md
-> > $ git add instructions.md
-> > $ git commit -m "Guacamole must be served cold"
-> > $ git graph
+> > git checkout -b spicy
+> > # add the chillies to ingredients.md
+> > git add ingredients.md
+> > git commit -m "Chillies added to the mix"
+> > git checkout main
+> > # Indicate that should be served cold in instructions.md
+> > git add instructions.md
+> > git commit -m "Guacamole must be served cold"
+> > git graph
 > > ```
 > > {: .commands}
 > > ```
@@ -475,9 +476,9 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > > {: .output}
 > > Now, let's go back to `spicy` and do the `git rebase`:
 > > ```
-> > $ git checkout spicy
-> > $ git rebase main
-> > $ git graph
+> > git checkout spicy
+> > git rebase main
+> > git graph
 > > ```
 > > {: .commands}
 > > ```
