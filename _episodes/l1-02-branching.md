@@ -251,4 +251,27 @@ git graph
 ![Git collaborative]({{ site.baseurl }}/fig/branch5.png
 "Repository with one commit on main and experiment branches"){:class="img-responsive"}
 
+## Summary
+
+Let us pause for a moment and recapitulate what we have just learned:
+
+```shell
+git branch               # see where we are
+git branch <name>        # create branch <name>
+git checkout <name>      # switch to branch <name>
+```
+
+Since the following command combo is so frequent:
+
+```shell
+git branch <name>        # create branch <name>
+git checkout <name>      # switch to branch <name>
+```
+
+There is a shortcut for it:
+
+```shell
+git checkout -b <name>   # create branch <name> and switch to it
+```
+
 {% include links.md %}
