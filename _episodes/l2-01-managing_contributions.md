@@ -3,6 +3,7 @@ title: "Managing contributions to code"
 teaching: 20
 exercises: 10
 questions:
+- "How to pull and push using git?"
 - "What is the difference between forking and branching?"
 - "How can my group use GitHub pull requests to manage changes to a code?"
 - "How can I suggest changes to other people's code?"
@@ -17,6 +18,52 @@ keypoints:
 - Merging a PR does not delete the original branch, just modifies the target one.
 - PR are often created to solve specific issues.
 ---
+
+## Multiple branches in remotes
+
+The same way you might have different branches in your local repository, you could
+manage different branches in your remote - the same branches or different ones.
+
+As a reminder, remote and local repositories are not automatically synchronised, but
+rather it is a manual process done via `git pull` and `git push` commands. This
+synchronisation needs to be done **branch by branch** with all of those you want to keep
+in sync.
+
+### Pushing
+
+* Its basic use is to synchronise **any committed changes** in your current
+ branch to its upstream branch: `$ git push`.
+* Changes in the staging area will not be synchronised.
+![Git collaborative]({{ site.baseurl }}/fig/push.png "Push a branch
+."){:class="img-responsive"}
+* If the current branch has no upstream yet, you can configure one by doing
+`$ git push -u origin BRANCH_NAME`, as done with `main` in the exercise
+ above.
+![Git collaborative]({{ site.baseurl }}/fig/push_u.png "Push a branch without
+ upstream yet."){:class="img-responsive"}
+* `push` only operates on your current branch. If you want to push another
+ branch, you have to `checkout` that branch first.
+* If the upstream branch has changes you do not have in the local branch, the
+ command will fail, requesting you to pull those changes first.
+
+## Pulling
+
+* Opposite to `push`, `pull` brings changes in the upstream branch to the local
+ branch.
+* You can check if there are any changes to synchronise in the upstream
+ branch by running `git fetch`, which only checks if there are changes, and then
+`git status` to see how your local and remote branch compare in terms of commit history.
+* It's best to make sure your repository is in a clean state with no staged or
+  unstaged changes.
+* If the local and upstream branches have diverged - have different
+ commit history - the command will attempt to merge both. If there are conflicts, you
+ will need deal with them in the same way described above.
+* You can get a new branch existing only in `origin` directly with `git checkout
+  BRANCH_NAME` without the need of creating the branch locally and then pulling the
+  remote.
+
+![Git collaborative]({{ site.baseurl }}/fig/pull.png "Pull remote changes")
+{:class="img-responsive"}
 
 ## Pull Requests
 
@@ -38,13 +85,13 @@ Essentially, the way you use pull requests will depend on what permissions you h
 >
 > Before we get into understanding pull requests, we should first get to grips with what a fork is, and how it differs from a branch.
 >
-> - By default, a public repository can be seen by anyone but only the owner can make changes e.g. create new commits or branches.
-> - `Forking` a repository means creating a copy of it in your own GitHub account.
-> - This copy is fully under your control, and you can create branches, push new commits, etc., as you would do with any other of your repos.
-> - `fork` is a GitHub concept and not Git.
-> - Forks are related to the original repository, and the number of forks a given repository has can be seen in the upper right corner of the repo page.
-> - If you have some changes in your fork that you want to contribute to the original repo, you open a `pull request`.
-> - You can bring changes from an upstream repository to your local fork.
+> * By default, a public repository can be seen by anyone but only the owner can make changes e.g. create new commits or branches.
+> * `Forking` a repository means creating a copy of it in your own GitHub account.
+> * This copy is fully under your control, and you can create branches, push new commits, etc., as you would do with any other of your repos.
+> * `fork` is a GitHub concept and not Git.
+> * Forks are related to the original repository, and the number of forks a given repository has can be seen in the upper right corner of the repo page.
+> * If you have some changes in your fork that you want to contribute to the original repo, you open a `pull request`.
+> * You can bring changes from an upstream repository to your local fork.
 {: .callout}
 
 Now let's take a closer look at those two types of development models;
@@ -124,16 +171,16 @@ Another difference with pull requests from forked repositories is that you can a
 
 ### Requesting reviewers
 
-- When opening a PR, you can request it to be reviewed by someone else, so there is another pair of eyes making sure that your contribution is correct and does not introduce any bugs.
-- Reviewers can just comment on the PR, approve it, or request changes before it can be approved.
-- Some repositories might require the approval of one or more reviewers before the changes can be merged into the target branch. This can be set up by the repository manager(s) as a [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule).
-- Only maintainers of the target repository can merge a PR.
+* When opening a PR, you can request it to be reviewed by someone else, so there is another pair of eyes making sure that your contribution is correct and does not introduce any bugs.
+* Reviewers can just comment on the PR, approve it, or request changes before it can be approved.
+* Some repositories might require the approval of one or more reviewers before the changes can be merged into the target branch. This can be set up by the repository manager(s) as a [branch protection rule](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/managing-a-branch-protection-rule).
+* Only maintainers of the target repository can merge a PR.
 
 ### Reviewing a PR
 
-- When reviewing a PR, you will be shown, for each file changed, a comparison between the old and the new version, much like the `git diff` command (indeed, it is `git diff` between the original and target branches, just nicely formatted).
-- You can add comments and suggest changes to specific lines in the code.
-- Comments and suggestions must be constructive and help the code to become better. Comments of the type “this can be done better” are discouraged. The CONTRIBUTING or the CODE_OF_CONDUCT files often contain information on how to make a good review.
+* When reviewing a PR, you will be shown, for each file changed, a comparison between the old and the new version, much like the `git diff` command (indeed, it is `git diff` between the original and target branches, just nicely formatted).
+* You can add comments and suggest changes to specific lines in the code.
+* Comments and suggestions must be constructive and help the code to become better. Comments of the type “this can be done better” are discouraged. The CONTRIBUTING or the CODE_OF_CONDUCT files often contain information on how to make a good review.
 
 > ## Closing GitHub Issues
 >
