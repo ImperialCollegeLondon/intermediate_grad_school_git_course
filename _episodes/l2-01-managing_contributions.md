@@ -32,12 +32,12 @@ in sync.
 ### Pushing
 
 * Its basic use is to synchronise **any committed changes** in your current
- branch to its upstream branch: `$ git push`.
+ branch to its upstream branch: `git push`.
 * Changes in the staging area will not be synchronised.
 ![Git collaborative]({{ site.baseurl }}/fig/push.png "Push a branch
 ."){:class="img-responsive"}
 * If the current branch has no upstream yet, you can configure one by doing
-`$ git push -u origin BRANCH_NAME`, as done with `main` in the exercise
+`git push -u origin BRANCH_NAME`, as done with `main` in the exercise
  above.
 ![Git collaborative]({{ site.baseurl }}/fig/push_u.png "Push a branch without
  upstream yet."){:class="img-responsive"}
