@@ -306,16 +306,15 @@ usage of GitHub Actions. In brief:
 - GitHub Actions is free for publicly accessible repositories.
 - GitHub Actions for private repositories is restricted (see above link).
 - Imperial College pays for a GitHub licence that provides compute minutes and storage
-  even for private repositories. You must be a member of the [ImperialCollegeLondon
-  GitHub organisation][github-org] and your repository must be created within the
-  organisation to benefit. Details of how to join the organisation can be found at the
-  [Gain Access to Imperial College London GitHub organisation][join-github-org] article.
+  even for private repositories. You must be a member of the ImperialCollegeLondon
+  GitHub organisation and your repository must be created within the organisation to
+  benefit. Details of how to join the organisation can be found at [Working With
+  GitHub.com][github-org].
 - Billing varies depending on the operating system used by your jobs. Running on Windows
   or MacOS is more expensive.
 
 [billing]: https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions
-[github-org]: https://github.com/ImperialCollegeLondon
-[join-github-org]: https://servicemgt.imperial.ac.uk/ask?id=kb_article_view&sysparm_article=KB0012428
+[github-org]: https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/research-support-systems/github/working-with-githubcom/
 
 ## Ways to use CI
 
