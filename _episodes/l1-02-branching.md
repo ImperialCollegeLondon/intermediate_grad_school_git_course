@@ -1,7 +1,7 @@
 ---
 title: "Branching"
-teaching: 30
-exercises: 15
+teaching: 20
+exercises: 0
 questions:
 - How can I or my team work on multiple features in parallel?
 objectives:
@@ -253,7 +253,7 @@ git graph
 
 ## Summary
 
-Let us pause for a moment and recapitulate what we have just learned:
+Let us pause for a moment and summarise what we have just learned:
 
 ```shell
 git branch               # see where we are

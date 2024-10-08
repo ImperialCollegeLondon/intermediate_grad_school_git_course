@@ -1,9 +1,9 @@
 ---
 title: "Managing contributions to code"
-teaching: 20
+teaching: 25
 exercises: 10
 questions:
-- "How to pull and push using git?"
+- "How do I keep my local branches in sync with the remote branches?"
 - "What is the difference between forking and branching?"
 - "How can my group use GitHub pull requests to manage changes to a code?"
 - "How can I suggest changes to other people's code?"

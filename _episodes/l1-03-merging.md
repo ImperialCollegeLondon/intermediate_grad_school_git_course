@@ -1,7 +1,7 @@
 ---
 title: "Merging"
-teaching: 30
-exercises: 15
+teaching: 15
+exercises: 10
 questions:
 - How can changes from parallel tracks of work be combined?
 objectives:
