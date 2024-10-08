@@ -1,5 +1,0 @@
-dirs:
-  - .
-excludedDirs:
-  - ./bin
-useGitIgnore: true
