@@ -16,4 +16,5 @@ jobs:
         with:
           use-quiet-mode: yes
           use-verbose-mode: yes
-          config-file: .markdown-link-check.json
+          folder-path: "_episodes, _extras, _includes"
+          file-path: "./README.md, ./LICENSE, ./CODE_OF_CONDUCT.md, CONTRIBUTING.md, reference.md, setup.md, index.md"
