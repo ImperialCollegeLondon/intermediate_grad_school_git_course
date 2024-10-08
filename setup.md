@@ -98,6 +98,7 @@ installing Git, there will not be anything in your `/Applications` folder, as
 Git is a command line program. **For older versions of OS X (10.5-10.8)** use
 the most recent available installer labelled "snow-leopard".
 
+<!-- markdown-link-check-disable-next-line -->
 [installer-list]: http://sourceforge.net/projects/git-osx-installer/files/
 
 ### Linux
