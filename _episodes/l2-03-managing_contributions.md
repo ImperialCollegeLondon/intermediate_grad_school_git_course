@@ -137,7 +137,7 @@ Another difference with pull requests from forked repositories is that you can a
 
 > ## Closing GitHub Issues
 >
-> The introductory course - [Using GitHub Issues](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/%7C1-06-issues/index.html) - describes how issues work on GitHub, but one handy functionality that is specific to pull requests is being able to automatically close an issue from a pull request.
+> The introductory course - [Using GitHub Issues](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-03-issues/index.html) - describes how issues work on GitHub, but one handy functionality that is specific to pull requests is being able to automatically close an issue from a pull request.
 >
 > If a PR tackles a particular issue, you can automatically close that issue
 > when the PR is merged by indicating `Close #ISSUE_NUMBER` in any commit
