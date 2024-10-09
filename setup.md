@@ -3,6 +3,7 @@ title: Setup
 ---
 
 > ## Minimum requirements
+>
 > Completing this course requires:
 >
 > - Access to a computer with Git installed
@@ -29,7 +30,7 @@ repo with some previous commit history that will be used in the session.
 - Create a repository on your personal GitHub account and set it as the remote for this
 `recipe` repository you have locally.
 
-> ## Important!
+> ## Important
 >
 > If you do not know how to set up a remote repo on GitHub, you can follow the steps in
 > the "Configuring a remote repository from a local one" exercise in [this lesson from
@@ -38,7 +39,7 @@ repo with some previous commit history that will be used in the session.
 
 ## Install Git
 
-> ## Important!
+> ## Important
 >
 > If you do not already have Git installed or are not comfortable with using it for
 > simple version control tasks, you should consider attending our
@@ -76,9 +77,9 @@ Please follow the relevant instructions depending on your operating system.
 > launches enter the command `git --version` and press enter. You should see
 > output similar to that below:
 >
-> ~~~
+> ```
 > git version 2.40.0.windows-1
-> ~~~
+> ```
 > {: .output}
 {: .solution}
 
@@ -87,14 +88,14 @@ Please follow the relevant instructions depending on your operating system.
 > Apple provide a suite of UNIX-style command line tools that includes git. Install
 > them by opening the "Terminal" app and running:
 >
-> ~~~
+> ```bash
 > xcode-select --install
-> ~~~
+> ```
 > {: .commands}
 >
-> ~~~
+> ```
 > xcode-select: note: install requested for command line developer tools
-> ~~~
+> ```
 > {: .output}
 >
 > This will open a dialog that asks for your confirmation to install the tools. If
@@ -103,16 +104,16 @@ Please follow the relevant instructions depending on your operating system.
 >
 > To check the installation was successful, run the command:
 >
-> ~~~
-> `git --version`
-> ~~~
+> ```bash
+> git --version
+> ```
 > {: .commands}
 >
 > You should see output similar to that below:
 >
-> ~~~
+> ```
 > git version 2.37.1 (Apple Git-137.1)
-> ~~~
+> ```
 > {: .output}
 >
 > **If the above does not work**, you may have and older version of macOS.
@@ -131,30 +132,30 @@ Please follow the relevant instructions depending on your operating system.
 > your distribution's package manager.
 >
 > For **Debian/Ubuntu** run:
-> ~~~
+> ```bash
 > sudo apt-get install git
-> ~~~
+> ```
 > {: .commands}
 >
 > For **Fedora** run:
-> ~~~
+> ```bash
 > sudo dnf install git
-> ~~~
+> ```
 > {: .commands}
 >
 > To check the installation was successful open a new terminal. In the window that
 > launches enter the command:
 >
-> ~~~
-> `git --version`
-> ~~~
+> ```bash
+> git --version
+> ```
 > {: .commands}
 >
 > You should see output similar to that below:
 >
-> ~~~
+> ```
 > git version 2.40.0
-> ~~~
+> ```
 > {: .output}
 {: .solution}
 
@@ -164,9 +165,9 @@ Many Git commands require you to provide input via a text editor (though you can
 
 To view the currently configured text editor, you can run:
 
-~~~
+```bash
 git config --global core.editor
-~~~
+```
 {: .commands}
 
 (The output may be empty, indicating that no editor has been selected.)
@@ -175,9 +176,9 @@ If you would prefer to use a graphical text editor, there is [useful documentati
 
 If you would rather just use nano, you can run:
 
-~~~
+```bash
 git config --global core.editor nano
-~~~
+```
 {: .commands}
 
 [intro-course]: https://imperialcollegelondon.github.io/introductory_grad_school_git_course/
