@@ -115,4 +115,28 @@ output similar to the below:
 git version 2.40.0
 ```
 
+## Configure Git to use your preferred text editor
+
+Many Git commands require you to provide input via a text editor (though you can often skip this step with additional command-line arguments). For example, running `git commit` by itself will open a text editor to allow you to enter a commit message. Depending on your OS and how you installed Git, the text editor Git will use can be any number of things, but is likely to be either [nano] or [vim], which are both terminal-based editors. It is best to configure your preferred editor explicitly (if you are using editor for the first time, it is advisable to use nano).
+
+To view the currently configured text editor, you can run:
+
+```sh
+git config --global core.editor
+```
+
+(The output may be empty, indicating that no editor has been selected.)
+
+If you would prefer to use a graphical text editor, there is [useful documentation on GitHub] on how to do this for some common editors.
+
+If you would rather just use nano, you can run:
+
+```sh
+git config --global core.editor nano
+```
+
+[nano]: https://www.nano-editor.org
+[vim]: https://www.vim.org
+[useful documentation on GitHub]: https://docs.github.com/en/get-started/getting-started-with-git/associating-text-editors-with-git
+
 {% include links.md %}
