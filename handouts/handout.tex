@@ -1,0 +1,105 @@
+\documentclass[9pt]{extarticle}
+\input{common.tex}
+\usepackage{multicol}
+
+\def\boxpad{4pt}
+\tcbsetforeverylayer{left=\boxpad,right=\boxpad,top=\boxpad,bottom=\boxpad}
+
+\def\itempad{-1pt}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+  {\LARGE
+  Git cheatsheet}
+\end{center}
+
+\begin{bluebox}[title=Glossary]
+  \begin{itemize}
+    \itemsep\itempad
+    \item \textbf{Repository/Repo} -- A project that is being managed by Git
+    \item \textbf{Commit} -- A set of changes recorded in the history of
+      a project
+    \item \textbf{Staging Area} -- The location where file changes are recorded to
+      prepare for inclusion in a commit
+    \item \textbf{Working Tree} -- The visible copy of files in a project that you view
+      and edit as usual
+    \item \textbf{Branch} -- A label used for a set of commits with a particular
+      purpose
+    \item \textbf{HEAD} -- The current commit that the Working Directory is based on
+    \item \textbf{main} -- The default name given to the starting branch of all
+      repositories
+    \item \textbf{Local} -- A repository copy stored on the computer where you are
+      working
+    \item \textbf{Remote} -- A repository copy stored elsewhere, usually a hosting
+      service like GitHub
+    \item \textbf{Upstream} -- The remote repository with which a local repository is
+      associated
+    \item \textbf{Tracking} -- Used to describe a branch in a local repository which is
+      matched with a branch in a remote repository
+    \item \textbf{Fork} -- A copy of a repository on GitHub that is owned by a different
+      GitHub user
+    \item \textbf{Origin} -- The default name used by Git for a configured remote
+      repository
+    \item \textbf{Pull Request} -- A GitHub feature which requests that changes from a
+      fork be incorporated into the original repository.
+  \end{itemize}
+\end{bluebox}
+
+\begin{bluebox}[title=Git Command Cheat Sheet]
+  \begin{itemize}
+    \itemsep\itempad
+  \item \textbf{git config} -- Change (or view) the settings that Git uses
+  \item \textbf{git init} -- Create a new repository in the current directory
+  \item \textbf{git status} -- High-level overview of changes made since the last commit
+  \item \textbf{git add} -- Stage a file (or changes made to a file) for inclusion in
+    the next commit
+  \item \textbf{git commit -m ``COMMIT MESSAGE''} -- Create a new commit including all
+    staged file changes
+  \item \textbf{git log} -- Display the commit history of a repository
+  \item \textbf{git diff} -- Show in detail the changes made in the working directory
+    since the last commit
+  \item \textbf{git reset -{}-soft HEAD\^} -- Remove the last commit from the history of
+    a repository
+  \item \textbf{git revert -{}-no-edit COMMIT\_HASH} -- Create a new commit that undoes
+    the changes of the specified commit
+  \item \textbf{git branch} -- Report on the existing branches in a repository
+  \item \textbf{git branch BRANCH\_NAME} -- Create a new branch
+  \item \textbf{git checkout} -- Update the position of HEAD to a new branch or commit
+  \item \textbf{git merge -{}-no-edit BRANCH\_NAME} -- Merge BRANCH\_NAME into the
+    current branch
+  \item \textbf{git remote add origin REPOSITORY\_URL} -- Configure a local repository
+    with a remote with the label 'origin'
+  \item \textbf{git push} -- Synchronise changes in the current local branch to its
+    upstream branch
+  \item \textbf{git pull} -- Synchronise changes in the upstream branch to the current
+    local one
+  \item \textbf{git clone REPOSITORY\_URL} -- Create a new local repository that is a
+    copy of remote one
+  \end{itemize}
+\end{bluebox}
+
+\begin{bluebox}[title=Things to think when publishing code]
+  \begin{itemize}
+    \itemsep\itempad
+  \item \textbf{Public or Private?} - What level of visibility should your
+    project to have? Open code promotes reproducibility and impact but be sure
+    to consider and consult any other contributors
+  \item \textbf{README.md} - The `front page' of a repository. GitHub will
+    automatically render the markdown in this file nicely
+  \item \textbf{Licence} - Tell other people what they can and cannot do with
+    your code. The College recommended licence is BSD 2- or 3-clause
+  \item \textbf{INSTALL.md} - If your project is complex to setup and install be
+    sure to include detailed instructions
+  \item \textbf{CITATION.cff} - Show how your project should be cited by others
+  \item \textbf{CONTRIBUTING.md} - Tell potential contributors the kind of work
+    you're interested in and the process they should follow
+  \end{itemize}
+\end{bluebox}
+
+
+\furtherhelp
+
+\end{document}
