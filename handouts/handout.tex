@@ -72,6 +72,8 @@
     \item \textbf{Continuous Integration (CI)} -- A software development practice which
       involves running automated checks to ensure code contributions meet certain
       criteria. An example of a CI system is GitHub Actions.
+    \item \textbf{Semantic Versioning} -- A versioning scheme where the different
+      numbers in a software version (e.g. v1.2.3) have a particular meaning
   \end{itemize}
 \end{bluebox}
 
@@ -105,10 +107,14 @@
     with a remote with the label 'origin'
   \item \textbf{git push} -- Synchronise changes in the current local branch to its
     upstream branch
+  \item \textbf{git push --tags} -- As above, but also push any tags you've created to
+    the remote
   \item \textbf{git pull} -- Synchronise changes in the upstream branch to the current
     local one
   \item \textbf{git clone REPOSITORY\_URL} -- Create a new local repository that is a
     copy of remote one
+  \item \textbf{git tag TAG\_NAME [COMMIT\_HASH]} -- Create a new tag at the specified
+    commit (or at HEAD, if not specified)
   \end{itemize}
 \end{bluebox}
 
