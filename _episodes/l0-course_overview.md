@@ -7,39 +7,39 @@ objectives:
   - Provide background information on course
 ---
 
-## Introduction
+## Overview
 
-This course introduces intermediate concepts and functionality of the version control
-system Git and the code repository GitHub. The course is focused on ensuring an effective and healthy
-collaborative process. When collaborating with others, measures and tooling need to be
-in place to manage the process in an effective way, keeping track of the sequence of
-changes, reviewing, and approving what those changes are and undoing them, if needed.
+This course builds on the [Introduction to using Git and GitHub for software
+development] course. While it is not a requirement to have completed the introductory
+course, basic familiarity with using Git from the command line is assumed. (Don't worry
+if you're rusty!) You should also have a copy of the `recipe` repository locally. If
+not, please refer to [the setup instructions].
 
-Both Git and GitHub provide powerful features that facilitate this process such as:
-branching, pull requests, forks, rewriting history with rebase, merge, reset, and
-releasing new versions of the software with tags to identify milestones in the
-development process.
+This course introduces some of the intermediate-level functionality of Git and GitHub.
+In addition to providing you with a more thorough understanding of Git and how to use it
+to improve your workflow, we will teach about the features of Git and GitHub that allow
+you to effectively collaborate with others.
 
-Moreover, some tasks ensuring that all contributions follow agreed standards can be
-automated via a continuous integration system. This course will introduce the basics of
-GitHub Actions, how to create workflows and run them automatically, when new changes are
-identified.
-
-## Syllabus
-
-- Intermediate Git concepts, commands, and terminology, such as branches, rebase, merge and stash, among others.
-- Using GitHub’s Pull Requests to manage contributions from collaborators
-- Using GitHub’s Forks to contribute to other people’s code
-- Using continuous integration to make sure every collaborator's contribution meets an agreed standard
-- Creating releases and adding tags to communicate effectively to users/collaborators what has changed between versions of the code.
+[Introduction to using Git and GitHub for software development]: https://imperialcollegelondon.github.io/introductory_grad_school_git_course/
+[the setup instructions]: ../setup.html
 
 ## Learning outcomes
 
-After completing this workshop, you will be better able to
+After completing this workshop, you should be able to:
 
-1. Use advance Git commands to manage the parallel development of multiple features
-2. Collaborate effectively with others on a code base to achieve larger goals
-3. Apply continuous integration to automate tasks
+- Use Git branches to manage parallel development of multiple features
+- Rewrite your Git history, by undoing changes and rebasing your work onto another
+   branch
+- Push to and pull from a remote repository
+- Create a fork of a repository on GitHub
+- Create a pull request (PR) from within the same repo or a fork, request a review and
+   respond to reviewer comments
+- Provide a helpful code review to others
+- Use GitHub Actions as a Continuous Integration (CI) system to ensure contributed code
+   meets agreed standards
+- Understand semantic versioning
+- Create a new tag with Git and push it to a remote
+- Create a new release of your software on GitHub
 
 ## Delivery of the course
 
