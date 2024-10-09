@@ -20,7 +20,7 @@ to improve your workflow, we will teach about the features of Git and GitHub tha
 you to effectively collaborate with others.
 
 [Introduction to using Git and GitHub for software development]: https://imperialcollegelondon.github.io/introductory_grad_school_git_course/
-[the setup instructions]: ../setup.html
+[the setup instructions]: {% link setup.md %}
 
 ## Learning outcomes
 
