@@ -25,8 +25,12 @@ In addition to providing you with a more thorough understanding of Git and how t
 to improve your workflow, we will teach about the features of Git and GitHub that allow
 you to effectively collaborate with others.
 
+We provide [a handout sheet] for this course with a glossary of terms and a list of
+common Git commands. You may want to download this as a reference for later.
+
 [Introduction to using Git and GitHub for software development]: https://imperialcollegelondon.github.io/introductory_grad_school_git_course/
 [the setup instructions]: {% link setup.md %}
+[a handout sheet]: ../handouts/git-course-handout.pdf
 
 ## Learning outcomes
 
