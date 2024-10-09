@@ -3,7 +3,6 @@ title: "Course overview"
 teaching: 5
 exercises: 0
 objectives:
-  - Introduce instructors
   - Provide background information on course
 ---
 
