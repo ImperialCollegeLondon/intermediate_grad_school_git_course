@@ -19,7 +19,9 @@ You can find more information about our work and the services we offer [on our w
 
 > ## Prerequisites
 >
-> Basic familiarity with Git and GitHub (see our [basic course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/index.html))
+> - Basic familiarity with Git and GitHub (see our [introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/index.html))
+> - A working local installation of Git
+> - A local copy of the `recipe` repository
 {: .prereq}
 
 {% include links.md %}
