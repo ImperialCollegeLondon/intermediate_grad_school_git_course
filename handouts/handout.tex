@@ -28,13 +28,19 @@
       and edit as usual
     \item \textbf{Branch} -- A label used for a set of commits with a particular
       purpose
-    \item \textbf{HEAD} -- The current commit that the Working Directory is based on
+    \item \textbf{Merge} -- Combine the changes from another branch (or commit etc.)
+      into the current one
+    \item \textbf{Merge Conflict} -- A state that occurs when merging automatically
+      fails because two sets of changes are incompatible. In this case, the changes must
+      be resolved manually.
     \item \textbf{main} -- The default name given to the starting branch of all
       repositories
+    \item \textbf{HEAD} -- The current commit that the working tree is based on
     \item \textbf{Local} -- A repository copy stored on the computer where you are
       working
     \item \textbf{Remote} -- A repository copy stored elsewhere, usually a hosting
       service like GitHub
+    \item \textbf{origin} -- The default name given to a repository's remote
     \item \textbf{Upstream} -- The remote repository with which a local repository is
       associated
     \item \textbf{Tracking} -- Used to describe a branch in a local repository which is
@@ -43,8 +49,11 @@
       GitHub user
     \item \textbf{Origin} -- The default name used by Git for a configured remote
       repository
-    \item \textbf{Pull Request} -- A GitHub feature which requests that changes from a
-      fork be incorporated into the original repository.
+    \item \textbf{Pull Request (PR)} -- A GitHub feature which requests that changes from a
+      fork be incorporated into the original repository
+    \item \textbf{Continuous Integration (CI)} -- A software development practice which
+      involves running automated checks to ensure code contributions meet certain
+      criteria. An example of a CI system is GitHub Actions.
   \end{itemize}
 \end{bluebox}
 
@@ -58,6 +67,8 @@
     the next commit
   \item \textbf{git commit -m ``COMMIT MESSAGE''} -- Create a new commit including all
     staged file changes
+  \item \textbf{git commit --amend} -- Incorporate further changes into the last commit
+    and/or edit the commit message
   \item \textbf{git log} -- Display the commit history of a repository
   \item \textbf{git diff} -- Show in detail the changes made in the working directory
     since the last commit
@@ -67,9 +78,11 @@
     the changes of the specified commit
   \item \textbf{git branch} -- Report on the existing branches in a repository
   \item \textbf{git branch BRANCH\_NAME} -- Create a new branch
+  \item \textbf{git branch -D BRANCH\_NAME} -- Delete a branch (be careful with this one!)
   \item \textbf{git checkout} -- Update the position of HEAD to a new branch or commit
   \item \textbf{git merge -{}-no-edit BRANCH\_NAME} -- Merge BRANCH\_NAME into the
     current branch
+  \item \textbf{git rebase NEW\_BASE} -- Rebase current branch onto NEW\_BASE
   \item \textbf{git remote add origin REPOSITORY\_URL} -- Configure a local repository
     with a remote with the label 'origin'
   \item \textbf{git push} -- Synchronise changes in the current local branch to its
