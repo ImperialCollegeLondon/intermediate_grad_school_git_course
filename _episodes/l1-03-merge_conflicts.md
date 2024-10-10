@@ -1,10 +1,18 @@
 ---
 title: "Merge conflicts"
 teaching: 10
-exercises:
+exercises: 10
 questions:
+  - What is a merge conflict?
+  - How do I resolve a merge conflict?
 objectives:
+  - Know what a merge conflict is
+  - Know how to abort a merge in the case of a conflict
+  - Know how to resolve a merge conflict by manually editing the conflicting file or files
 keypoints:
+  - Merge conflicts result when Git fails to merge files automatically because of mutually incompatible changes
+  - Merge conflicts must be resolved by manually editing files to specify the desired changes
+  - After resolving a merge conflict you must finalise the merge with `git add` and `git commit`
 ---
 
 ## Merge conflicts
@@ -91,7 +99,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
 This suggests how we can get out of this state. If we want to give up on this
-merge and try it again later then we can use `git merge --abort.`. This will
+merge and try it again later then we can use `git merge --abort`. This will
 return the repository to its pre-merge state. We will likely have to deal with
 the conflict at some point though so may as well do it now. Fortunately we don't
 need any new commands. We just need to edit the conflicted file into the state
@@ -162,3 +170,23 @@ git graph
 
 ![Git collaborative]({{ site.baseurl }}/fig/branch9.png
 "Repository with third merge"){:class="img-responsive"}
+
+> ## Now you try
+>
+> You should now be on the `main` branch. Try creating another merge conflict of your
+> own and resolving it.
+>
+> You will need to follow these steps:
+>
+> 1. Create a new branch and check it out (e.g. called `experiment2`)
+> 1. Commit a change to this branch
+> 1. Check out the `main` branch again
+> 1. Make and commit a change that is incompatible with the previous one (e.g. modify
+>    the same line in a different way)
+> 1. Attempt to merge your topic branch (e.g. `experiment2`)
+> 1. Resolve any merge conflicts and finalise the merge with `git commit`
+> 1. Confirm for yourself that the merge has completed with `git graph`
+>
+> NB: If the two sets of changes you made *aren't* incompatible (e.g. you changed
+> separate parts of the file) you will not get a merge conflict!
+{: .challenge}
