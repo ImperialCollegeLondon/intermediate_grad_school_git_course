@@ -21,9 +21,6 @@ keypoints:
 - The current branch can be changed using `git checkout branch_name`
 - Once a branch is complete the changes made can be integrated into the project using `git merge branch_name`
 - Merging creates a new commit in the target branch incorporating all of the changes made in a branch
-- Conflicts arise when two branches contain incompatible sets of changes and must be resolved before a merge can complete
-- Identify the details of merge conflicts using `git diff` and/or `git status`
-- A merge conflict can be resolved by manual editing followed by `git add [conflicted file]`... and `git commit -m "commit_message"`
 ---
 
 ## Motivation for branches
