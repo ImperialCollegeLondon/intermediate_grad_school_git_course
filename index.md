@@ -4,6 +4,9 @@ root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
 
+This course introduces intermediate concepts and functionality of the version control
+system Git and the code repository GitHub.
+
 ## About the RSE team
 
 Your instructors are part of Imperial's central Research Software Engineering (RSE)
