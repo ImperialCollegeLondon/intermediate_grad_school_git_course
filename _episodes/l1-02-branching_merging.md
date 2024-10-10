@@ -1,13 +1,17 @@
 ---
-title: "Branching"
-teaching: 20
-exercises: 0
+title: "Branching and merging"
+teaching: 25
+exercises: 10
 questions:
 - How can I or my team work on multiple features in parallel?
+- How can changes from parallel tracks of work be combined?
 objectives:
 - Explain what git branches are and when they should be used
 - Use a branch to develop a new feature
 - Identify the branches in a project and which branch is currently in use
+- Explain what merging is
+- How to incorporate a feature from a branch into your code
+- Describe a scalable workflow for development with git
 keypoints:
 - Git allows non-linear commit histories called branches
 - A branch can be thought of as a label that applies to a set of commits
@@ -15,6 +19,11 @@ keypoints:
 - Branches in a project can be listed with `git branch` and created with `git branch branch_name`
 - The `HEAD` refers to the current position of the project in its commit history
 - The current branch can be changed using `git checkout branch_name`
+- Once a branch is complete the changes made can be integrated into the project using `git merge branch_name`
+- Merging creates a new commit in the target branch incorporating all of the changes made in a branch
+- Conflicts arise when two branches contain incompatible sets of changes and must be resolved before a merge can complete
+- Identify the details of merge conflicts using `git diff` and/or `git status`
+- A merge conflict can be resolved by manual editing followed by `git add [conflicted file]`... and `git commit -m "commit_message"`
 ---
 
 ## Motivation for branches
@@ -283,6 +292,113 @@ There is a shortcut for it:
 
 ```shell
 git checkout -b <name>   # create branch <name> and switch to it
+```
+
+## Merging
+
+Now that we have our two separate tracks of work they need to be combined back
+together. We should already have the `main` branch checked out (double check
+with `git branch`). The below command can then be used to perform the merge.
+```
+git merge --no-edit experiment
+```
+{: .commands}
+```
+Merge made by the 'ort' strategy.
+ ingredients.md | 1 +
+ 1 file changed, 1 insertion(+)
+```
+{: .output}
+
+now use:
+```
+git graph
+```
+{: .commands}
+```
+*   40070a5 (HEAD -> main) Merge branch 'experiment'
+|\
+| * 96fe069 (experiment) try with some coriander
+* | d4ca89f Corrected typo in ingredients.md
+|/
+* ddef60e (origin/main) Revert "Added instruction to enjoy"
+* 8bfd0ff Added 1/2 onion to ingredients
+* 2bf7ece Added instruction to enjoy
+* ae3255a Adding ingredients and instructions
+```
+{: .output}
+
+![Git collaborative]({{ site.baseurl }}/fig/branch6.png
+"Repository with first merge"){:class="img-responsive"}
+
+Merging creates a new commit in whichever branch is being **merged into** that
+contains the combined changes from both branches. The commit has been
+highlighted in a separate colour above but it is the same as every commit we've
+seen so far except that it has two parent commits. Git is pretty clever at
+combining the changes automatically, combining the two edits made to the same
+file for instance. Note that the experiment branch is still present in the
+repository.
+
+> ## Now you try
+>
+> As the experiment branch is still present there is no reason further commits
+> can't be added to it. Create a new commit in the `experiment` branch adjusting
+> the amount of coriander in the recipe. Then merge `experiment` into `main`.
+> You should end up with a repository history matching: ![Git
+> collaborative]({{ site.baseurl }}/fig/branch7.png "Repository with second
+> merge"){:class="img-responsive"}
+>
+> > ## Solution
+> >
+> > ```
+> > git checkout experiment
+> > # make changes to ingredients.md
+> > git add ingredients.md
+> > git commit -m "Reduced the amount of coriander"
+> > git checkout main
+> > git merge --no-edit experiment
+> > git graph
+> > ```
+> > {: .commands}
+> > ```
+> > *   567307e (HEAD -> main) Merge branch 'experiment'
+> > |\
+> > | * 9a4b298 (experiment) Reduced the amount of coriander
+> > * |   40070a5 Merge branch 'experiment'
+> > |\ \
+> > | |/
+> > | * 96fe069 try with some coriander
+> > * | d4ca89f Corrected typo in ingredients.md
+> > |/
+> > * ddef60e (origin/main) Revert "Added instruction to enjoy"
+> > * 8bfd0ff Added 1/2 onion to ingredients
+> > * 2bf7ece Added instruction to enjoy
+> > * ae3255a Adding ingredients and instructions
+> > ```
+> > {: .output}
+> {: .solution}
+{: .challenge}
+
+## Summary
+
+Let us pause for a moment and recapitulate what we have just learned:
+
+```shell
+git merge <name>         # merge branch <name> (to current branch)
+```
+
+### Typical workflow
+
+These commands can be used in a typical workflow that looks like the below:
+
+```shell
+$ git checkout -b new-feature  # create branch, switch to it
+$ git commit                   # work, work, work, ...
+                               # test
+                               # feature is ready
+$ git checkout main            # switch to main
+$ git merge new-feature        # merge work to main
+$ git branch -d new-feature    # remove branch
 ```
 
 {% include links.md %}

@@ -1,111 +1,17 @@
 ---
-title: "Merging"
-teaching: 15
-exercises: 10
+title: "Merge conflicts"
+teaching: 10
+exercises:
 questions:
-- How can changes from parallel tracks of work be combined?
 objectives:
-- Explain what is merging
-- How to incorporate a feature from a branch into your code
-- Describe a scalable workflow for development with git
 keypoints:
-- Once a branch is complete the changes made can be integrated into the project using `git merge branch_name`
-- Merging creates a new commit in the target branch incorporating all of the changes made in a branch
-- Conflicts arise when two branches contain incompatible sets of changes and must be resolved before a merge can complete
-- Identify the details of merge conflicts using `git diff` and/or `git status`
-- A merge conflict can be resolved by manual editing followed by `git add [conflicted file]`... and `git commit -m "commit_message"`
 ---
 
-## Merging
-
-Now that we have our two separate tracks of work they need to be combined back
-together. We should already have the `main` branch checked out (double check
-with `git branch`). The below command can then be used to perform the merge.
-```
-git merge --no-edit experiment
-```
-{: .commands}
-```
-Merge made by the 'ort' strategy.
- ingredients.md | 1 +
- 1 file changed, 1 insertion(+)
-```
-{: .output}
-
-now use:
-```
-git graph
-```
-{: .commands}
-```
-*   40070a5 (HEAD -> main) Merge branch 'experiment'
-|\
-| * 96fe069 (experiment) try with some coriander
-* | d4ca89f Corrected typo in ingredients.md
-|/
-* ddef60e (origin/main) Revert "Added instruction to enjoy"
-* 8bfd0ff Added 1/2 onion to ingredients
-* 2bf7ece Added instruction to enjoy
-* ae3255a Adding ingredients and instructions
-```
-{: .output}
-
-![Git collaborative]({{ site.baseurl }}/fig/branch6.png
-"Repository with first merge"){:class="img-responsive"}
-
-Merging creates a new commit in whichever branch is being **merged into** that
-contains the combined changes from both branches. The commit has been
-highlighted in a separate colour above but it is the same as every commit we've
-seen so far except that it has two parent commits. Git is pretty clever at
-combining the changes automatically, combining the two edits made to the same
-file for instance. Note that the experiment branch is still present in the
-repository.
-
-> ## Now you try
->
-> As the experiment branch is still present there is no reason further commits
-> can't be added to it. Create a new commit in the `experiment` branch adjusting
-> the amount of coriander in the recipe. Then merge `experiment` into `main`.
-> You should end up with a repository history matching: ![Git
-> collaborative]({{ site.baseurl }}/fig/branch7.png "Repository with second
-> merge"){:class="img-responsive"}
->
-> > ## Solution
-> >
-> > ```
-> > git checkout experiment
-> > # make changes to ingredients.md
-> > git add ingredients.md
-> > git commit -m "Reduced the amount of coriander"
-> > git checkout main
-> > git merge --no-edit experiment
-> > git graph
-> > ```
-> > {: .commands}
-> > ```
-> > *   567307e (HEAD -> main) Merge branch 'experiment'
-> > |\
-> > | * 9a4b298 (experiment) Reduced the amount of coriander
-> > * |   40070a5 Merge branch 'experiment'
-> > |\ \
-> > | |/
-> > | * 96fe069 try with some coriander
-> > * | d4ca89f Corrected typo in ingredients.md
-> > |/
-> > * ddef60e (origin/main) Revert "Added instruction to enjoy"
-> > * 8bfd0ff Added 1/2 onion to ingredients
-> > * 2bf7ece Added instruction to enjoy
-> > * ae3255a Adding ingredients and instructions
-> > ```
-> > {: .output}
-> {: .solution}
-{: .challenge}
-
-## Conflicts
+## Merge conflicts
 
 Whilst Git is good at automatic merges it is inevitable that situations arise
 where incompatible sets of changes need to be combined. In this case it is up to
-you to decide what should be kept and what should be discarded. First lets set
+you to decide what should be kept and what should be discarded. First let's set
 up a conflict:
 ```
 git checkout main
@@ -250,27 +156,3 @@ git graph
 
 ![Git collaborative]({{ site.baseurl }}/fig/branch9.png
 "Repository with third merge"){:class="img-responsive"}
-
-## Summary
-
-Let us pause for a moment and recapitulate what we have just learned:
-
-```shell
-git merge <name>         # merge branch <name> (to current branch)
-```
-
-### Typical workflow
-
-These commands can be used in a typical workflow that looks like the below:
-
-```shell
-$ git checkout -b new-feature  # create branch, switch to it
-$ git commit                   # work, work, work, ...
-                               # test
-                               # feature is ready
-$ git checkout main            # switch to main
-$ git merge new-feature        # merge work to main
-$ git branch -d new-feature    # remove branch
-```
-
-{% include links.md %}
