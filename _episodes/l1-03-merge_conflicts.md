@@ -11,9 +11,11 @@ keypoints:
 
 Whilst Git is good at automatic merges it is inevitable that situations arise
 where incompatible sets of changes need to be combined. In this case it is up to
-you to decide what should be kept and what should be discarded. First let's set
-up a conflict:
-```
+you to decide what should be kept and what should be discarded.
+
+Let's try this by artificially creating a conflict:
+
+```sh
 git checkout main
 # change line to 1 tsp salt in ingredients.md
 git add ingredients.md
@@ -51,7 +53,8 @@ git graph
 "Repository with merge conflict"){:class="img-responsive"}
 
 Now we try and merge `experiment` into `main`:
-```
+
+```sh
 git checkout main
 git merge --no-edit experiment
 ```
@@ -66,7 +69,8 @@ Automatic merge failed; fix conflicts and then commit the result.
 As suspected we are warned that the merge failed. This puts Git into a special
 state in which the merge is in progress but has not been finalised by creating a
 new commit in main. Fortunately `git status` is quite useful here:
-```
+
+```sh
 git status
 ```
 {: .commands}
@@ -94,6 +98,7 @@ need any new commands. We just need to edit the conflicted file into the state
 we would like to keep, then add and commit as usual.
 
 Let's look at ingredients.md to understand the conflict:
+
 ```
 * 2 avocados
 * 1 lime
@@ -126,7 +131,8 @@ like:
 ```
 
 Now stage, commit and check the result:
-```
+
+```sh
 git add ingredients.md
 git commit -m "Merged experiment into main"
 git graph
