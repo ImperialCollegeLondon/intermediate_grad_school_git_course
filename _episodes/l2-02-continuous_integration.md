@@ -22,6 +22,21 @@ keypoints:
 - "CI can be used for a wide variety of purposes"
 ---
 
+## Motivation for CI
+
+> ## Individual styles and preferences
+>
+> Developer 1 - "Tabs!"
+>
+> Developer 2 - "Spaces!"
+>
+> Developer 1 - "TABS!"
+>
+> Developer 2 - "SPACES!"
+>
+> [**GitHub Actions**](https://docs.github.com/en/actions) automatically runs checks on your code.
+{: .discussion}
+
 ## Explanation of CI
 
 Continuous integration (CI) is a software development practice that ensures all

@@ -19,6 +19,35 @@ keypoints:
 - PR are often created to solve specific issues.
 ---
 
+## Motivation for remote repositories
+
+> ## Access and Permissions
+>
+> Developer 1 - "Just email me your changes. I'll save them into the master copy."
+>
+> Developer 2 - "Ok... so why do all of my changes have to go through you?"
+>
+> [**GitHub**](https://github.com) gives you a central place to collaborate!
+{: .discussion}
+
+> ## Need to Coordinate Efforts
+>
+> Developer 1 - "I'm still waiting on those changes to the data analysis workflow."
+>
+> Developer 2 - "Huh? I added those a month ago."
+>
+> [**Issues**](https://docs.github.com/en/issues) help keep track of tasks.
+{: .discussion}
+
+> ## Different Points of View
+>
+> Developer 1 - "Here's what I've been working on for the last month."
+>
+> Developer 2 - "Hmmm... if we tweak things here then it might be faster."
+>
+> [**Pull Requests**](https://docs.github.com/en/pull-requests) allow for easily reviewing collaborators' changes.
+{: .discussion}
+
 ## Multiple branches in remotes
 
 The same way you might have different branches in your local repository, you could
@@ -69,10 +98,12 @@ in sync.
 
 Pull requests are a GitHub feature which allows collaborators tell each other about changes that have been pushed to a branch in a repository. Similar to **issues**, an open pull request can contain discussions about the requested changes and allows collaborators to review proposed amendments and follow-up commits before changes are either rejected or accepted and merged into the base branch.
 
+> ## Why the name?
+>
 > The term "Pull Request" may sound counterintuitive because, from your perspective, you're not actually requesting to pull anything. Essentially it means “Hey, I have some changes I would like to contribute to your repo. Please, have a look at them and pull them into your own.”
 >
 > You may see the term `merge request` instead of `pull request`. These are exactly the same thing. Different platforms use different terms but they're both asking the receiver of the request to review those changes prior to merging them.
-{: .callout}
+{: .objectives}
 
 There are two main workflows when creating a pull request which reflect the type of development model used in the project you are contributing to;
 
@@ -102,7 +133,7 @@ This type of pull request is used when working with a **shared repository model*
 
 Pull requests can be created by visiting the `Pull request` tab in the repository.
 
->#### Changing *head* and *base* branch
+> ## Changing *head* and *base* branch
 >
 >By default, pull requests are based on the parent repository's default branch. You can change both the parent repository and the branch in the drop-down lists. It's important to select the correct order here; the *head branch* contains the changes you would like to make, the *base branch* is where you want the changes to be applied. The arrow between the drop-downs is a useful indicator for the direction of the "pull".
 {: .callout}
