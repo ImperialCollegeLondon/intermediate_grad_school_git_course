@@ -4,60 +4,25 @@ root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
 
-This course introduces intermediate concepts and functionality of the version control
-system Git and the code repository GitHub. The course is focused on ensuring an effective and healthy
-collaborative process. When collaborating with others, measures and tooling need to be
-in place to manage the process in an effective way, keeping track of the sequence of
-changes, reviewing, and approving what those changes are and undoing them, if needed.
+## About the RSE team
 
-Both Git and GitHub provide powerful features that facilitate this process such as:
-branching, pull requests, forks, rewriting history with rebase, merge, reset, and
-releasing new versions of the software with tags to identify milestones in the
-development process.
+Your instructors are part of Imperial's central Research Software Engineering (RSE)
+team, whose role is to improve the quality, impact and sustainability of research
+software. While most of our work is as hired coders and consultants on research
+projects, we also offer a number of free services, including training courses such as
+this one and one-to-one [code surgeries], where you can get advice and support with
+software development.
 
-Moreover, some tasks ensuring that all contributions follow agreed standards can be
-automated via a continuous integration system. This course will introduce the basics of
-GitHub Actions, how to create workflows and run them automatically, when new changes are
-identified.
+You can find more information about our work and the services we offer [on our website].
 
-## Syllabus
-
-- Intermediate Git concepts, commands, and terminology, such as branches, rebase, merge and stash, among others.
-- Using GitHub’s Pull Requests to manage contributions from collaborators
-- Using GitHub’s Forks to contribute to other people’s code
-- Using continuous integration to make sure every collaborator's contribution meets an agreed standard
-- Creating releases and adding tags to communicate effectively to users/collaborators what has changed between versions of the code.
-
-## Learning outcomes
-
-After completing this workshop, you will be better able to
-
-1. Use advance Git commands to manage the parallel development of multiple features
-2. Collaborate effectively with others on a code base to achieve larger goals
-3. Apply continuous integration to automate tasks
-4. Understand how to access support for research computing via the Research Computing Service at Imperial College
-
-## Delivery of the course
-
-Material will be delivered as a lecture with task following the Carpentries teaching
-style.
-
-- The instructor will walk you through the theoretical material of the course,
- demonstrating the execution of the relevant code and instructions. **You are highly encouraged to
-  code along** and execute the instructions at the same time.
-- Throughout the lessons, there are **yellow boxes** highlighting particularly challenging
-  or important concepts.
-- There are also exercises in **orange boxes**. The instructor will give you time to try
-  to do them yourself before going through the solution. This is often available in a
-  folded part of the orange box, so you can check it at any time.
-- When doing exercises, put a green sticker in your computer whenever you are done, or a
-  pink/orange one if you need support. A helper will go to you.
-- For online sessions, raise your hand if you are done with the exercise and write
- any questions or problems directly into the chat, so a helper can try to solve it.
+[on our website]: https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/service-offering/research-software-engineering/
+[code surgeries]: https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/service-offering/research-software-engineering/code-surgeries/
 
 > ## Prerequisites
 >
-> Basic familiarity with Git and GitHub (see our [basic course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/index.html))
+> - Basic familiarity with Git and GitHub (see our [introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/index.html))
+> - A working local installation of Git
+> - A local copy of the `recipe` repository
 {: .prereq}
 
 {% include links.md %}
