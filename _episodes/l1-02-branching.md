@@ -136,7 +136,8 @@ them and how to merge changes from different branches.
 
 ## Creating and Working with Branches
 
-Firstly lets take stock of the current state of our repository:
+Firstly let's take stock of the current state of our repository:
+
 ```
 git graph
 ```
