@@ -81,12 +81,13 @@ interface" or "fixing bug in matrix inversion algorithm".
 >
 > If you then type `git log --oneline`, you should see something like:
 >
-> ```output
+> ```
 > 09c9b3b (HEAD -> main, origin/main) Revert "Added instruction to enjoy"
 > 366f4b5 Added 1/2 onion to ingredients
 > 1171d94 Added instruction to enjoy
 > 6ff8aa5 adding ingredients and instructions
 > ```
+> {: .output}
 >
 {: .callout}
 
@@ -119,9 +120,10 @@ them and how to merge changes from different branches.
 > docs on how to set them up in Git are
 > [here](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases)):
 >
-> ```shell
+> ```
 > git config --global alias.graph "log --all --graph --decorate --oneline"
 > ```
+> {: .commands}
 {: .callout}
 
 ## Creating and Working with Branches
