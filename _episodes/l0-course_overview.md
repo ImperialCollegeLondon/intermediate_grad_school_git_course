@@ -2,8 +2,14 @@
 title: "Course overview"
 teaching: 5
 exercises: 0
+questions:
+- What will this course cover?
+- In what lesson-style is this course delivered?
 objectives:
-  - Provide background information on course
+- Provide background information on course.
+keypoints:
+- Code along with the presenter.
+- Ask questions!
 ---
 
 ## Overview
