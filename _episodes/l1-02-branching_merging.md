@@ -111,7 +111,8 @@ interface" or "fixing bug in matrix inversion algorithm".
 ### Which Branch Are We Using?
 
 To see where we are (where HEAD points to) use `git branch`:
-```
+
+```sh
 git branch
 ```
 {: .commands}
@@ -137,7 +138,7 @@ them and how to merge changes from different branches.
 > docs on how to set them up in Git are
 > [here](https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases)):
 >
-> ```
+> ```sh
 > git config --global alias.graph "log --all --graph --decorate --oneline"
 > ```
 > {: .commands}
@@ -147,7 +148,7 @@ them and how to merge changes from different branches.
 
 Firstly let's take stock of the current state of our repository:
 
-```
+```sh
 git graph
 ```
 {: .commands}
@@ -190,7 +191,8 @@ we're not using it yet. This looks like:
 "Repository after experiment branch creation"){:class="img-responsive"}
 
 To start using the new branch we need to check it out:
-```
+
+```sh
 git checkout experiment
 git graph
 ```
@@ -215,7 +217,7 @@ Now when we make new commits they will be part of the `experiment` branch. To
 test this let's add 1 tbsp coriander to `ingredients.md`. Stage this and commit
 it with the message "try with some coriander".
 
-```
+```sh
 git add ingredients.md
 git commit -m "try with some coriander"
 git graph
@@ -244,7 +246,7 @@ in `experiment` but it doesn't fit in very well here - if we decide to discard
 our experiment then we also lose the correction. Instead it makes much more
 sense to create a correcting commit in `main`. First, move to (checkout) the main branch:
 
-```
+```sh
 git checkout main
 ```
 {: .commands}
@@ -252,7 +254,7 @@ git checkout main
 Then fix the typing mistake in `ingredients.md`. And finally, commit that change (hint:
 'avo' look at the first ingredient):
 
-```
+```sh
 git add ingredients.md
 git commit -m "Corrected typo in ingredients.md"
 git graph
@@ -275,7 +277,7 @@ git graph
 
 Let us pause for a moment and summarise what we have just learned:
 
-```shell
+```sh
 git branch               # see where we are
 git branch <name>        # create branch <name>
 git checkout <name>      # switch to branch <name>
@@ -283,14 +285,14 @@ git checkout <name>      # switch to branch <name>
 
 Since the following command combo is so frequent:
 
-```shell
+```sh
 git branch <name>        # create branch <name>
 git checkout <name>      # switch to branch <name>
 ```
 
 There is a shortcut for it:
 
-```shell
+```sh
 git checkout -b <name>   # create branch <name> and switch to it
 ```
 
@@ -299,7 +301,8 @@ git checkout -b <name>   # create branch <name> and switch to it
 Now that we have our two separate tracks of work they need to be combined back
 together. We should already have the `main` branch checked out (double check
 with `git branch`). The below command can then be used to perform the merge.
-```
+
+```sh
 git merge --no-edit experiment
 ```
 {: .commands}
@@ -311,7 +314,8 @@ Merge made by the 'ort' strategy.
 {: .output}
 
 now use:
-```
+
+```sh
 git graph
 ```
 {: .commands}
@@ -383,7 +387,7 @@ repository.
 
 Let us pause for a moment and recapitulate what we have just learned:
 
-```shell
+```sh
 git merge <name>         # merge branch <name> (to current branch)
 ```
 
@@ -391,7 +395,7 @@ git merge <name>         # merge branch <name> (to current branch)
 
 These commands can be used in a typical workflow that looks like the below:
 
-```shell
+```sh
 $ git checkout -b new-feature  # create branch, switch to it
 $ git commit                   # work, work, work, ...
                                # test
