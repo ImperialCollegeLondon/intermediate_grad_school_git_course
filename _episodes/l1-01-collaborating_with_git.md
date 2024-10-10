@@ -1,6 +1,6 @@
 ---
 title: "Collaborating with Git and GitHub"
-teaching: 10
+teaching: 5
 exercises: 0
 questions:
 - "How does collaborative working differ from individual working?"
@@ -17,21 +17,7 @@ keypoints:
 Collaborating effectively as part of team brings additional challenges and
 opportunities compared to solo development.
 
-### Access and Permissions
-
-Developer 1 - "Just email me your changes. I'll save them into the master copy."
-
-Developer 2 - "Ok... so why do all of my changes have to go through you?"
-
-An important practical consideration is where to store the code that you're
-collaborating on. Usually you want everyone's contributions to end up in one
-place and that place only being accessible by a particular individual is
-unsustainable. On the other hand you do need to be able to control how
-contributions are made.
-
-Hosting your code on GitHub allows configuration of user access and granular
-permissions. This allows shared responsibility and the clear definition of roles
-within a project.
+Each of these examples will be shown again in a subsequent section.
 
 ### Differing Goals and Objectives
 
@@ -51,6 +37,32 @@ contributors. The ability to merge branches even supports working on the same
 part of the code as somebody else so you can work on whatever you want and worry
 about sorting out conflicts later.
 
+### Access and Permissions
+
+Developer 1 - "Just email me your changes. I'll save them into the master copy."
+
+Developer 2 - "Ok... so why do all of my changes have to go through you?"
+
+An important practical consideration is where to store the code that you're
+collaborating on. Usually you want everyone's contributions to end up in one
+place and that place only being accessible by a particular individual is
+unsustainable. On the other hand you do need to be able to control how
+contributions are made.
+
+Hosting your code on **GitHub** allows configuration of user access and granular
+permissions. This allows shared responsibility and the clear definition of roles
+within a project.
+
+### Need to Coordinate Efforts
+
+Developer 1 - "I'm still waiting on those changes to the data analysis workflow."
+
+Developer 2 - "Huh? I added those a month ago."
+
+Successfully coordinating the efforts of multiple contributors is a key
+challenge to avoid delay and duplication of work. GitHub can help here via
+**Issues** that track planned, on-going and completed work and who is doing it.
+
 ### Different Points of View
 
 Developer 1 - "Here's what I've been working on for the last month."
@@ -64,16 +76,6 @@ called peer review and it's considered good practice for all code to be
 independently looked over.
 
 GitHub provides functionality for peer review via **Pull Requests**.
-
-### Need to Coordinate Efforts
-
-Developer 1 - "I'm still waiting on those changes to the data analysis workflow."
-
-Developer 2 - "Huh? I added those a month ago."
-
-Successfully coordinating the efforts of multiple contributors is a key
-challenge to avoid delay and duplication of work. GitHub can help here via
-**Issues** that track planned, on-going and completed work and who is doing it.
 
 ### Individual styles and preferences
 

@@ -19,6 +19,14 @@ keypoints:
 
 ## Motivation for branches
 
+> ## Differing Goals and Objectives
+>
+> Developer 1 - "I need a new type of analysis to finish my thesis"
+>
+> Developer 2 - "My problem is bigger. I need better performance to process all my
+> data"
+{: .discussion}
+
 For simple projects, working with a single branch where you keep adding commits is good
 enough. But chances are that you will want to unleash all the power of `git` at some
 point and start using branches.
