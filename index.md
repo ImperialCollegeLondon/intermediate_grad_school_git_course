@@ -4,8 +4,13 @@ root: .  # Is the only page that doesn't follow the pattern /:path/index.html
 permalink: index.html  # Is the only page that doesn't follow the pattern /:path/index.html
 ---
 
-This course introduces intermediate concepts and functionality of the version control
-system Git and the code repository GitHub.
+> ## Prerequisites
+>
+> - Basic familiarity with Git and GitHub (see our [introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/index.html))
+> - A working local installation of Git
+> - A local copy of the `recipe` repository
+> - Complete the Setup before starting
+{: .prereq}
 
 ## About the RSE team
 
@@ -20,12 +25,5 @@ You can find more information about our work and the services we offer [on our w
 
 [on our website]: https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/service-offering/research-software-engineering/
 [code surgeries]: https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/service-offering/research-software-engineering/code-surgeries/
-
-> ## Prerequisites
->
-> - Basic familiarity with Git and GitHub (see our [introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/index.html))
-> - A working local installation of Git
-> - A local copy of the `recipe` repository
-{: .prereq}
 
 {% include links.md %}
