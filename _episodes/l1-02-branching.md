@@ -12,9 +12,9 @@ keypoints:
 - Git allows non-linear commit histories called branches
 - A branch can be thought of as a label that applies to a set of commits
 - Branches can and should be used to carry out development of new features
-- Branches in a project can be listed with git branch and created with git branch branch_name
+- Branches in a project can be listed with `git branch` and created with `git branch branch_name`
 - The `HEAD` refers to the current position of the project in its commit history
-- The current branch can be changed using git checkout branch_name
+- The current branch can be changed using `git checkout branch_name`
 ---
 
 ## Motivation for branches
