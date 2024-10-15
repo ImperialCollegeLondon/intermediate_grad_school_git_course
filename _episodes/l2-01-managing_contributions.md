@@ -147,8 +147,8 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 >
 >> ## Solution
 >>
->> 1. `$ git branch more_avacados`
->> 2. `$ git checkout more_avacados`
+>> 1. `$ git branch more_avocados`
+>> 2. `$ git checkout more_avocados`
 >> 3. `$ # make, stage and commit changes`
 >> 4. On GitHub.com, navigate to your repository and choose your branch which contains your changes from the "Branch" menu.
 >> ![Choose branch]({{ site.baseurl }}/fig/choose_branch.png "Choose branch"){:class="img-responsive"}
