@@ -24,11 +24,11 @@ you to decide what should be kept and what should be discarded.
 Let's try this by artificially creating a conflict:
 
 ```sh
-git checkout main
+git switch main
 # change line to 1 tsp salt in ingredients.md
 git stage ingredients.md
 git commit -m "Reduce salt"
-git checkout experiment
+git switch experiment
 # change line to 3 tsp in ingredients.md
 git stage ingredients.md
 git commit -m "Added salt to balance coriander"
@@ -63,7 +63,7 @@ git graph
 Now we try and merge `experiment` into `main`:
 
 ```sh
-git checkout main
+git switch main
 git merge --no-edit experiment
 ```
 {: .commands}

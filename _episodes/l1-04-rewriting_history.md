@@ -444,11 +444,11 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > > After the following commands (and modifications to the files) the repository history
 > > should look like the graph below:
 > > ```
-> > git checkout -b spicy
+> > git switch -c spicy
 > > # add the chillies to ingredients.md
 > > git stage ingredients.md
 > > git commit -m "Chillies added to the mix"
-> > git checkout main
+> > git switch main
 > > # Indicate that should be served cold in instructions.md
 > > git stage instructions.md
 > > git commit -m "Guacamole must be served cold"
@@ -476,7 +476,7 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > > {: .output}
 > > Now, let's go back to `spicy` and do the `git rebase`:
 > > ```
-> > git checkout spicy
+> > git switch spicy
 > > git rebase main
 > > git graph
 > > ```
