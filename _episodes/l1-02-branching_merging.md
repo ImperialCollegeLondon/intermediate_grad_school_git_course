@@ -215,7 +215,7 @@ test this let's add 1 tbsp coriander to `ingredients.md`. Stage this and commit
 it with the message "try with some coriander".
 
 ```sh
-git add ingredients.md
+git stage ingredients.md
 git commit -m "try with some coriander"
 git graph
 ```
@@ -252,7 +252,7 @@ Then fix the typing mistake in `ingredients.md`. And finally, commit that change
 'avo' look at the first ingredient):
 
 ```sh
-git add ingredients.md
+git stage ingredients.md
 git commit -m "Corrected typo in ingredients.md"
 git graph
 ```
@@ -354,7 +354,7 @@ repository.
 > > ```
 > > git checkout experiment
 > > # make changes to ingredients.md
-> > git add ingredients.md
+> > git stage ingredients.md
 > > git commit -m "Reduced the amount of coriander"
 > > git checkout main
 > > git merge --no-edit experiment
