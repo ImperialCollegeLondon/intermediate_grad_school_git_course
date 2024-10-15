@@ -270,7 +270,7 @@ description and rationale for the revert.
 > > To move forward, fix the conflicts as it was done in the previous section - removing the
 > > << and >> lines as well as "1/2 onion" and run:
 > > ```
-> > git add ingredients.md
+> > git stage ingredients.md
 > > git revert --continue --no-edit
 > > git graph
 > > ```
@@ -446,11 +446,11 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > > ```
 > > git checkout -b spicy
 > > # add the chillies to ingredients.md
-> > git add ingredients.md
+> > git stage ingredients.md
 > > git commit -m "Chillies added to the mix"
 > > git checkout main
 > > # Indicate that should be served cold in instructions.md
-> > git add instructions.md
+> > git stage instructions.md
 > > git commit -m "Guacamole must be served cold"
 > > git graph
 > > ```
