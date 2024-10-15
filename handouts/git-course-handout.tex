@@ -102,7 +102,11 @@
   \item \textbf{git branch} -- Report on the existing branches in a repository
   \item \textbf{git branch BRANCH\_NAME} -- Create a new branch
   \item \textbf{git branch -D BRANCH\_NAME} -- Delete a branch (be careful with this one!)
-  \item \textbf{git checkout} -- Update the position of HEAD to a new branch or commit
+  \item \textbf{git switch BRANCH\_NAME} -- Update the position of HEAD to
+    a new branch
+  \item \textbf{git switch --detach COMMIT\_NAME} -- Update the position of HEAD to a
+    new commit
+  \item \textbf{git checkout} -- See ``git switch''
   \item \textbf{git merge -{}-no-edit BRANCH\_NAME} -- Merge BRANCH\_NAME into the
     current branch
   \item \textbf{git rebase NEW\_BASE} -- Rebase current branch onto NEW\_BASE

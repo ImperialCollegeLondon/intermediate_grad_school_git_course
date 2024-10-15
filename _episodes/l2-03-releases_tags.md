@@ -163,15 +163,15 @@ Double-check that this is the commit you intended to tag by running `git log` (o
 `git graph`) again.
 
 Note that `tasty` can now be used like other git references, such as commit hashes and
-branch names. For example, you can run `git checkout tasty` to (temporarily) update the
-contents of your repo to be as they were back when you added half an onion to the
-instructions.
+branch names. For example, you can run `git switch --detach tasty` to (temporarily)
+update the contents of your repo to be as they were back when you added half an onion to
+the instructions. (Note that you need to include the `--detach` option!)
 
 You may now be wondering, if this is the case, then how is a tag different from a
 branch? Try checking out `tasty` to see what happens:
 
 ```
-git checkout tasty
+git switch --detach tasty
 ```
 {: .commands}
 
@@ -197,22 +197,21 @@ HEAD is now at 5cb4883 Added 1/2 onion to ingredients
 ```
 {: .output}
 
-Git provides some helpful output describing what you've just done (although note that we
-don't cover the `git switch` command in this course). The "detached `HEAD` state" is
-git's way of saying that your repo is not on any branch at all, so if you commit any
-changes, they won't be saved to any branch. Note that your tag will stay pointing to the
-same commit it was before. *This* is the difference between a branch and a tag. The tip
-of a branch points to the last committed change to the branch, whereas a tag always
-points to a specific commit. Think about it this way: when you release a piece of
-software, you want that version -- say, v1.0 -- to represent the code *in one unique
-state*. You don't want two of your users to be using two different versions of the code
-both labelled v1.0, for example.
+Git provides some helpful output describing what you've just done. The "detached `HEAD`
+state" is git's way of saying that your repo is not on any branch at all, so if you
+commit any changes, they won't be saved to any branch. Note that your tag will stay
+pointing to the same commit it was before. *This* is the difference between a branch and
+a tag. The tip of a branch points to the last committed change to the branch, whereas a
+tag always points to a specific commit. Think about it this way: when you release a
+piece of software, you want that version -- say, v1.0 -- to represent the code *in one
+unique state*. You don't want two of your users to be using two different versions of
+the code both labelled v1.0, for example.
 
 Fortunately, a detached `HEAD` is a much less serious affliction for git repos than
 human beings, and you can reattach it by simply checking out a branch:
 
 ```
-git checkout main
+git switch main
 ```
 
 Assume now that you have decided that you no longer want this tag (perhaps on eating, it
