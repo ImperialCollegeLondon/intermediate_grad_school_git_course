@@ -1,7 +1,7 @@
 ---
 title: "Rewriting history with Git"
-teaching: 30
-exercises: 20
+teaching: 25
+exercises: 15
 questions:
 - "How can multiple collaborators work efficiently on the same code?"
 - "When should I use rebasing, merging and stashing?"
@@ -14,7 +14,6 @@ keypoints:
 - "There are several ways of rewriting git history, each with specific use cases associated to them"
 - "Rewriting history can have unexpected consequences and you risk losing information permanently"
 - "Reset: You have made a mistake and want to keep the commit history tidy for the benefit of collaborators"
-- "Revert: You want to undo something done in the past without messing too much with the timeline, upsetting your collaborators"
 - "Stash: You want to do something else -- e.g. switch to someone else's branch -- without losing your current work"
 - "Rebase: Someone else has updated the main branch while you've been working and need to bring those changes to your branch"
 - "More information: [Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)"
@@ -29,7 +28,8 @@ legitimate reasons why you might want to do that, from keeping the commit histor
 of unsuccessful attempts to do something to incorporate work done by someone else.
 
 This episode explores some of the commands `git` offers to manipulate the commit history
-for your benefit and that of your collaborators.
+for your benefit and that of your collaborators. But, first, we will look at another
+useful command.
 
 ### Set aside your work safely with `stash`
 
@@ -139,10 +139,12 @@ the remote repository and shared with collaborators.
 
 ### Reset
 
-The next level of complexity rewriting history is `reset`: it lets you redo the
-last (or last few) commit(s) you made so you can incorporate more changes, fix an error
-you have spotted and that is worth incorporating as part of that commit and not as a
-separate one or just improve your commit message.
+The next level of complexity rewriting history is `reset`: it lets you redo the last (or
+last few) commit(s) you made so you can incorporate more changes, fix an error you have
+spotted and that is worth incorporating as part of that commit and not as a separate one
+or just improve your commit message. Unlike `git revert`, `git reset` will
+retrospectively alter your commit history, so should **not** be used where you have
+already shared work with collaborators.
 
 ```sh
 git reset --soft HEAD^
@@ -176,6 +178,22 @@ Otherwise, to go back in time to a specific commit, you would do:
 git reset --hard COMMIT_HASH
 ```
 {: .commands}
+
+> ## `reset` vs `revert`
+>
+> `git revert` was [discussed in the introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l1-02-committing-history/index.html).
+>
+> `reset` and `revert` both let you undo things done in the past, but they both have
+> very different use cases.
+>
+> - `reset` uses brute force, potentially with destructive consequences, to
+>   make those changes and is suitable only if the work has not been shared with others
+>   already. Use when you want to get rid of recent work you're not happy with and start
+>   all over again.
+> - `revert` is more lightweight and surgical, to target specific changes and creating
+>   new commits to history. Use when code has already been shared with others or when
+>   changes are small and clearly isolated.
+{: .callout}
 
 > ## Don't mess with the salt
 >
@@ -305,108 +323,6 @@ git branch -D BRANCH_NAME
 > {: .solution}
 >
 {: .challenge}
-
-### Reverting a commit
-
-As pointed out, using `reset` can be dangerous and it is not suitable if you need to be
-more surgical in what you want to change, affecting just what was done on a commit a
-while ago, potentially already shared with collaborators. To address that, we have
-`revert`.
-
-`git revert` creates a commit that exactly cancels the changes made by a previous one.
-It is a new commit, so it is part of the history, but its purpose is to undo something
-done in the past.
-
-The syntax in this case is:
-
-```sh
-git revert --no-edit COMMIT_HASH
-```
-{: .commands}
-
-You can omit the `--no-edit` flag and use `-m` to give a one-line description for the
-process or also omit `-m` to enter into the default text editor to leave a more complete
-description and rationale for the revert.
-
-> ## Remove the onion
->
-> Let's try this and remove the onion from the recipe. After all, you don't like onion
-> that much!
-> >
-> > ## Solution
-> >
-> > ```sh
-> > git revert --no-edit 5cb4883
-> > ```
-> > {: .commands}
-> >
-> > The process, unfortunately, will fail and create a conflict. The reason is that both,
-> > adding the onion and the coriander affect the last line of the code, so git is unable
-> > to decide on its own how to remove the onion given that something has been added in the
-> > same part of the recipe afterwards.
-> >
-> > The ingredients file now will look like this:
-> >
-> > ```
-> > * 2 avocados
-> > * 1 lime
-> > * 2 tsp salt
-> > <<<<<<< HEAD
-> > * 1/2 onion
-> > * 1 tbsp coriander
-> > =======
-> > >>>>>>> parent of 5cb4883 (Added 1/2 onion)
-> > ```
-> > {: .output}
-> >
-> > To move forward, fix the conflicts as it was done in the previous section - removing the
-> > << and >> lines as well as "1/2 onion" and run:
-> >
-> > ```sh
-> > git stage ingredients.md
-> > git revert --continue --no-edit
-> > git graph
-> > ```
-> > {: .commands}
-> > ```
-> > * 53371e5 (HEAD -> main) Revert "Added 1/2 onion"
-> > *   fe0d257 Merge branch 'experiment'
-> > |\
-> > | * 99b2352 Reduced the amount of coriander
-> > * | 2c2d0e2 Merge branch 'experiment'
-> > |\|
-> > | * d9043d2 Try with some coriander
-> > * | 6a2a76f Corrected typo in ingredients.md
-> > |/
-> > * 57d4505 (origin/main) Revert "Added instruction to enjoy"
-> > * 5cb4883 Added 1/2 onion
-> > * 43536f3 Added instruction to enjoy
-> > * 745fb8b Adding ingredients and instructions
-> > ```
-> > {: .output}
-> > Using `git revert` has added a new commit which reverses *exactly* the changes made in
-> > the specified commit (after solving the conflict).
-> >
-> {: .solution}
->
-{: .challenge}
-
-This is yet another good example of why making separate commits for each change is a
-good idea, so they can, potentially, be reversed if needed in the future with no fuss.
-
-> ## `reset` vs `revert`
->
-> Both commands let you undo things done in the past, but they both have very different
-> use cases.
->
-> - `reset` uses brute force, potentially with destructive consequences, to
-> make those changes and is suitable only if the work has not been shared with others
-> already. Use when you want to get rid of recent work you're not happy with and start
-> all over again.
-> - `revert` is more lightweight and surgical, to target specific changes and
-> creating new commits to history. Use when code has already been shared with others or
-> when changes are small and clearly isolated.
-{: .callout}
 
 ### Incorporate past commits with `rebase`
 
