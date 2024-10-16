@@ -122,12 +122,14 @@ need to do to amend the last commit while keeping the same commit message is:
 ```sh
 git commit --amend --no-edit
 ```
+{: .commands}
 
 Or this:
 
 ```sh
 git commit --amend -m "New commit message"
 ```
+{: .commands}
 
 if you want to write a new commit message.
 
@@ -145,6 +147,7 @@ separate one or just improve your commit message.
 ```sh
 git reset --soft HEAD^
 ```
+{: .commands}
 
 This resets the staging area to match the most recent commit, but leaves the working
 directory unchanged - so no information is lost. Now you can review the files you
@@ -336,6 +339,7 @@ description and rationale for the revert.
 > > git revert --no-edit 5cb4883
 > > ```
 > > {: .commands}
+> >
 > > The process, unfortunately, will fail and create a conflict. The reason is that both,
 > > adding the onion and the coriander affect the last line of the code, so git is unable
 > > to decide on its own how to remove the onion given that something has been added in the
@@ -423,6 +427,7 @@ The command is straightforward:
 git rebase NEW_BASE
 ```
 {: .commands}
+
 where `NEW_BASE` can be either a commit hash or a branch name we want to use as the new
 base.
 
