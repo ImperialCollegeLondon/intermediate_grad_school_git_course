@@ -15,7 +15,7 @@ keypoints:
 - "Rewriting history can have unexpected consequences and you risk losing information permanently"
 - "Reset: You have made a mistake and want to keep the commit history tidy for the benefit of collaborators"
 - "Revert: You want to undo something done in the past without messing too much with the timeline, upsetting your collaborators"
-- "Stash: You want to do something else -- e.g. checkout someone else's branch -- without losing your current work"
+- "Stash: You want to do something else -- e.g. switch to someone else's branch -- without losing your current work"
 - "Rebase: Someone else has updated the main branch while you've been working and need to bring those changes to your branch"
 - "More information: [Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)"
 ---

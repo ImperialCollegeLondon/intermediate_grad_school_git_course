@@ -241,7 +241,7 @@ different features in parallel. You may have already spotted the typo in
 our work on the `experiment` branch. We could correct the typo with a new commit
 in `experiment` but it doesn't fit in very well here - if we decide to discard
 our experiment then we also lose the correction. Instead it makes much more
-sense to create a correcting commit in `main`. First, move to (checkout) the main branch:
+sense to create a correcting commit in `main`. First, switch to the main branch:
 
 ```sh
 git switch main
