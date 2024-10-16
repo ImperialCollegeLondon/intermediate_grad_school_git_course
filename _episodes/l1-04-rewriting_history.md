@@ -39,13 +39,13 @@ made, maybe adding some files you forgot to stage or fixing a typo in the commit
 After you have made those last minute changes - and `staged` them, if needed - all you
 need to do to amend the last commit while keeping the same commit message is:
 
-```bash
+```sh
 git commit --amend --no-edit
 ```
 
 Or this:
 
-```bash
+```sh
 git commit --amend -m "New commit message"
 ```
 
@@ -62,7 +62,7 @@ last (or last few) commit(s) you made so you can incorporate more changes, fix a
 you have spotted and that is worth incorporating as part of that commit and not as a
 separate one or just improve your commit message.
 
-```bash
+```sh
 git reset --soft HEAD^
 ```
 
@@ -81,13 +81,15 @@ accordingly. In other words, **any work done since the chosen commit will be com
 erased**.
 
 To undo just the last commit, you can do:
-```
+
+```sh
 git reset --hard HEAD^
 ```
 {: .commands}
 
 Otherwise, to go back in time to a specific commit, you would do:
-```
+
+```sh
 git reset --hard COMMIT_HASH
 ```
 {: .commands}
@@ -103,6 +105,7 @@ git reset --hard COMMIT_HASH
 > > ## Solution
 > >
 > > First, we check how far back we need to go with `git graph`:
+> >
 > > ```
 > > *   c9d9bfe (HEAD -> main) Merged experiment into main
 > > |\
@@ -126,13 +129,15 @@ git reset --hard COMMIT_HASH
 > > We can see in the example that we want to discard the last three commits from history
 > > and go back to `fe0d257`, when we merged the `experiment` branch after reducing the
 > > amount of coriander. Let's do it (use your own commit hash!):
-> > ```
+> >
+> > ```sh
 > > git reset --hard fe0d257
 > > git graph
 > > ```
 > > {: .commands}
 > >
-> > Now, the commit history should look as:
+> > Now, the commit history should look like this:
+> >
 > > ```
 > > * 84a371d (experiment) Added salt to balance coriander
 > > | *   fe0d257 (HEAD -> main) Merge branch 'experiment'
@@ -177,7 +182,7 @@ Over time, you will accumulate lots of branches to implement different features 
 code. It is good practice to remove them once they have fulfil their purpose. You can do
 that using the `-D` flag with the `git branch` command:
 
-```
+```sh
 git branch -D BRANCH_NAME
 ```
 {: .commands}
@@ -188,13 +193,14 @@ git branch -D BRANCH_NAME
 > >
 > > ## Solution
 > >
-> > ```
+> > ```sh
 > > git branch -D experiment
 > > git graph
 > > ```
 > > {: .commands}
 > >
-> > Now, the commit history should look as:
+> > Now, the commit history should look like this:
+> >
 > > ```
 > > *   fe0d257 (HEAD -> main) Merge branch 'experiment'
 > > |\
@@ -229,7 +235,8 @@ It is a new commit, so it is part of the history, but its purpose is to undo som
 done in the past.
 
 The syntax in this case is:
-```
+
+```sh
 git revert --no-edit COMMIT_HASH
 ```
 {: .commands}
@@ -245,7 +252,7 @@ description and rationale for the revert.
 > >
 > > ## Solution
 > >
-> > ```
+> > ```sh
 > > git revert --no-edit 5cb4883
 > > ```
 > > {: .commands}
@@ -255,6 +262,7 @@ description and rationale for the revert.
 > > same part of the recipe afterwards.
 > >
 > > The ingredients file now will look like this:
+> >
 > > ```
 > > * 2 avocados
 > > * 1 lime
@@ -269,7 +277,8 @@ description and rationale for the revert.
 > >
 > > To move forward, fix the conflicts as it was done in the previous section - removing the
 > > << and >> lines as well as "1/2 onion" and run:
-> > ```
+> >
+> > ```sh
 > > git stage ingredients.md
 > > git revert --continue --no-edit
 > > git graph
@@ -333,42 +342,48 @@ The following are the `git stash` commands needed to make this happen:
 
 Stash the current state of the repository, giving some message to remind yourself what
 was this about. The working directory becomes identical to the last commit.
-```
+
+```sh
 git stash save "Some informative message"
 ```
 {: .commands}
 
 List the stashes available in reverse chronological order (last one stashed goes on
 top).
-```
+
+```sh
 git stash list
 ```
 {: .commands}
 
 Extract the **last stash** of the list, updating the working directory
 with its content.
-```
+
+```sh
 git stash pop
 ```
 {: .commands}
 
 Extract the stash with the given number from the list, updating the working directory
 with its content.
-```
+
+```sh
 git stash pop stash@{NUMBER}
 ```
 {: .commands}
 
 Apply the **last stash** without removing it from the list, so you can apply it to
 other branches, if needed.
-```
+
+```sh
 git stash apply
 ```
 {: .commands}
 
 Apply the given stash without removing it from the list, so you can apply it to
 other branches, if needed.
-```
+
+```sh
 git stash apply stash@{NUMBER}
 ```
 {: .commands}
@@ -403,7 +418,8 @@ changes done by someone else or simply keep the history of the repository linear
 facilitating merging back in the future.
 
 The command is straightforward:
-```
+
+```sh
 git rebase NEW_BASE
 ```
 {: .commands}
@@ -443,7 +459,8 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > >
 > > After the following commands (and modifications to the files) the repository history
 > > should look like the graph below:
-> > ```
+> >
+> > ```sh
 > > git switch -c spicy
 > > # add the chillies to ingredients.md
 > > git stage ingredients.md
@@ -474,8 +491,10 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > > * 745fb8b Adding ingredients and instructions
 > > ```
 > > {: .output}
+> >
 > > Now, let's go back to `spicy` and do the `git rebase`:
-> > ```
+> >
+> > ```sh
 > > git switch spicy
 > > git rebase main
 > > git graph
