@@ -31,6 +31,86 @@ of unsuccessful attempts to do something to incorporate work done by someone els
 This episode explores some of the commands `git` offers to manipulate the commit history
 for your benefit and that of your collaborators.
 
+### Set aside your work safely with `stash`
+
+It is not rare that, while you are working on some feature, you need to check something
+else in another branch. Very often this is the case when you want to try some
+contributor's code as part of a pull request review process (see next episodes). You
+can commit the work you are doing, but if it is not in a state ready to be committed,
+what would you do?
+
+`git stash` is the answer. It lets you put your current, uncommitted work aside in a
+special state, turning the working directory back to the way it was in the last commit.
+Then, you can easily switch branches, pull new ones or do whatever you want. Once you
+are ready to go back to work, you can recover the stashed work and continue as if
+nothing had happened.
+
+The following are the `git stash` commands needed to make this happen:
+
+Stash the current state of the repository, giving some message to remind yourself what
+was this about. The working directory becomes identical to the last commit.
+
+```sh
+git stash save "Some informative message"
+```
+{: .commands}
+
+List the stashes available in reverse chronological order (last one stashed goes on
+top).
+
+```sh
+git stash list
+```
+{: .commands}
+
+Extract the **last stash** of the list, updating the working directory
+with its content.
+
+```sh
+git stash pop
+```
+{: .commands}
+
+Extract the stash with the given number from the list, updating the working directory
+with its content.
+
+```sh
+git stash pop stash@{NUMBER}
+```
+{: .commands}
+
+Apply the **last stash** without removing it from the list, so you can apply it to
+other branches, if needed.
+
+```sh
+git stash apply
+```
+{: .commands}
+
+Apply the given stash without removing it from the list, so you can apply it to
+other branches, if needed.
+
+```sh
+git stash apply stash@{NUMBER}
+```
+{: .commands}
+
+If you want more information, you can [read this article on Git
+stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash).
+
+> ## Practice stashing
+>
+> Now try using `git stash` with the recipe repository. For example:
+>
+> - Add some ingredients then stash the changes (do not stage or commit them)
+> - Modify the instructions and also stash those change
+>
+> Then have a look at the list of stashes and bring those changes back to the
+> working directory using `stash pop` and `stash apply`, and see how the list of
+> stashes changes in either case.
+>
+{: .challenge}
+
 ### Amend
 
 This is the simplest method of rewriting history: it lets you amend the last commit you
@@ -323,86 +403,6 @@ good idea, so they can, potentially, be reversed if needed in the future with no
 > creating new commits to history. Use when code has already been shared with others or
 > when changes are small and clearly isolated.
 {: .callout}
-
-### Set aside your work safely with `stash`
-
-It is not rare that, while you are working on some feature, you need to check something
-else in another branch. Very often this is the case when you want to try some
-contributor's code as part of a pull request review process (see next episodes). You
-can commit the work you are doing, but if it is not in a state ready to be committed,
-what would you do?
-
-`git stash` is the answer. It lets you put your current, uncommitted work aside in a
-special state, turning the working directory back to the way it was in the last commit.
-Then, you can easily switch branches, pull new ones or do whatever you want. Once you
-are ready to go back to work, you can recover the stashed work and continue as if
-nothing had happened.
-
-The following are the `git stash` commands needed to make this happen:
-
-Stash the current state of the repository, giving some message to remind yourself what
-was this about. The working directory becomes identical to the last commit.
-
-```sh
-git stash save "Some informative message"
-```
-{: .commands}
-
-List the stashes available in reverse chronological order (last one stashed goes on
-top).
-
-```sh
-git stash list
-```
-{: .commands}
-
-Extract the **last stash** of the list, updating the working directory
-with its content.
-
-```sh
-git stash pop
-```
-{: .commands}
-
-Extract the stash with the given number from the list, updating the working directory
-with its content.
-
-```sh
-git stash pop stash@{NUMBER}
-```
-{: .commands}
-
-Apply the **last stash** without removing it from the list, so you can apply it to
-other branches, if needed.
-
-```sh
-git stash apply
-```
-{: .commands}
-
-Apply the given stash without removing it from the list, so you can apply it to
-other branches, if needed.
-
-```sh
-git stash apply stash@{NUMBER}
-```
-{: .commands}
-
-If you want more information, you can [read this article on Git
-stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash).
-
-> ## Practice stashing
->
-> Now try using `git stash` with the recipe repository. For example:
->
-> - Add some ingredients then stash the changes (do not stage or commit them)
-> - Modify the instructions and also stash those change
->
-> Then have a look at the list of stashes and bring those changes back to the
-> working directory using `stash pop` and `stash apply`, and see how the list of
-> stashes changes in either case.
->
-{: .challenge}
 
 ### Incorporate past commits with `rebase`
 
