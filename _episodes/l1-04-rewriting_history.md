@@ -129,11 +129,11 @@ Or this:
 git commit --amend -m "New commit message"
 ```
 
-if you want to write a new commit message:
+if you want to write a new commit message.
 
-Note that this will replace the previous commit with a new one - the commit hash will be
-different, so this approach must not be used if the commit was already pushed to the
-remote repository and shared with collaborators.
+Note that this will replace the previous commit with a new one -- the commit hash will
+be different -- so this approach must not be used if the commit was already pushed to
+the remote repository and shared with collaborators.
 
 ### Reset
 
