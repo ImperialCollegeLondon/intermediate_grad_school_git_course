@@ -28,11 +28,21 @@ time, it also lets you to modify the timeline of commits. There are several tota
 legitimate reasons why you might want to do that, from keeping the commit history clean
 of unsuccessful attempts to do something to incorporate work done by someone else.
 
-This episode explores some of the commands `git` offers to manipulate the commit history
-for your benefit and that of your collaborators.
+There are a number of reasons why you may need to change your commit history, for
+example:
 
-But, first, we will look at a couple of commands which do not change the history
-irreversibly.
+- You want to undo a previous commit made by yourself or a colleague (and make a record
+  of this in the history)
+- You have already made a commit, but realise there are other changes you forgot to
+  include
+- You made a commit, but then changed your mind and want to remove this change from your
+  history
+- You want to "move" one or more commits so they are based on top of some other work
+  (e.g. new changes made to the `main` branch)
+
+This episode explores some of the commands `git` offers to manipulate the commit history
+for your benefit and that of your collaborators. But, first, we will look at a couple of
+commands which do not change the history irreversibly.
 
 ### Set aside your work safely with `stash`
 
