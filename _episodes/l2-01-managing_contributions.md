@@ -77,17 +77,16 @@ in sync.
 
 ## Pulling
 
-* Opposite to `push`, `pull` brings changes in the upstream branch to the local
- branch.
-* You can check if there are any changes to synchronise in the upstream
- branch by running `git fetch`, which only checks if there are changes, and then
-`git status` to see how your local and remote branch compare in terms of commit history.
-* It's best to make sure your repository is in a clean state with no staged or
-  unstaged changes.
-* If the local and upstream branches have diverged - have different
- commit history - the command will attempt to merge both. If there are conflicts, you
- will need deal with them in the same way described above.
-* You can get a new branch existing only in `origin` directly with `git checkout
+* Opposite to `push`, `pull` brings changes in the upstream branch to the local branch.
+* You can check if there are any changes to synchronise in the upstream branch by
+  running `git fetch`, which only checks if there are changes, and then `git status` to
+  see how your local and remote branch compare in terms of commit history.
+* It's best to make sure your repository is in a clean state with no staged or unstaged
+  changes.
+* If the local and upstream branches have diverged - have different commit history - the
+  command will attempt to merge both. If there are conflicts, you will need deal with
+  them in the same way described above.
+* You can get a new branch existing only in `origin` directly with `git switch
   BRANCH_NAME` without the need of creating the branch locally and then pulling the
   remote.
 
@@ -148,8 +147,8 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 >
 >> ## Solution
 >>
->> 1. `$ git branch more_avacados`
->> 2. `$ git checkout more_avacados`
+>> 1. `$ git branch more_avocados`
+>> 2. `$ git switch more_avocados`
 >> 3. `$ # make, stage and commit changes`
 >> 4. On GitHub.com, navigate to your repository and choose your branch which contains your changes from the "Branch" menu.
 >> ![Choose branch]({{ site.baseurl }}/fig/choose_branch.png "Choose branch"){:class="img-responsive"}

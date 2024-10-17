@@ -12,7 +12,7 @@ objectives:
 keypoints:
   - Merge conflicts result when Git fails to merge files automatically because of mutually incompatible changes
   - Merge conflicts must be resolved by manually editing files to specify the desired changes
-  - After resolving a merge conflict you must finalise the merge with `git add` and `git commit`
+  - After resolving a merge conflict you must finalise the merge with `git stage` and `git commit`
 ---
 
 ## Merge conflicts
@@ -24,13 +24,13 @@ you to decide what should be kept and what should be discarded.
 Let's try this by artificially creating a conflict:
 
 ```sh
-git checkout main
+git switch main
 # change line to 1 tsp salt in ingredients.md
-git add ingredients.md
+git stage ingredients.md
 git commit -m "Reduce salt"
-git checkout experiment
+git switch experiment
 # change line to 3 tsp in ingredients.md
-git add ingredients.md
+git stage ingredients.md
 git commit -m "Added salt to balance coriander"
 git graph
 ```
@@ -63,7 +63,7 @@ git graph
 Now we try and merge `experiment` into `main`:
 
 ```sh
-git checkout main
+git switch main
 git merge --no-edit experiment
 ```
 {: .commands}
@@ -141,7 +141,7 @@ like:
 Now stage, commit and check the result:
 
 ```sh
-git add ingredients.md
+git stage ingredients.md
 git commit -m "Merged experiment into main"
 git graph
 ```
