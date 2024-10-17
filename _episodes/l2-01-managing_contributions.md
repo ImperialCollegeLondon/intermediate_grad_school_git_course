@@ -144,8 +144,8 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 >
 > 1. Create a new branch, make some changes and push the branch to the remote repository.
 > 2. Create a pull request with a suitable title and description to merge the branch containing your changes into the main branch.
-> {: .callout}
->
+{: .callout}
+
 >> ## Solution
 >>
 >> 1. `$ git branch more_avacados`
