@@ -144,8 +144,8 @@ Pull requests can be created by visiting the `Pull request` tab in the repositor
 >
 > 1. Create a new branch, make some changes and push the branch to the remote repository.
 > 2. Create a pull request with a suitable title and description to merge the branch containing your changes into the main branch.
-> {: .callout}
->
+{: .callout}
+
 >> ## Solution
 >>
 >> 1. `$ git branch more_avacados`
@@ -185,7 +185,6 @@ This fork and pull model is a key aspect of open-source projects, allowing commu
 > ![Create a fork with repository name emphasised]({{ site.baseurl }}/fig/fork_choose_owner_name.png "Create a fork with repository name emphasised"){:class="img-responsive"}
 > 3. Adding a description for your fork is optional. There is also a checkbox asking if you want to copy only the default branch of the repository (in this instance this is called `master`) or whether you want to copy all the branches. In most cases you will only want to copy the default branch. This option is selected by default. Finally, click **Create fork**.
 > ![Create a fork with description and create button]({{ site.baseurl }}/fig/fork_description_create.png "Create a fork with description and create button"){:class="img-responsive"}
-> **Note:** This fork will be used in the final exercise at the end of this course
 {: .challenge}
 
 After forking the repository, the second step is to make our fix/changes. First we will need to clone **our fork** so that we have the files in that repository locally on our computer (`clone` command was covered in the [introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html)). From here we can go ahead and create a new fix/feature branch and make our changes. When we are happy with the changes we have made, we can `commit` and `push` our upstream, forked repository.
@@ -199,6 +198,13 @@ Another difference with pull requests from forked repositories is that you can a
 ![Allow maintainers to make edits checkbox]({{ site.baseurl }}/fig/maintainer_edits.png "Allow maintainers to make edits checkbox"){:class="img-responsive"}
 
 > As with the **shared repository model**, Atlassian has a nice [Forking Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow) example if you want a deeper dive.
+
+### Bonus: Keeping your fork in sync with the original repo
+
+When several individuals fork a repo and start contributing content to the administrator's repo (original repo), the individual forks will be outdated. Follow these instructions to make sure that your own forks are kept up to date.
+
+* [Configuring a remote for a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork)
+* [Syncing a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)
 
 ### Requesting reviewers
 
