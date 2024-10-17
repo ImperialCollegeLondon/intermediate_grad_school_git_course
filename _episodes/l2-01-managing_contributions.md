@@ -185,7 +185,6 @@ This fork and pull model is a key aspect of open-source projects, allowing commu
 > ![Create a fork with repository name emphasised]({{ site.baseurl }}/fig/fork_choose_owner_name.png "Create a fork with repository name emphasised"){:class="img-responsive"}
 > 3. Adding a description for your fork is optional. There is also a checkbox asking if you want to copy only the default branch of the repository (in this instance this is called `master`) or whether you want to copy all the branches. In most cases you will only want to copy the default branch. This option is selected by default. Finally, click **Create fork**.
 > ![Create a fork with description and create button]({{ site.baseurl }}/fig/fork_description_create.png "Create a fork with description and create button"){:class="img-responsive"}
-> **Note:** This fork will be used in the final exercise at the end of this course
 {: .challenge}
 
 After forking the repository, the second step is to make our fix/changes. First we will need to clone **our fork** so that we have the files in that repository locally on our computer (`clone` command was covered in the [introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l2-02-remote_repositories/index.html)). From here we can go ahead and create a new fix/feature branch and make our changes. When we are happy with the changes we have made, we can `commit` and `push` our upstream, forked repository.
