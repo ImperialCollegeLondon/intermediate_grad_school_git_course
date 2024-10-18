@@ -171,44 +171,37 @@ You may now be wondering, if this is the case, then how is a tag different from 
 branch? Try switching to `tasty` to see what happens:
 
 ```
-git switch --detach tasty
+git switch tasty
 ```
 {: .commands}
+```
+fatal: a branch is expected, got tag 'tasty'
+hint: If you want to detach HEAD at the commit, try again with the --detach option.
+```
+{: .output}
+
+Git provides some helpful output here. To "detach `HEAD`" means to change the current
+working state to a commit that isn't on any branch at all, so if you commit any changes,
+they won't be saved to any branch. Note that your tag will stay pointing to the same
+commit it was before. *This* is the difference between a branch and a tag. The tip of a
+branch points to the last committed change to the branch, whereas a tag always points to
+a specific commit. Think about it this way: when you release a piece of software, you
+want that version -- say, v1.0 -- to represent the code *in one unique state*. You don't
+want two of your users to be using two different versions of the code both labelled
+v1.0, for example.
+
+Let's try again using the `--detach` option:
 
 ```
-Note: switching to 'tasty'.
-
-You are in 'detached HEAD' state. You can look around, make experimental
-changes and commit them, and you can discard any commits you make in this
-state without impacting any branches by switching back to a branch.
-
-If you want to create a new branch to retain commits you create, you may
-do so (now or later) by using -c with the switch command. Example:
-
-    git switch -c <new-branch-name>
-
-Or undo this operation with:
-
-    git switch -
-
-Turn off this advice by setting config variable advice.detachedHead to false
-
+git switch --detach tasty
+```
+```
 HEAD is now at 5cb4883 Added 1/2 onion to ingredients
 ```
 {: .output}
 
-Git provides some helpful output describing what you've just done. The "detached `HEAD`
-state" is git's way of saying that your repo is not on any branch at all, so if you
-commit any changes, they won't be saved to any branch. Note that your tag will stay
-pointing to the same commit it was before. *This* is the difference between a branch and
-a tag. The tip of a branch points to the last committed change to the branch, whereas a
-tag always points to a specific commit. Think about it this way: when you release a
-piece of software, you want that version -- say, v1.0 -- to represent the code *in one
-unique state*. You don't want two of your users to be using two different versions of
-the code both labelled v1.0, for example.
-
-Fortunately, a detached `HEAD` is a much less serious affliction for git repos than
-human beings, and you can reattach it by simply checking out a branch:
+Now it works. Fortunately, a detached `HEAD` is a much less serious affliction for git
+repos than human beings, and you can reattach it by simply checking out a branch:
 
 ```
 git switch main
