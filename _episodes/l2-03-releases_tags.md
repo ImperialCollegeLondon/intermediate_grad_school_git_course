@@ -168,7 +168,7 @@ update the contents of your repo to be as they were back when you added half an 
 the instructions. (Note that you need to include the `--detach` option!)
 
 You may now be wondering, if this is the case, then how is a tag different from a
-branch? Try checking out `tasty` to see what happens:
+branch? Try switching to `tasty` to see what happens:
 
 ```
 git switch --detach tasty
