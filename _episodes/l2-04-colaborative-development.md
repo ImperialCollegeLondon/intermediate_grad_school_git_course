@@ -54,7 +54,7 @@ knowledge acquired so far.
 >
 > - Open new issues with recipes for sauces you would like to have in the book.
 >
-> **Explore exisiting issues** (Contributor's task):
+> **Explore existing issues** (Contributor's task):
 >
 > - Comment on the issues that you want to be assigned to. Remember, you neither have write access to the repository nor you are not part of the same organisation of the repository (in this case the repository belongs to the Administrator is not a part of an organisation), the only way of being assigned to an issue is by making a comment on the issue.
 >
