@@ -38,7 +38,12 @@ knowledge acquired so far.
 >
 > **Housekeeping** (Administrator's task):
 >
-> - Create a new repository using the template [Book of Recipes repository](https://github.com/ImperialCollegeLondon/book_of_recipes) which has the skeleton of the book.
+> - Create a new repository using the template [Book of Recipes repository](https://github.com/ImperialCollegeLondon/book_of_recipes) which has the skeleton of the book. (**Note**: Click on the green  "Use this template" button on the top left of the Book of Recipes repository and then select "Create a new repository")
+>
+>   ![Use this template]({{ site.baseurl }}/fig/use_this_template.png "Use this template"){:class="img-responsive" style="float: left; margin-right: 10px; width: 20%;"}
+>
+>   <div style="clear: both;"></div>
+>
 > - Set the owner of the new repository as your own GitHub username and the name of the repository the same ("book_of_recipes").
 > - Set the description as "Repository for the exercises of the Grad School Git Course".
 > - Make sure to select the "Public" option for your reppsitory's visibility and final click on "Create repository".
