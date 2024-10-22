@@ -199,13 +199,6 @@ Another difference with pull requests from forked repositories is that you can a
 
 > As with the **shared repository model**, Atlassian has a nice [Forking Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/forking-workflow) example if you want a deeper dive.
 
-### Bonus: Keeping your fork in sync with the original repo
-
-When several individuals fork a repo and start contributing content to the administrator's repo (original repo), the individual forks will be outdated. Follow these instructions to make sure that your own forks are kept up to date.
-
-* [Configuring a remote for a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork)
-* [Syncing a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)
-
 ### Requesting reviewers
 
 * When opening a PR, you can request it to be reviewed by someone else, so there is another pair of eyes making sure that your contribution is correct and does not introduce any bugs.
