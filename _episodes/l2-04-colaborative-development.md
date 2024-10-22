@@ -63,4 +63,13 @@ knowledge acquired so far.
 >. pasta, roasts, cocktails, etc.).
 {: .challenge}
 
+## Bonus: Keeping your fork in sync with the original repo
+
+In the previous exercise, the individual forks will be outdated as you
+contribute with content to the administrator's repo. Follow these
+instructions to make sure that your own forks are kept up to date.
+
+- [Configuring a remote for a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork)
+- [Syncing a fork](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/syncing-a-fork)
+
 {% include links.md %}
