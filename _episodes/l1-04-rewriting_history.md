@@ -15,7 +15,7 @@ keypoints:
 - "Rewriting history can have unexpected consequences and you risk losing information permanently"
 - "Reset: You have made a mistake and want to keep the commit history tidy for the benefit of collaborators"
 - "Revert: You want to undo something done in the past without messing too much with the timeline, upsetting your collaborators"
-- "Stash: You want to do something else -- e.g. checkout someone else's branch -- without losing your current work"
+- "Stash: You want to do something else -- e.g. switch to someone else's branch -- without losing your current work"
 - "Rebase: Someone else has updated the main branch while you've been working and need to bring those changes to your branch"
 - "More information: [Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)"
 ---
@@ -270,7 +270,7 @@ description and rationale for the revert.
 > > To move forward, fix the conflicts as it was done in the previous section - removing the
 > > << and >> lines as well as "1/2 onion" and run:
 > > ```
-> > git add ingredients.md
+> > git stage ingredients.md
 > > git revert --continue --no-edit
 > > git graph
 > > ```
@@ -444,13 +444,13 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > > After the following commands (and modifications to the files) the repository history
 > > should look like the graph below:
 > > ```
-> > git checkout -b spicy
+> > git switch -c spicy
 > > # add the chillies to ingredients.md
-> > git add ingredients.md
+> > git stage ingredients.md
 > > git commit -m "Chillies added to the mix"
-> > git checkout main
+> > git switch main
 > > # Indicate that should be served cold in instructions.md
-> > git add instructions.md
+> > git stage instructions.md
 > > git commit -m "Guacamole must be served cold"
 > > git graph
 > > ```
@@ -476,7 +476,7 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > > {: .output}
 > > Now, let's go back to `spicy` and do the `git rebase`:
 > > ```
-> > git checkout spicy
+> > git switch spicy
 > > git rebase main
 > > git graph
 > > ```

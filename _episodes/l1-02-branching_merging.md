@@ -18,7 +18,7 @@ keypoints:
 - Branches can and should be used to carry out development of new features
 - Branches in a project can be listed with `git branch` and created with `git branch branch_name`
 - The `HEAD` refers to the current position of the project in its commit history
-- The current branch can be changed using `git checkout branch_name`
+- The current branch can be changed using `git switch branch_name`
 - Once a branch is complete the changes made can be integrated into the project using `git merge branch_name`
 - Merging creates a new commit in the target branch incorporating all of the changes made in a branch
 ---
@@ -190,7 +190,7 @@ we're not using it yet. This looks like:
 To start using the new branch we need to check it out:
 
 ```sh
-git checkout experiment
+git switch experiment
 git graph
 ```
 {: .commands}
@@ -215,7 +215,7 @@ test this let's add 1 tbsp coriander to `ingredients.md`. Stage this and commit
 it with the message "try with some coriander".
 
 ```sh
-git add ingredients.md
+git stage ingredients.md
 git commit -m "try with some coriander"
 git graph
 ```
@@ -241,10 +241,10 @@ different features in parallel. You may have already spotted the typo in
 our work on the `experiment` branch. We could correct the typo with a new commit
 in `experiment` but it doesn't fit in very well here - if we decide to discard
 our experiment then we also lose the correction. Instead it makes much more
-sense to create a correcting commit in `main`. First, move to (checkout) the main branch:
+sense to create a correcting commit in `main`. First, switch to the main branch:
 
 ```sh
-git checkout main
+git switch main
 ```
 {: .commands}
 
@@ -252,7 +252,7 @@ Then fix the typing mistake in `ingredients.md`. And finally, commit that change
 'avo' look at the first ingredient):
 
 ```sh
-git add ingredients.md
+git stage ingredients.md
 git commit -m "Corrected typo in ingredients.md"
 git graph
 ```
@@ -277,20 +277,20 @@ Let us pause for a moment and summarise what we have just learned:
 ```sh
 git branch               # see where we are
 git branch <name>        # create branch <name>
-git checkout <name>      # switch to branch <name>
+git switch <name>        # switch to branch <name>
 ```
 
 Since the following command combo is so frequent:
 
 ```sh
 git branch <name>        # create branch <name>
-git checkout <name>      # switch to branch <name>
+git switch <name>        # switch to branch <name>
 ```
 
 There is a shortcut for it:
 
 ```sh
-git checkout -b <name>   # create branch <name> and switch to it
+git switch -c <name>     # create branch <name> and switch to it
 ```
 
 ## Merging
@@ -352,11 +352,11 @@ repository.
 > > ## Solution
 > >
 > > ```
-> > git checkout experiment
+> > git switch experiment
 > > # make changes to ingredients.md
-> > git add ingredients.md
+> > git stage ingredients.md
 > > git commit -m "Reduced the amount of coriander"
-> > git checkout main
+> > git switch main
 > > git merge --no-edit experiment
 > > git graph
 > > ```
@@ -393,13 +393,13 @@ git merge <name>         # merge branch <name> (to current branch)
 These commands can be used in a typical workflow that looks like the below:
 
 ```sh
-$ git checkout -b new-feature  # create branch, switch to it
-$ git commit                   # work, work, work, ...
-                               # test
-                               # feature is ready
-$ git checkout main            # switch to main
-$ git merge new-feature        # merge work to main
-$ git branch -d new-feature    # remove branch
+$ git switch -c new-feature  # create branch, switch to it
+$ git commit                 # work, work, work, ...
+                             # test
+                             # feature is ready
+$ git switch main            # switch to main
+$ git merge new-feature      # merge work to main
+$ git branch -d new-feature  # remove branch
 ```
 
 {% include links.md %}
