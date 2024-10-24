@@ -69,7 +69,7 @@ knowledge acquired so far.
 >
 > **Working on a branch, pushing the changes, and opening a PR** (Contributor's tasks):
 >
-> - Clone the Administrator's repository.
+> - Fork the Administrator's repository and clone it locally.
 > - Create a branch and work on the recipes you have been assigned. Practice the concepts learnt in previous episodes about making the changes locally and pushing those changes back to the remote repository.
 > - When ready, open a PR to the Administrator's repo and request their review.
 >
