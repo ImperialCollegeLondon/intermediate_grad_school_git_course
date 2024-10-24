@@ -47,7 +47,7 @@ knowledge acquired so far.
 > - Set the owner of the new repository as your own GitHub username and the name of the repository the same ("book_of_recipes").
 > - Set the description as "Repository for the exercises of the Grad School Git Course".
 > - Make sure to select the "Public" option for your reppsitory's visibility and final click on "Create repository".
-> - Pass the link to the repo to your colleagues (who will be the contributors).
+> - Pass the link to the repo to your colleagues, who will be the contributors.
 >
 > Now, start collaborating!
 >
@@ -61,7 +61,7 @@ knowledge acquired so far.
 >
 > **Explore existing issues** (Contributor's task):
 >
-> - Comment on the issues that you want to be assigned to. Remember, you neither have write access to the repository nor you are not part of the same organisation of the repository (in this case the repository belongs to the Administrator is not a part of an organisation), the only way of being assigned to an issue is by making a comment on the issue.
+> - Comment on the issues that you want to be assigned to. (As you don't have write access to the repository, you cannot assign yourself to an issue directly.)
 >
 > **Task assignment** (Administrator's task):
 >
@@ -70,7 +70,7 @@ knowledge acquired so far.
 > **Working on a branch, pushing the changes, and opening a PR** (Contributor's tasks):
 >
 > - Clone the Administrator's repository.
-> - Create a branch and work on the recipes you have been assigned. Practice the concepts learnt in previous episodes about making the changes locally and pushing those changes back to the remote repository. You can even try a [gitflow approach](https://nvie.com/posts/a-successful-git-branching-model/) if you feel ambitious!
+> - Create a branch and work on the recipes you have been assigned. Practice the concepts learnt in previous episodes about making the changes locally and pushing those changes back to the remote repository.
 > - When ready, open a PR to the Administrator's repo and request their review.
 >
 > **Reviewing and Merging PRs** (Administrator's tasks):
