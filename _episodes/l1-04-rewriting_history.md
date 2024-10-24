@@ -1,7 +1,7 @@
 ---
 title: "Rewriting history with Git"
-teaching: 30
-exercises: 20
+teaching: 25
+exercises: 15
 questions:
 - "How can multiple collaborators work efficiently on the same code?"
 - "When should I use rebasing, merging and stashing?"
@@ -14,7 +14,6 @@ keypoints:
 - "There are several ways of rewriting git history, each with specific use cases associated to them"
 - "Rewriting history can have unexpected consequences and you risk losing information permanently"
 - "Reset: You have made a mistake and want to keep the commit history tidy for the benefit of collaborators"
-- "Revert: You want to undo something done in the past without messing too much with the timeline, upsetting your collaborators"
 - "Stash: You want to do something else -- e.g. switch to someone else's branch -- without losing your current work"
 - "Rebase: Someone else has updated the main branch while you've been working and need to bring those changes to your branch"
 - "More information: [Merging vs. Rebasing](https://www.atlassian.com/git/tutorials/merging-vs-rebasing)"
@@ -28,8 +27,99 @@ time, it also lets you to modify the timeline of commits. There are several tota
 legitimate reasons why you might want to do that, from keeping the commit history clean
 of unsuccessful attempts to do something to incorporate work done by someone else.
 
+There are a number of reasons why you may need to change your commit history, for
+example:
+
+- You have already made a commit, but realise there are other changes you forgot to
+  include
+- You made a commit, but then changed your mind and want to remove this change from your
+  history
+- You want to "move" one or more commits so they are based on top of some other work
+  (e.g. new changes made to the `main` branch)
+
 This episode explores some of the commands `git` offers to manipulate the commit history
-for your benefit and that of your collaborators.
+for your benefit and that of your collaborators. But, first, we will look at another
+useful command.
+
+### Set aside your work safely with `stash`
+
+It is not rare that, while you are working on some feature, you need to check something
+else in another branch. Very often this is the case when you want to try some
+contributor's code as part of a pull request review process (see next episodes). You
+can commit the work you are doing, but if it is not in a state ready to be committed,
+what would you do?
+
+`git stash` is the answer. It lets you put your current, uncommitted work aside in a
+special state, turning the working directory back to the way it was in the last commit.
+Then, you can easily switch branches, pull new ones or do whatever you want. Once you
+are ready to go back to work, you can recover the stashed work and continue as if
+nothing had happened.
+
+The following are the `git stash` commands needed to make this happen:
+
+Stash the current state of the repository, giving some message to remind yourself what
+was this about. The working directory becomes identical to the last commit.
+
+```sh
+git stash save "Some informative message"
+```
+{: .commands}
+
+List the stashes available in reverse chronological order (last one stashed goes on
+top).
+
+```sh
+git stash list
+```
+{: .commands}
+
+Extract the **last stash** of the list, updating the working directory
+with its content.
+
+```sh
+git stash pop
+```
+{: .commands}
+
+Extract the stash with the given number from the list, updating the working directory
+with its content.
+
+```sh
+git stash pop stash@{NUMBER}
+```
+{: .commands}
+
+Apply the **last stash** without removing it from the list, so you can apply it to
+other branches, if needed.
+
+```sh
+git stash apply
+```
+{: .commands}
+
+Apply the given stash without removing it from the list, so you can apply it to
+other branches, if needed.
+
+```sh
+git stash apply stash@{NUMBER}
+```
+{: .commands}
+
+If you want more information, you can [read this article on Git
+stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash).
+
+> ## Practice stashing
+>
+> Now try using `git stash` with the recipe repository. For example:
+>
+> - Add some ingredients then stash the changes (do not stage or commit them)
+> - Modify the instructions and also stash those change
+>
+> Then have a look at the list of stashes and bring those changes back to the
+> working directory using `stash pop` and `stash apply`, and see how the list of
+> stashes changes in either case.
+>
+{: .challenge}
 
 ### Amend
 
@@ -39,32 +129,37 @@ made, maybe adding some files you forgot to stage or fixing a typo in the commit
 After you have made those last minute changes - and `staged` them, if needed - all you
 need to do to amend the last commit while keeping the same commit message is:
 
-```bash
+```sh
 git commit --amend --no-edit
 ```
+{: .commands}
 
 Or this:
 
-```bash
+```sh
 git commit --amend -m "New commit message"
 ```
+{: .commands}
 
-if you want to write a new commit message:
+if you want to write a new commit message.
 
-Note that this will replace the previous commit with a new one - the commit hash will be
-different, so this approach must not be used if the commit was already pushed to the
-remote repository and shared with collaborators.
+Note that this will replace the previous commit with a new one -- the commit hash will
+be different -- so this approach must not be used if the commit was already pushed to
+the remote repository and shared with collaborators.
 
 ### Reset
 
-The next level of complexity rewriting history is `reset`: it lets you redo the
-last (or last few) commit(s) you made so you can incorporate more changes, fix an error
-you have spotted and that is worth incorporating as part of that commit and not as a
-separate one or just improve your commit message.
+The next level of complexity rewriting history is `reset`: it lets you redo the last (or
+last few) commit(s) you made so you can incorporate more changes, fix an error you have
+spotted and that is worth incorporating as part of that commit and not as a separate one
+or just improve your commit message. Unlike `git revert`, `git reset` will
+retrospectively alter your commit history, so should **not** be used where you have
+already shared work with collaborators.
 
-```bash
+```sh
 git reset --soft HEAD^
 ```
+{: .commands}
 
 This resets the staging area to match the most recent commit, but leaves the working
 directory unchanged - so no information is lost. Now you can review the files you
@@ -81,16 +176,34 @@ accordingly. In other words, **any work done since the chosen commit will be com
 erased**.
 
 To undo just the last commit, you can do:
-```
+
+```sh
 git reset --hard HEAD^
 ```
 {: .commands}
 
 Otherwise, to go back in time to a specific commit, you would do:
-```
+
+```sh
 git reset --hard COMMIT_HASH
 ```
 {: .commands}
+
+> ## `reset` vs `revert`
+>
+> `git revert` was [discussed in the introductory course](https://imperialcollegelondon.github.io/introductory_grad_school_git_course/l1-02-committing-history/index.html).
+>
+> `reset` and `revert` both let you undo things done in the past, but they both have
+> very different use cases.
+>
+> - `reset` uses brute force, potentially with destructive consequences, to
+>   make those changes and is suitable only if the work has not been shared with others
+>   already. Use when you want to get rid of recent work you're not happy with and start
+>   all over again.
+> - `revert` is more lightweight and surgical, to target specific changes and creating
+>   new commits to history. Use when code has already been shared with others or when
+>   changes are small and clearly isolated.
+{: .callout}
 
 > ## Don't mess with the salt
 >
@@ -103,6 +216,7 @@ git reset --hard COMMIT_HASH
 > > ## Solution
 > >
 > > First, we check how far back we need to go with `git graph`:
+> >
 > > ```
 > > *   c9d9bfe (HEAD -> main) Merged experiment into main
 > > |\
@@ -126,13 +240,15 @@ git reset --hard COMMIT_HASH
 > > We can see in the example that we want to discard the last three commits from history
 > > and go back to `fe0d257`, when we merged the `experiment` branch after reducing the
 > > amount of coriander. Let's do it (use your own commit hash!):
-> > ```
+> >
+> > ```sh
 > > git reset --hard fe0d257
 > > git graph
 > > ```
 > > {: .commands}
 > >
-> > Now, the commit history should look as:
+> > Now, the commit history should look like this:
+> >
 > > ```
 > > * 84a371d (experiment) Added salt to balance coriander
 > > | *   fe0d257 (HEAD -> main) Merge branch 'experiment'
@@ -177,7 +293,7 @@ Over time, you will accumulate lots of branches to implement different features 
 code. It is good practice to remove them once they have fulfil their purpose. You can do
 that using the `-D` flag with the `git branch` command:
 
-```
+```sh
 git branch -D BRANCH_NAME
 ```
 {: .commands}
@@ -188,13 +304,14 @@ git branch -D BRANCH_NAME
 > >
 > > ## Solution
 > >
-> > ```
+> > ```sh
 > > git branch -D experiment
 > > git graph
 > > ```
 > > {: .commands}
 > >
-> > Now, the commit history should look as:
+> > Now, the commit history should look like this:
+> >
 > > ```
 > > *   fe0d257 (HEAD -> main) Merge branch 'experiment'
 > > |\
@@ -217,178 +334,6 @@ git branch -D BRANCH_NAME
 >
 {: .challenge}
 
-### Reverting a commit
-
-As pointed out, using `reset` can be dangerous and it is not suitable if you need to be
-more surgical in what you want to change, affecting just what was done on a commit a
-while ago, potentially already shared with collaborators. To address that, we have
-`revert`.
-
-`git revert` creates a commit that exactly cancels the changes made by a previous one.
-It is a new commit, so it is part of the history, but its purpose is to undo something
-done in the past.
-
-The syntax in this case is:
-```
-git revert --no-edit COMMIT_HASH
-```
-{: .commands}
-
-You can omit the `--no-edit` flag and use `-m` to give a one-line description for the
-process or also omit `-m` to enter into the default text editor to leave a more complete
-description and rationale for the revert.
-
-> ## Remove the onion
->
-> Let's try this and remove the onion from the recipe. After all, you don't like onion
-> that much!
-> >
-> > ## Solution
-> >
-> > ```
-> > git revert --no-edit 5cb4883
-> > ```
-> > {: .commands}
-> > The process, unfortunately, will fail and create a conflict. The reason is that both,
-> > adding the onion and the coriander affect the last line of the code, so git is unable
-> > to decide on its own how to remove the onion given that something has been added in the
-> > same part of the recipe afterwards.
-> >
-> > The ingredients file now will look like this:
-> > ```
-> > * 2 avocados
-> > * 1 lime
-> > * 2 tsp salt
-> > <<<<<<< HEAD
-> > * 1/2 onion
-> > * 1 tbsp coriander
-> > =======
-> > >>>>>>> parent of 5cb4883 (Added 1/2 onion)
-> > ```
-> > {: .output}
-> >
-> > To move forward, fix the conflicts as it was done in the previous section - removing the
-> > << and >> lines as well as "1/2 onion" and run:
-> > ```
-> > git stage ingredients.md
-> > git revert --continue --no-edit
-> > git graph
-> > ```
-> > {: .commands}
-> > ```
-> > * 53371e5 (HEAD -> main) Revert "Added 1/2 onion"
-> > *   fe0d257 Merge branch 'experiment'
-> > |\
-> > | * 99b2352 Reduced the amount of coriander
-> > * | 2c2d0e2 Merge branch 'experiment'
-> > |\|
-> > | * d9043d2 Try with some coriander
-> > * | 6a2a76f Corrected typo in ingredients.md
-> > |/
-> > * 57d4505 (origin/main) Revert "Added instruction to enjoy"
-> > * 5cb4883 Added 1/2 onion
-> > * 43536f3 Added instruction to enjoy
-> > * 745fb8b Adding ingredients and instructions
-> > ```
-> > {: .output}
-> > Using `git revert` has added a new commit which reverses *exactly* the changes made in
-> > the specified commit (after solving the conflict).
-> >
-> {: .solution}
->
-{: .challenge}
-
-This is yet another good example of why making separate commits for each change is a
-good idea, so they can, potentially, be reversed if needed in the future with no fuss.
-
-> ## `reset` vs `revert`
->
-> Both commands let you undo things done in the past, but they both have very different
-> use cases.
->
-> - `reset` uses brute force, potentially with destructive consequences, to
-> make those changes and is suitable only if the work has not been shared with others
-> already. Use when you want to get rid of recent work you're not happy with and start
-> all over again.
-> - `revert` is more lightweight and surgical, to target specific changes and
-> creating new commits to history. Use when code has already been shared with others or
-> when changes are small and clearly isolated.
-{: .callout}
-
-### Set aside your work safely with `stash`
-
-It is not rare that, while you are working on some feature, you need to check something
-else in another branch. Very often this is the case when you want to try some
-contributor's code as part of a pull request review process (see next episodes). You
-can commit the work you are doing, but if it is not in a state ready to be committed,
-what would you do?
-
-`git stash` is the answer. It lets you put your current, uncommitted work aside in a
-special state, turning the working directory back to the way it was in the last commit.
-Then, you can easily switch branches, pull new ones or do whatever you want. Once you
-are ready to go back to work, you can recover the stashed work and continue as if
-nothing had happened.
-
-The following are the `git stash` commands needed to make this happen:
-
-Stash the current state of the repository, giving some message to remind yourself what
-was this about. The working directory becomes identical to the last commit.
-```
-git stash save "Some informative message"
-```
-{: .commands}
-
-List the stashes available in reverse chronological order (last one stashed goes on
-top).
-```
-git stash list
-```
-{: .commands}
-
-Extract the **last stash** of the list, updating the working directory
-with its content.
-```
-git stash pop
-```
-{: .commands}
-
-Extract the stash with the given number from the list, updating the working directory
-with its content.
-```
-git stash pop stash@{NUMBER}
-```
-{: .commands}
-
-Apply the **last stash** without removing it from the list, so you can apply it to
-other branches, if needed.
-```
-git stash apply
-```
-{: .commands}
-
-Apply the given stash without removing it from the list, so you can apply it to
-other branches, if needed.
-```
-git stash apply stash@{NUMBER}
-```
-{: .commands}
-
-If you want more information, you can [read this article on Git
-stash](https://www.atlassian.com/git/tutorials/saving-changes/git-stash).
-
-> ## Practice stashing
->
-> Now try using `git stash` with the recipe repository. For example:
->
-> - Add some ingredients then stash the changes (do not stage or commit them)
-> - Modify the instructions and also stash those change
->
-> Then have a look at the list of stashes and bring those changes back to the
-> working directory using `stash pop` and `stash apply`, and see how the list of
-> stashes changes in either case.
->
-{: .challenge}
-
 ### Incorporate past commits with `rebase`
 
 Rebasing is the process of moving or combining a sequence of commits to a new base
@@ -403,10 +348,12 @@ changes done by someone else or simply keep the history of the repository linear
 facilitating merging back in the future.
 
 The command is straightforward:
-```
+
+```sh
 git rebase NEW_BASE
 ```
 {: .commands}
+
 where `NEW_BASE` can be either a commit hash or a branch name we want to use as the new
 base.
 
@@ -443,7 +390,8 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > >
 > > After the following commands (and modifications to the files) the repository history
 > > should look like the graph below:
-> > ```
+> >
+> > ```sh
 > > git switch -c spicy
 > > # add the chillies to ingredients.md
 > > git stage ingredients.md
@@ -474,8 +422,10 @@ rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase).
 > > * 745fb8b Adding ingredients and instructions
 > > ```
 > > {: .output}
+> >
 > > Now, let's go back to `spicy` and do the `git rebase`:
-> > ```
+> >
+> > ```sh
 > > git switch spicy
 > > git rebase main
 > > git graph
