@@ -80,7 +80,7 @@ knowledge acquired so far.
 >
 > **Creating a new release** (Administrator's task):
 >
-> - Whenever there is a new recipe added, create a new release.
+> - When all the recipes by the Contributor's are added, create a new release.
 >
 > These exercises can be repeated with the other members of the group acting
 > now as administrators and choosing a different topic for the recipes (eg
