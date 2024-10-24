@@ -53,7 +53,7 @@ in sync.
 * If the local and upstream branches have diverged - have different
  commit history - the command will attempt to merge both. If there are conflicts, you
  will need deal with them in the same way described above.
-* You can get a new branch existing only in `origin` directly with `git checkout
+* You can get a new branch existing only in `origin` directly with `git switch
   BRANCH_NAME` without the need of creating the branch locally and then pulling the
   remote.
 
