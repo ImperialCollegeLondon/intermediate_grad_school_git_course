@@ -1,0 +1,69 @@
+\documentclass{article}
+
+\usepackage{subcaption}
+\usepackage{gitdags}
+\usepackage[papersize={4.5in, 4.4in}, margin={0.1in, 0.1in}]{geometry}
+\usetikzlibrary{arrows,positioning}
+\tikzgraphsset{
+  nudge/.style={/tikz/shift={#1}},
+  nudge down1/.style={nudge=(90:#1)},
+  nudge down1/.default=1.1,
+}
+
+\begin{document}
+
+\begin{figure}
+  \begin{tikzpicture}
+    \tikzstyle{container}=[rectangle, draw=orange, rounded corners]
+    \tikzstyle{node}=[align=center, draw, rounded corners]
+    \tikzstyle{arrow}=[->, >=stealth, thick]
+
+    \node (top_container) [container, minimum width=26em, minimum height=12em] {};
+    \gitDAG[grow right sep = 3em, branch down = 3em] {
+      c1 [below left=-5.5em and -3em of top_container]
+      -- c2 [below left=-5.5em and -3em of top_container]
+      -- {
+        {
+          c3 [below left=-5.5em and -3em of top_container]
+          -- c4 [below left=-5.5em and -3em of top_container]
+          -- c5 [below left=-5.5em and -3em of top_container]
+        },
+        {
+          f1 [below left=-11.5em and -3em of top_container]
+          -- f2 [below left=-11.5em and -3em of top_container]
+        }
+      }
+    };
+    \gitbranch {feature} {above=of f2} {f2}
+    \gitbranch {main} {below=of c5} {c5}
+
+    \node (bottom_container) [
+      container, minimum width=31em, minimum height=12em, below=6em of top_container
+    ] {};
+    \gitDAG[grow right sep = 2em, branch down = 3em] {
+      c1 [below left=-5.5em and -3em of bottom_container]
+      -- c2 [below left=-5.5em and -3em of bottom_container]
+      -- c3 [below left=-5.5em and -3em of bottom_container]
+      -- c4 [below left=-5.5em and -3em of bottom_container]
+      -- c5 [below left=-5.5em and -3em of bottom_container]
+      -- {
+        f1 [below left=-5.5em and -3em of bottom_container, nudge down1]
+        -- f2 [below left=-5.5em and -3em of bottom_container, nudge down1]
+      }
+    };
+    \gitbranch {main} {below=of c5} {c5}
+    \gitbranch {feature} {above=of f2} {f2}
+
+    \draw[draw=@@COLOUR_VAR@@, arrow] ([shift={(-3em,0)}]top_container.south)
+    -- node[anchor=east, @@COLOUR_VAR@@] {\texttt{git rebase main}}
+    node[anchor=west, text width=12em, align=left, @@COLOUR_VAR@@] {
+      \setlength{\leftmargini}{1.5em}
+      \begin{itemize}
+        \item Moves the base of feature branch to main
+      \end{itemize}
+    } ([shift={(-3em,0)}]bottom_container.north);
+
+  \end{tikzpicture}
+\end{figure}
+
+\end{document}

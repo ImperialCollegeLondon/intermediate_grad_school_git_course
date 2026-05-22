@@ -1,0 +1,32 @@
+\documentclass{article}
+
+\usepackage{subcaption}
+\usepackage{gitdags}
+\usepackage[papersize={5.4in, 2.0in}, margin={0.1in, 0.1in}]{geometry}
+\usetikzlibrary{arrows,positioning}
+\tikzgraphsset{
+  nudge/.style={/tikz/shift={#1}},
+  nudge down1/.style={nudge=(270:#1)},
+  nudge down1/.default=1.1,
+  nudge down2/.style={nudge=(270:#1)},
+  nudge down2/.default=2.1
+}
+\begin{document}
+
+\begin{figure}
+  \begin{tikzpicture}
+    \gitDAG[grow right sep = 2em, branch down = 3em] {
+      m1 -- m2 -- m3 -- m4 -- {m5 -- m6 -- m7 -- m8, e1 -- e2 -- e3} -- m9
+    };
+    \gitbranch {main} {above=of m9} {m9}
+    \gitbranch {experiment} {below=of e3} {e3}
+    \gitHEAD {above=of main} {main}
+    \draw[DAGedge] (e1) -- (m6);
+    \draw[DAGedge] (e2) -- (m7);
+    \node[DAGcommit, fill = solarized-blue!20] at (m6) {m6};
+    \node[DAGcommit, fill = solarized-blue!20] at (m7) {m7};
+    \node[DAGcommit, fill = solarized-blue!20] at (m9) {m9};
+  \end{tikzpicture}
+\end{figure}
+
+\end{document}

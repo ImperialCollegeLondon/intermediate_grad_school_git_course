@@ -1,0 +1,118 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitType": "docs",
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "alexdewar",
+      "name": "Alex Dewar",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23149834?v=4",
+      "profile": "https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/service-offering/research-software-engineering/",
+      "contributions": [
+        "content",
+        "example"
+      ]
+    },
+    {
+      "login": "SaranjeetKaur",
+      "name": "Saranjeet Kaur",
+      "avatar_url": "https://avatars.githubusercontent.com/u/28556616?v=4",
+      "profile": "https://github.com/SaranjeetKaur",
+      "contributions": [
+        "content",
+        "example",
+        "infra"
+      ]
+    },
+    {
+      "login": "dalonsoa",
+      "name": "Diego Alonso Álvarez",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6095790?v=4",
+      "profile": "https://www.imperial.ac.uk/admin-services/ict/self-service/research-support/rcs/service-offering/research-software-engineering/",
+      "contributions": [
+        "content",
+        "example"
+      ]
+    },
+    {
+      "login": "cc-a",
+      "name": "Christopher Cave-Ayland",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16690296?v=4",
+      "profile": "https://github.com/cc-a",
+      "contributions": [
+        "content",
+        "example",
+        "infra"
+      ]
+    },
+    {
+      "login": "AdrianDAlessandro",
+      "name": "Adrian D'Alessandro",
+      "avatar_url": "https://avatars.githubusercontent.com/u/40875798?v=4",
+      "profile": "https://github.com/AdrianDAlessandro",
+      "contributions": [
+        "content",
+        "example"
+      ]
+    },
+    {
+      "login": "TinyMarsh",
+      "name": "Ryan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/13540127?v=4",
+      "profile": "https://github.com/TinyMarsh",
+      "contributions": [
+        "content",
+        "example"
+      ]
+    },
+    {
+      "login": "dandavies99",
+      "name": "Dan Davies",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5871253?v=4",
+      "profile": "http://dandavies99.github.io",
+      "contributions": [
+        "content",
+        "example"
+      ]
+    },
+    {
+      "login": "mwoodbri",
+      "name": "Mark Woodbridge",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1724545?v=4",
+      "profile": "https://github.com/mwoodbri",
+      "contributions": [
+        "content",
+        "example"
+      ]
+    },
+    {
+      "login": "Sahil590",
+      "name": "Sahil Raja",
+      "avatar_url": "https://avatars.githubusercontent.com/u/56438860?v=4",
+      "profile": "https://github.com/Sahil590",
+      "contributions": [
+        "maintenance"
+      ]
+    },
+    {
+      "login": "dc2917",
+      "name": "Dan Cummins",
+      "avatar_url": "https://avatars.githubusercontent.com/u/45606273?v=4",
+      "profile": "https://dc2917.github.io",
+      "contributions": [
+        "content",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "skipCi": true,
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "projectName": "rse_further_git_course",
+  "projectOwner": "ImperialCollegeLondon"
+}

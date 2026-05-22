@@ -8,10 +8,11 @@
 # dc: Data Carpentry
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor training for instance)
+# rcs: Research Computing Services
 # incubator: The Carpentries Incubator
 # Note that you can also use a custom carpentry type. For more info,
 # see the documentation: https://carpentries.github.io/sandpaper-docs/editing.html
-carpentry: "cp"
+carpentry: "rcs"
 
 # Custom carpentry description
 # This will be used as the alt text for the logo
@@ -66,18 +67,18 @@ contact: "ict-rse-team@imperial.ac.uk"
 
 # Order of episodes in your lesson
 episodes:
-  - 00-course_overview.md
-  - 01-collaborating_with_git.md
-  - 02-branching_merging.md
-  - 03-merge_conflicts.md
-  - 04-rewriting_history.md
-  - 05-pulling_pushing.md
-  - 06-first_session_end.md
-  - 07-managing_contributions.md
-  - 08-continuous_integration.md
-  - 09-releases_tags.md
-  - 10-collaborative_development.md
-  - 11-second_session_end.md
+  - 01-course_overview.md
+  - 02-collaborating_with_git.md
+  - 03-branching_merging.md
+  - 04-merge_conflicts.md
+  - 05-rewriting_history.md
+  - 06-pulling_pushing.md
+  - 07-first_session_end.md
+  - 08-managing_contributions.md
+  - 09-continuous_integration.md
+  - 10-releases_tags.md
+  - 11-collaborative_development.md
+  - 12-second_session_end.md
 
 # Information for Learners
 learners:

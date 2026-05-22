@@ -1,0 +1,72 @@
+\documentclass{article}
+
+\usepackage{subcaption}
+\usepackage{gitdags}
+\usepackage[papersize={4.4in, 5.4in}, margin={0.1in, 0.1in}]{geometry}
+\usetikzlibrary{arrows,positioning}
+\tikzgraphsset{
+  nudge/.style={/tikz/shift={#1}},
+  nudge down1/.style={nudge=(270:#1)},
+  nudge down1/.default=1.1,
+  nudge down2/.style={nudge=(270:#1)},
+  nudge down2/.default=2.1
+}
+\begin{document}
+
+\begin{figure}
+  \begin{tikzpicture}
+    \tikzstyle{container}=[rectangle, draw=orange, rounded corners]
+    \tikzstyle{node}=[align=center, draw, rounded corners]
+    \tikzstyle{arrow}=[->, >=stealth, thick]
+    \tikzstyle{smalllabel}=[label, @@COLOUR_VAR@@, font=\footnotesize]
+
+    \node (top_container) [container, minimum width=22.5em, minimum height=14.5em] {};
+    \gitDAG[grow right sep = 3em, branch up = 3em] {
+      c2 [below left=-11em and -3.5em of top_container]
+      -- c3 [below left=-11em and -3.5em of top_container]
+      -- f1 [below left=-11em and -3.5em of top_container, nudge down1]
+    };
+    \gitbranch {main} {above=of c3} {c3}
+    \gitbranch {feature1} {below=of f1} {f1}
+    \gitHEAD {below=of feature1} {feature1}
+    \gitbranch {origin/main} {above right=1.4em and 8em of c3} {c3}
+    \draw[DAGrefedge] (origin/main)
+    -- node[smalllabel, above, sloped, anchor=south] {tracks} (main);
+
+
+    \node (bottom_container) [
+      container, minimum width=25.5em, minimum height=14.5em, below=8em of top_container
+    ] {};
+    \gitDAG[grow right sep = 3em, branch up = 3em]{
+      c2 [below left=-11em and -3.5em of bottom_container]
+      -- c3 [below left=-11em and -3.5em of bottom_container]
+      -- f1 [below left=-11em and -3.5em of bottom_container, nudge down1]
+    };
+    \gitbranch {main} {above=of c3} {c3}
+    \gitbranch {feature1} {below=of f1} {f1}
+    \gitHEAD {below=of feature1} {feature1}
+    \gitbranch {origin/main} {above right=1.4em and 8em of c3} {c3}
+    \gitbranch {origin/feature1} {below right=1.4em and 4em of f1} {f1}
+
+
+    \draw[DAGrefedge] (origin/main)
+    -- node[smalllabel, above, sloped, anchor=south] {tracks} (main);
+
+    \draw[DAGrefedge] (origin/feature1)
+    -- node[smalllabel, above, sloped, anchor=south] {tracks} (feature1);
+
+    \draw[arrow, draw=@@COLOUR_VAR@@] (top_container.south)
+    -- node[anchor=east, @@COLOUR_VAR@@] {\texttt{git push -u origin feature1}}
+    node[anchor=west, text width=18em, align=left, @@COLOUR_VAR@@] {
+      \setlength{\leftmargini}{1.5em}
+      \begin{itemize}
+        \item Creates origin/feature1
+        \item Adds f1 to origin/feature1
+        \item feature1 tracks origin/feature1
+      \end{itemize}
+    } (bottom_container.north);
+
+  \end{tikzpicture}
+\end{figure}
+
+\end{document}

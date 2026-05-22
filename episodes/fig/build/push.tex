@@ -1,0 +1,58 @@
+\documentclass{article}
+
+\usepackage{subcaption}
+\usepackage{gitdags}
+\usepackage[papersize={3.1in, 3.4in}, margin={0.1in, 0.1in}]{geometry}
+\usetikzlibrary{arrows,positioning}
+
+\begin{document}
+
+\begin{figure}
+  \begin{tikzpicture}
+    \tikzstyle{container}=[rectangle, draw=orange, rounded corners]
+    \tikzstyle{node}=[align=center, draw, rounded corners]
+    \tikzstyle{arrow}=[->, >=stealth, thick]
+    \tikzstyle{smalllabel}=[label, @@COLOUR_VAR@@, font=\footnotesize]
+
+    \node (top_container) [container, minimum width=21em, minimum height=8.5em] {};
+    \gitDAG[grow right sep = 3em] {
+      c1 [below left=-2.5em and -3.5em of top_container]
+      -- c2 [below left=-2.5em and -3.5em of top_container]
+      -- c3 [below left=-2.5em and -3.5em of top_container]
+      -- c4 [below left=-2.5em and -3.5em of top_container]
+    };
+    \gitbranch {main} {above=of c4} {c4}
+    \gitHEAD {above=of main} {main}
+    \gitbranch {origin/main} {above left=3em and -1em of c3} {c3}
+    \draw[DAGrefedge] (origin/main)
+    -- node[smalllabel, above, sloped, anchor=south] {tracks} (main);
+
+
+    \node (bottom_container) [
+      container, minimum width=21em, minimum height=8.5em, below=6em of top_container
+    ] {};
+    \gitDAG[grow right sep = 3em]{
+      c1 [below left=-2.5em and -3.5em of bottom_container]
+      -- c2 [below left=-2.5em and -3.5em of bottom_container]
+      -- c3 [below left=-2.5em and -3.5em of bottom_container]
+      -- c4 [below left=-2.5em and -3.5em of bottom_container]
+    };
+    \gitbranch {main} {above=of c4} {c4}
+    \gitHEAD {above=of main} {main}
+    \gitbranch {origin/main} {above left=3em and -1em of c3} {c4}
+
+    \draw[DAGrefedge] (origin/main)
+    -- node[smalllabel, above, sloped, anchor=south] {tracks} (main);
+
+    \draw[arrow, draw=@@COLOUR_VAR@@] ([shift={(-3em,0)}]top_container.south)
+    -- node[anchor=east, @@COLOUR_VAR@@] {\texttt{git push}}
+    node[anchor=west, text width=12em, align=left, @@COLOUR_VAR@@] {
+      \setlength{\leftmargini}{1.5em}
+      \begin{itemize}
+        \item Updates origin/main with c4
+      \end{itemize}
+    } ([shift={(-3em,0)}]bottom_container.north);
+  \end{tikzpicture}
+\end{figure}
+
+\end{document}
