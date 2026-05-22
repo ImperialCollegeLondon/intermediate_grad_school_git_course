@@ -1,0 +1,27 @@
+\documentclass{article}
+
+\usepackage{subcaption}
+\usepackage{gitdags}
+\usepackage[papersize={2.5in, 1.6in}, margin={0.1in, 0.1in}]{geometry}
+\usetikzlibrary{arrows,positioning}
+\tikzgraphsset{
+  nudge/.style={/tikz/shift={#1}},
+  nudge down1/.style={nudge=(270:#1)},
+  nudge down1/.default=1.1,
+  nudge down2/.style={nudge=(270:#1)},
+  nudge down2/.default=2.1
+}
+\begin{document}
+
+\begin{figure}
+  \begin{tikzpicture}
+    \gitDAG[grow right sep = 2em, branch up = 3em] {
+      m1 -- m2 -- m3 -- m4
+    };
+    \gitbranch {main} {above=of m4} {m4}
+    \gitbranch {experiment} {below=of m4} {m4}
+    \gitHEAD {above=of main} {main}
+  \end{tikzpicture}
+\end{figure}
+
+\end{document}
