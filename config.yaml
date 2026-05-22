@@ -94,6 +94,9 @@ profiles:
 # This space below is where custom yaml items (e.g. pinning
 # sandpaper and varnish versions) should live
 
+# These config items are used to deploy the Imperial College London varnish theme
+varnish: ImperialCollegeLondon/imperialvarnish@main
+
 carpentry_description: Lesson Description
 url: "https://imperialcollegelondon.github.io/rse_further_git_course/"
 lang: en
